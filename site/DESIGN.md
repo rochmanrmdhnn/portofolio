@@ -31,19 +31,34 @@ punya slide pendukung di deck, dan tiap panel kerja menautkan ke slide itu.
 |---|---|---|---|
 | Hero | posisi, CTA WhatsApp, foto | line-mask CSS saat muat, coretan tergambar, hero memudar saat scroll | terbaca tanpa JS, LCP tidak menunggu animasi |
 | Angka | satu paragraf berisi angka bukti | kata di-scrub scroll | angka dibaca sebagai kalimat, bukan kartu statistik |
-| Kerja | 8 proyek, klip potret asli | trek horizontal ter-pin (desktop), daftar vertikal (mobile) | klip semuanya 9:16; trek memperlihatkan beberapa sekaligus |
+| Kerja | 7 proyek, klip potret asli | trek horizontal ter-pin (desktop), daftar vertikal (mobile) | klip semuanya 9:16; trek memperlihatkan beberapa sekaligus |
 | Perjalanan | 6 bab 2017 sampai 2026 | tahun raksasa sticky, digit bergulir | urutan waktu, isi tetap dibaca dalam arus normal |
 | Pemilik bisnis | 4 tahap kerja | garis kapur tergambar mengikuti scroll | empat langkah ini memang urutan; garisnya menghubungkan |
-| Sekarang | Skolain, Hegemoni, belajar AI bareng | foto berbingkai miring, parallax tipis | kontinuitas gaya foto-berisolasi di deck |
+| Sekarang | Skolain (modul, sekolah pemakai, 1.600+), Hegemoni, belajar AI bareng | foto berbingkai miring, parallax tipis | kontinuitas gaya foto-berisolasi di deck; Skolain sengaja tidak ada di trek Kerja supaya angka dan medianya tidak dobel |
 | Kontak | WhatsApp, email, sosial, CV, deck | judul mask reveal, roll teks pada tombol | satu aksi utama yang jelas |
 
 ## Motion
 
 - Easing `cubic-bezier(0.23, 1, 0.32, 1)` (UI) dan `cubic-bezier(0.16, 1, 0.3, 1)` (reveal besar). Hanya transform,
-  opacity, dan clip-path; `stroke-dashoffset` pada SVG coretan kecil.
+  opacity, dan clip-path; `pathLength` pada SVG coretan kecil.
 - Lenis untuk smooth scroll, satu loop RAF dari Motion.
-- `prefers-reduced-motion`: tanpa pin, tanpa scrub, tanpa autoplay; semua konten terlihat statis.
+- `prefers-reduced-motion`: tanpa pin, tanpa scrub, tanpa autoplay; semua konten terlihat statis. Ditangani di CSS
+  (blok `@media (prefers-reduced-motion: reduce)` di akhir `globals.css`), bukan cabang `useReducedMotion` saat
+  render: HTML statis selalu dirender tanpa preferensi itu, jadi cabang JS memicu hydration mismatch.
 - Video: muted, diputar hanya saat terlihat, tombol jeda di tiap klip.
+
+## Jebakan teknis yang sudah dibayar
+
+- **Reveal mengamati pembungkus, bukan elemen yang di-clip.** Chrome menghitung rasio IntersectionObserver
+  sesudah clip-path elemen itu sendiri; elemen yang ter-clip penuh rasionya selalu 0 dan tidak pernah muncul.
+- **Coretan kapur (`Mark`) diskalakan ke piksel asli kotaknya**, viewBox = ukuran elemen. `vector-effect:
+  non-scaling-stroke` digabung `pathLength` memecah dash jadi titik-titik.
+- **Garis tahap (`Owners`) tergambar lewat clip-path**, bukan `pathLength`, karena path-nya non-scaling-stroke.
+- **Kolom trek dikunci `minmax(0, 1fr)`.** Tanpa itu trek max-content melebarkan kolom grid dan judul serta
+  penghitung terlempar keluar layar. Media query pin (`PINNED` di `WorkTrack.tsx`) harus sama dengan CSS `.work`.
+- **Judul hero `7vw - 0.5rem`, maksimum 6rem**: baris terpanjang tetap satu baris dari 820px ke atas.
+- **Salinan label tombol roll** memakai `content: attr(data-text) / ""`; tanpa alt text kosong nama link terbaca
+  dua kali.
 
 ## Yang sengaja tidak ada
 

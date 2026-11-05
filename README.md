@@ -1,34 +1,45 @@
 # Portofolio — Rochman Ramadhani Chiefto Irawan
 
-Dua dokumen yang saling menopang:
+Tiga dokumen yang saling menopang:
 
-- **`index.html`** — deck *6+ Tahun Berkarya*. 39 slide, satu file HTML, tanpa dependensi. Ini hub tautan
-  (omanlabs.tech) yang dituju semua bio media sosial, jadi sampul, slide kenalan, dan penutupnya membuka dengan
-  posisi sekarang: Forward Deployed Engineer yang membantu pemilik bisnis tumbuh dengan AI dan sistem — Founder
-  Skolain, Technology Partner di Hegemoni Group, AI Learning Partner. Slide `#bisnis` merangkum yang dikerjakan
-  untuk pemilik bisnis, dan slide kontak menaruh WhatsApp paling depan.
+- **`site/`** → **beranda omanlabs.tech**. Landing page Next.js (static export), hub tautan yang dituju semua bio
+  media sosial: posisi sekarang (Forward Deployed Engineer yang membantu pemilik bisnis tumbuh dengan AI dan
+  sistem), tujuh proyek dengan tautan ke slide buktinya, perjalanan 2017–2026, cara kerja, dan kontak dengan
+  WhatsApp paling depan. Keputusan desain dan motion ada di `site/DESIGN.md`.
+- **`deck.html`** → **omanlabs.tech/deck**. Deck *6+ Tahun Berkarya*, 39 slide, satu file HTML, tanpa dependensi.
   Lapisan dokumentasi: linimasa lengkap 2017–2026, produk yang dipegang, konsultansi, dan bukti kerjanya.
 - **`cv/cv.html`** → **`assets/CV_Rochman_Ramadhani_Product_Engineer.pdf`** — CV Product Engineer tiga halaman,
   fokus ke hasil. Nama lama `CV_Rochman_Ramadhani_Product_Owner.pdf` dialihkan 301 ke sini lewat `_redirects`
   (Cloudflare Pages), karena tautan ke PDF lama masih beredar.
 
-Aturan yang mengikat keduanya: **CV menyebut angkanya, deck menunjukkan artefaknya.** Tidak boleh ada
-angka di CV yang tidak punya slide pendukung, dan sebaliknya.
+Aturan yang mengikat semuanya: **CV menyebut angkanya, deck menunjukkan artefaknya.** Tidak boleh ada
+angka di CV yang tidak punya slide pendukung, dan sebaliknya. Landing hanya memakai angka yang sudah ada di
+`PROFIL.md` dan deck.
 
 Hosting: [omanlabs.tech](https://omanlabs.tech) (Cloudflare Pages, proyek `rochman-ramadhani` di akun yang
 sama dengan zona `omanlabs.tech`). Domain lama `oman-porto.skolain.id` (proyek `oman-porto` di akun lain)
-dialihkan ke sini. Deploy: `git archive main` ke folder sementara, lalu `wrangler pages deploy . --project-name
-rochman-ramadhani --branch main`.
+dialihkan ke sini. Deploy dari checkout `main` yang bersih:
 
-SEO/AEO/GEO: `<head>` deck memuat satu blok JSON-LD `Person` (nama, alias, jabatan, penghargaan, `sameAs` ke
-semua profil sosial). `llms.txt` (bahasa Inggris, format llmstxt.org) merangkum profil untuk mesin jawaban.
-`sitemap.xml` mendaftar deck, `PROFIL.md`, dan `llms.txt`; naikkan `lastmod`-nya tiap ada perubahan isi.
+```bash
+./scripts/build-site.sh   # next build di site/, lalu rakit dist/: landing + deck.html + aset + berkas root
+npx wrangler pages deploy dist --project-name rochman-ramadhani --branch main
+```
+
+Pratinjau tanpa menyentuh produksi: ganti `--branch main` dengan nama branch lain (mis. `sesi-landing`).
+Uji `dist/` secara lokal dengan `npx wrangler pages dev dist`, yang meniru clean URL (`/deck.html` → `/deck`)
+dan `_redirects` seperti di Cloudflare.
+
+SEO/AEO/GEO: `<head>` landing dan deck masing-masing memuat satu blok JSON-LD `Person` (nama, alias, jabatan,
+penghargaan, `sameAs` ke semua profil sosial). `llms.txt` (bahasa Inggris, format llmstxt.org) merangkum profil
+untuk mesin jawaban. `sitemap.xml` mendaftar landing, deck, `PROFIL.md`, dan `llms.txt`; naikkan `lastmod`-nya
+tiap ada perubahan isi.
 
 ## Menjalankan
 
-Buka `index.html` di browser mana pun. Tidak perlu build, tidak perlu npm.
+Landing: `cd site && npm ci && npm run dev` (Node 24). Deck: buka `deck.html` di browser mana pun, tanpa build
+dan tanpa npm.
 
-Navigasi: `→` / `←` / `Space` / `PageUp`–`PageDown`, scroll, atau geser di layar sentuh.
+Navigasi deck: `→` / `←` / `Space` / `PageUp`–`PageDown`, scroll, atau geser di layar sentuh.
 `Home` dan `End` melompat ke slide pertama dan terakhir.
 
 Tekan `E` (atau arahkan kursor ke pojok kiri atas) untuk menyunting teks langsung di slide.
@@ -36,7 +47,7 @@ Perubahan tersimpan di `localStorage`; `Ctrl/⌘+S` mengekspor salinan HTML baru
 
 ### Deep link
 
-Nomor slide tersimpan di hash URL (`#15`), tapi untuk ditulis di CV pakai **alias**, bukan angka:
+Nomor slide tersimpan di hash URL (`/deck#15`), tapi untuk ditulis di CV pakai **alias**, bukan angka:
 
 ```
 #peta  #angka  #skolain  #hris  #rumahsakit  #wholesale  #omnichannel  #bank
@@ -49,6 +60,11 @@ beredar: `#primasejahtera` (= `#hris`), `#siloam` (= `#rumahsakit`), `#qlola` (=
 
 Hash posisional putus begitu ada satu slide disisipkan, sementara PDF CV yang sudah beredar tidak bisa
 ditarik lagi. Alias tidak ikut bergeser.
+
+PDF CV yang sudah beredar menautkan `omanlabs.tech/#alias`, dari masa deck masih di beranda. Skrip kecil di
+`<head>` landing (`DECK_REDIRECT` di `site/app/layout.tsx`) meneruskan hash berupa angka atau alias deck ke
+`/deck#…` sebelum halaman dirender; id section landing (`#kerja`, `#hubungi`, …) tidak ikut diteruskan. Tautan
+baru langsung pakai `/deck#alias`.
 
 ## Membangun ulang
 

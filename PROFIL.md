@@ -1,14 +1,14 @@
 # Profil — sumber kebenaran
 
 Satu tempat untuk fakta dan kalimat yang dipakai ulang di semua profil: bio media sosial, LinkedIn, README GitHub,
-deck `index.html`, dan `cv/cv.html`. Ubah di sini dulu, baru sebarkan. Kalau ada yang bertentangan dengan berkas
-lain, berkas ini yang benar.
+landing omanlabs.tech (`site/`), deck `deck.html` (omanlabs.tech/deck), dan `cv/cv.html`. Ubah di sini dulu, baru
+sebarkan. Kalau ada yang bertentangan dengan berkas lain, berkas ini yang benar.
 
 ## Aturan
 
 - **Pengalaman: "6+ tahun" / "6+ yrs".** Dihitung dari magang pertama (Juli 2020), bukan dari masuk SMK (2017).
   Deck boleh tetap bercerita sejak 2017, tapi angka pengalamannya 6+.
-- **Nama asli klien dan produknya dipakai** di LinkedIn, CV, deck (omanlabs.tech), dan berkas ini: BRI (NDS,
+- **Nama asli klien dan produknya dipakai** di LinkedIn, CV, landing dan deck (omanlabs.tech), dan berkas ini: BRI (NDS,
   QLOLA), Telkom Indonesia (OCA), Siloam International Hospitals, PT PKSS (PrimaSejahtera), Kolegium Dokter,
   Hegemoni Group. Khusus grup kecantikan, deck dan ringkasan profil tetap memakai "grup kecantikan multi-brand";
   nama perusahaan boleh ada di rincian pengalaman profesional dan CV.

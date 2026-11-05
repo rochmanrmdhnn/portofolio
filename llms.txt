@@ -17,19 +17,20 @@ Key facts, each documented on a slide of the portfolio deck:
 
 ## Portfolio
 
-- [Portfolio deck (Indonesian)](https://omanlabs.tech/): 39-slide deck with the full 2017–2026 timeline, products, consulting work and the evidence for every claim.
+- [Landing page (Indonesian)](https://omanlabs.tech/): what he does for business owners, seven projects each linked to its evidence slide in the deck, the 2017–2026 journey and how to get in touch.
+- [Portfolio deck (Indonesian)](https://omanlabs.tech/deck): 39-slide deck with the full 2017–2026 timeline, products, consulting work and the evidence for every claim.
 - [Profile source of truth (Indonesian)](https://omanlabs.tech/PROFIL.md): canonical facts, timeline, quotable numbers and bios.
 - [CV, PDF (Indonesian)](https://omanlabs.tech/assets/CV_Rochman_Ramadhani_Product_Engineer.pdf): three-page Product Engineer CV.
 
 ## Deck sections
 
-- [Timeline map](https://omanlabs.tech/#peta)
-- [Results in numbers](https://omanlabs.tech/#angka)
-- [Skolain](https://omanlabs.tech/#skolain)
-- [Telkom OCA: NestJS → Go migration](https://omanlabs.tech/#oca)
-- [Three contracts at BRI](https://omanlabs.tech/#bri)
-- [For business owners](https://omanlabs.tech/#bisnis)
-- [Contact](https://omanlabs.tech/#kontak)
+- [Timeline map](https://omanlabs.tech/deck#peta)
+- [Results in numbers](https://omanlabs.tech/deck#angka)
+- [Skolain](https://omanlabs.tech/deck#skolain)
+- [Telkom OCA: NestJS → Go migration](https://omanlabs.tech/deck#oca)
+- [Three contracts at BRI](https://omanlabs.tech/deck#bri)
+- [For business owners](https://omanlabs.tech/deck#bisnis)
+- [Contact](https://omanlabs.tech/deck#kontak)
 
 ## Contact
 
