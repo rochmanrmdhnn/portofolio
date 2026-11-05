@@ -197,6 +197,9 @@ a {
 
 .roll::after {
   content: attr(data-text);
+  /* Alt text kosong: salinan label ini hanya visual, jangan ikut nama aksesibel (tanpa ini terbaca dua kali).
+     Browser yang belum paham sintaks "/ alt" memakai deklarasi di atas. */
+  content: attr(data-text) / "";
   position: absolute;
   inset: 100% 0 auto;
   transition: transform 420ms var(--ease);
@@ -363,7 +366,9 @@ a {
   font-family: var(--font-display), sans-serif;
   font-variation-settings: "opsz" 96;
   font-weight: 700;
-  font-size: clamp(2.6rem, 1.2rem + 5.6vw, 6.6rem);
+  /* Diskalakan dengan lebar kolom hero (±0,66 × viewport) supaya baris terpanjang, "pemilik bisnis tumbuh"
+     (±8,7em), tetap satu baris dari 820px sampai lebar maksimum 1320px. Di bawah 820px boleh membungkus. */
+  font-size: clamp(2.6rem, 7vw - 0.5rem, 6rem);
   line-height: 0.96;
   letter-spacing: -0.04em;
 }

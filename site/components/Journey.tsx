@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion, useInView } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { JOURNEY, type Chapter } from "@/lib/content";
 import { Clip } from "./Clip";
 import { Reveal } from "./Reveal";
@@ -9,14 +9,12 @@ import { Reveal } from "./Reveal";
 // Desktop: tahun raksasa menempel di kiri, bab bergulir di kanan; bab yang melewati tengah layar jadi aktif.
 // Tiap digit punya slot sendiri, jadi 2017 ke 2020 hanya menggulirkan dua digit terakhir.
 export function Journey() {
-  const [active, setActive] = useState(0);
-  const [dir, setDir] = useState(1);
+  const [{ active, dir }, setState] = useState({ active: 0, dir: 1 });
   const year = JOURNEY[active].year;
 
-  const select = (i: number) => {
-    setDir(i >= active ? 1 : -1);
-    setActive(i);
-  };
+  const select = useCallback((i: number) => {
+    setState((s) => (s.active === i ? s : { active: i, dir: i > s.active ? 1 : -1 }));
+  }, []);
 
   return (
     <section id="perjalanan" className="journey">
@@ -68,8 +66,7 @@ function ChapterItem({ c, i, onActive }: { c: Chapter; i: number; onActive: (i: 
   const inMiddle = useInView(ref, { margin: "-45% 0px -45% 0px" });
   useEffect(() => {
     if (inMiddle) onActive(i);
-    // onActive berubah tiap render induk; yang penting hanya saat bab ini masuk tengah layar.
-  }, [inMiddle, i]);
+  }, [inMiddle, i, onActive]);
 
   return (
     <li ref={ref} className="ch">
