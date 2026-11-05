@@ -1,0 +1,51 @@
+# Landing omanlabs.tech: keputusan desain
+
+Design Read: halaman pribadi seorang Forward Deployed Engineer untuk pemilik bisnis Indonesia (juga klien korporat dan
+rekruter), dengan bahasa visual papan tulis dan catatan tangan yang diwarisi dari deck. Dial ENERGY 3 / RHYTHM 3 / MOTION 3.
+
+Deck 39 slide tetap ada di `/deck` dan menjadi gudang bukti; landing ini jalan masuknya. Setiap angka di halaman ini
+punya slide pendukung di deck, dan tiap panel kerja menautkan ke slide itu.
+
+## Identitas
+
+- **Motif:** coretan kapur kuning bertulisan tangan (Kalam) yang tergambar saat masuk layar: lingkaran di angka,
+  garis bawah, panah ke bukti. Ini cara Oman menjelaskan di deck dan di meja klien, jadi motion-nya punya isi.
+- **Warna** (dari deck, dibatasi dua inti + satu aksen):
+
+  | Token | Nilai | Peran |
+  |---|---|---|
+  | `--board` | `#14231C` | latar utama (papan tulis) |
+  | `--board-deep` | `#0D1712` | section bergantian, bingkai media |
+  | `--board-lift` | `#1D3227` | permukaan panel |
+  | `--chalk` | `#F2EFE4` | teks |
+  | `--yellow` | `#E8C547` | satu aksen: coretan tangan, angka bukti, CTA utama |
+
+  Coral dan teal di deck sengaja tidak dipakai. Latar gelap ini dipilih karena merupakan papan tulis tempat brand Oman
+  sudah dikenal, bukan karena kesan "tech".
+- **Huruf:** Bricolage Grotesque (judul, variable `opsz`/`wght`), Familjen Grotesk (isi), Kalam (catatan tangan).
+  Ketiganya sudah dipakai di deck dan CV, dan di-host sendiri dari `assets/fonts/`.
+
+## Struktur dan alasannya
+
+| Section | Isi | Teknik | Alasan |
+|---|---|---|---|
+| Hero | posisi, CTA WhatsApp, foto | line-mask CSS saat muat, coretan tergambar, hero memudar saat scroll | terbaca tanpa JS, LCP tidak menunggu animasi |
+| Angka | satu paragraf berisi angka bukti | kata di-scrub scroll | angka dibaca sebagai kalimat, bukan kartu statistik |
+| Kerja | 8 proyek, klip potret asli | trek horizontal ter-pin (desktop), daftar vertikal (mobile) | klip semuanya 9:16; trek memperlihatkan beberapa sekaligus |
+| Perjalanan | 6 bab 2017 sampai 2026 | tahun raksasa sticky, digit bergulir | urutan waktu, isi tetap dibaca dalam arus normal |
+| Pemilik bisnis | 4 tahap kerja | garis kapur tergambar mengikuti scroll | empat langkah ini memang urutan; garisnya menghubungkan |
+| Sekarang | Skolain, Hegemoni, belajar AI bareng | foto berbingkai miring, parallax tipis | kontinuitas gaya foto-berisolasi di deck |
+| Kontak | WhatsApp, email, sosial, CV, deck | judul mask reveal, roll teks pada tombol | satu aksi utama yang jelas |
+
+## Motion
+
+- Easing `cubic-bezier(0.23, 1, 0.32, 1)` (UI) dan `cubic-bezier(0.16, 1, 0.3, 1)` (reveal besar). Hanya transform,
+  opacity, dan clip-path; `stroke-dashoffset` pada SVG coretan kecil.
+- Lenis untuk smooth scroll, satu loop RAF dari Motion.
+- `prefers-reduced-motion`: tanpa pin, tanpa scrub, tanpa autoplay; semua konten terlihat statis.
+- Video: muted, diputar hanya saat terlihat, tombol jeda di tiap klip.
+
+## Yang sengaja tidak ada
+
+Testimoni (belum ada yang nyata), papan peringkat BRI, logo klien, count-up angka, kursor kustom, preloader, marquee,
+glow atau gradien, label all-caps ber-tracking lebar, em dash.
