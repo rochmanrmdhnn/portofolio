@@ -26,6 +26,16 @@ const hand = localFont({
   preload: false,
 });
 
+// Suara penekanan: satu frasa italic per judul, plus nama perangkat di Gear. Italic dipakai di judul hero, jadi dipreload.
+const serif = localFont({
+  src: [
+    { path: "../public/assets/fonts/instrument-serif-normal.woff2", weight: "400", style: "normal" },
+    { path: "../public/assets/fonts/instrument-serif-italic.woff2", weight: "400", style: "italic" },
+  ],
+  variable: "--font-serif",
+  display: "swap",
+});
+
 const DESCRIPTION =
   "Forward Deployed Engineer yang membantu pemilik bisnis tumbuh dengan AI dan sistem. Founder Skolain. 6+ tahun membangun untuk bank, rumah sakit, sekolah, dan pemerintah, lengkap dengan buktinya.";
 
@@ -108,7 +118,7 @@ const DECK_REDIRECT = `(function(){var h=location.hash.slice(1).toLowerCase();if
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" className={`${display.variable} ${body.variable} ${hand.variable}`}>
+    <html lang="id" className={`${display.variable} ${body.variable} ${hand.variable} ${serif.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: DECK_REDIRECT }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON) }} />

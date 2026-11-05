@@ -47,7 +47,9 @@ export function WorkTrack() {
       <div className="work-pin">
         <div className="work-head wrap">
           <Reveal>
-            <h2 className="h2">Sistem yang sudah dipakai orang.</h2>
+            <h2 className="h2">
+              Sistem yang sudah <em className="it">dipakai</em> orang.
+            </h2>
           </Reveal>
           <p className="work-intro">
             Tujuh proyek, dari bank sampai rumah sakit. Tiap panel menautkan ke slide buktinya di deck.

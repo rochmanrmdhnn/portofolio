@@ -82,10 +82,10 @@ bagian masih terbaca dalam urutan yang benar. Kalau ada yang hilang, build gagal
 
 ## Keputusan yang perlu diketahui sebelum mengubah
 
-**Font di-host sendiri di `assets/fonts/` (~128 KB), bukan lewat Google Fonts CDN.** Deck harus tetap
+**Font di-host sendiri di `assets/fonts/` (~160 KB), bukan lewat Google Fonts CDN.** Deck harus tetap
 tampil sama di jaringan yang memblokir CDN, dan headless Chrome bisa mencetak sebelum webfont selesai
 dimuat — PDF-nya jadi diam-diam beda dari preview. Bricolage dan Familjen itu variable font, satu berkas
-untuk semua weight.
+untuk semua weight. Instrument Serif (tegak dan italic, subset latin) hanya dipakai landing.
 
 **`.pos` di-deklarasikan ulang setelah semua komponen** (bagian 24 di stylesheet). Hampir setiap arketipe
 (`.cards`, `.maptable`, `.flow`, `.linkcard`, `.hbox`, `.rail`, `.lanes`, …) menyetel `position:relative`

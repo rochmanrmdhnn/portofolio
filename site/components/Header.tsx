@@ -10,6 +10,7 @@ const NAV = [
   { href: "#perjalanan", label: "Perjalanan" },
   { href: "#pemilik-bisnis", label: "Cara kerja" },
   { href: "#sekarang", label: "Sekarang" },
+  { href: "#gear", label: "Gear" },
   { href: "/deck", label: "Deck" },
 ];
 

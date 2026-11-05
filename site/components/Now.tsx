@@ -37,7 +37,9 @@ export function Now() {
     <section id="sekarang" className="now">
       <div className="wrap">
         <Reveal>
-          <h2 className="h2">Yang saya kerjakan sekarang.</h2>
+          <h2 className="h2">
+            Yang saya kerjakan <em className="it">sekarang.</em>
+          </h2>
         </Reveal>
 
         <article className="now-row now-skolain">

@@ -116,6 +116,17 @@ a {
   text-wrap: balance;
 }
 
+/* Suara ketiga: Instrument Serif italic untuk satu frasa kunci per judul. Hurufnya lebih kecil dan lebih tipis dari
+   Bricolage 700, jadi dinaikkan sedikit supaya tinggi-x-nya sejajar. Satu frasa saja; lebih dari itu jadi gaya, bukan tekanan. */
+.it {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-variation-settings: normal;
+  font-size: 1.08em;
+  letter-spacing: -0.01em;
+}
+
 /* Catatan tangan: suara kedua halaman ini. Selalu kuning, sedikit miring, huruf kecil seperti di deck. */
 .note {
   font-family: var(--font-hand), cursive;
@@ -1243,6 +1254,144 @@ a {
 
   .now-big {
     justify-self: start;
+  }
+}
+
+/* ---------- Gear ---------- */
+
+.gear {
+  padding-block: var(--section);
+  border-top: 1px solid var(--line);
+}
+
+.gear-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px clamp(40px, 6vw, 96px);
+  align-items: end;
+}
+
+.gear-lead {
+  max-width: 44ch;
+  color: var(--chalk-dim);
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.2rem);
+}
+
+.gear-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 48px clamp(40px, 6vw, 96px);
+  align-items: start;
+  margin-top: clamp(56px, 9vh, 112px);
+}
+
+/* Mesin utama diam di tempat selagi daftar di sebelahnya lewat. */
+.gear-main {
+  position: sticky;
+  top: calc(var(--hdr) + 40px);
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+.gear-role {
+  color: var(--chalk-dim);
+  font-size: 0.9375rem;
+}
+
+.gear-name {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(min(3.2rem, 15vw), 1.6rem + 5vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.gear-spec {
+  display: grid;
+  gap: 12px;
+  margin-top: clamp(20px, 3vw, 40px);
+}
+
+.gear-spec-v {
+  position: relative;
+  justify-self: start;
+  font-family: var(--font-display), sans-serif;
+  font-variation-settings: "opsz" 96;
+  font-weight: 800;
+  font-size: clamp(min(3.8rem, 18vw), 1.8rem + 6vw, 8.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--yellow);
+  padding-inline: 0.08em;
+  white-space: nowrap;
+}
+
+.gear-spec-l {
+  color: var(--chalk-dim);
+}
+
+.gear-main .note {
+  margin-top: 16px;
+}
+
+.gear-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gear-list li {
+  padding-block: clamp(24px, 3.5vw, 40px);
+  border-top: 1px solid var(--line);
+}
+
+.gear-list li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.gear-item {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 8px 32px;
+  align-items: baseline;
+}
+
+.gear-item-name {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 1.3rem + 1.8vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.gear-item-what {
+  color: var(--chalk-dim);
+}
+
+.gear-item .note {
+  grid-column: 2;
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
+}
+
+@media (max-width: 51.1875em) {
+  .gear-head,
+  .gear-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gear-main {
+    position: static;
+  }
+}
+
+@media (max-width: 43.6875em) {
+  .gear-item {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gear-item .note {
+    grid-column: auto;
   }
 }
 

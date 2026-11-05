@@ -1,4 +1,5 @@
 import { Contact } from "@/components/Contact";
+import { Gear } from "@/components/Gear";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Journey } from "@/components/Journey";
@@ -21,6 +22,7 @@ export default function Page() {
         <Journey />
         <Owners />
         <Now />
+        <Gear />
         <Contact />
       </main>
     </>

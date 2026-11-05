@@ -24,6 +24,9 @@ punya slide pendukung di deck, dan tiap panel kerja menautkan ke slide itu.
   sudah dikenal, bukan karena kesan "tech".
 - **Huruf:** Bricolage Grotesque (judul, variable `opsz`/`wght`), Familjen Grotesk (isi), Kalam (catatan tangan).
   Ketiganya sudah dipakai di deck dan CV, dan di-host sendiri dari `assets/fonts/`.
+- **Instrument Serif** (permintaan Oman: font yang lagi ramai di situs era AI) dipakai dengan peran sempit: satu
+  frasa italic per judul (`.it`) dan nama perangkat di Gear. Kontras serif tipis dengan Bricolage 700 memberi
+  penekanan tanpa warna kedua. Lebih dari satu frasa per judul tidak boleh: tekanannya hilang.
 
 ## Struktur dan alasannya
 
@@ -35,6 +38,7 @@ punya slide pendukung di deck, dan tiap panel kerja menautkan ke slide itu.
 | Perjalanan | 6 bab 2017 sampai 2026 | tahun raksasa sticky, digit bergulir | urutan waktu, isi tetap dibaca dalam arus normal |
 | Pemilik bisnis | 4 tahap kerja | garis kapur tergambar mengikuti scroll | empat langkah ini memang urutan; garisnya menghubungkan |
 | Sekarang | Skolain (modul, sekolah pemakai, 1.600+), Hegemoni, belajar AI bareng | foto berbingkai miring, parallax tipis | kontinuitas gaya foto-berisolasi di deck; Skolain sengaja tidak ada di trek Kerja supaya angka dan medianya tidak dobel |
+| Gear | MacBook Pro M3 Max 96 GB, iPhone, iPad, AirPods Pro, Plaud Note Pro, Claude | mesin utama sticky, daftar mask reveal | orang kenal orangnya, bukan hanya CV-nya; hanya perangkat yang disebut Oman, model iPhone/iPad tidak ditulis |
 | Kontak | WhatsApp, email, sosial, CV, deck | judul mask reveal, roll teks pada tombol | satu aksi utama yang jelas |
 
 ## Motion

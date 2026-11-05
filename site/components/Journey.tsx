@@ -21,7 +21,9 @@ export function Journey() {
       <div className="wrap journey-grid">
         <div className="journey-side">
           <Reveal>
-            <h2 className="h2">Dari ruang kelas SMK ke produk sendiri.</h2>
+            <h2 className="h2">
+              Dari ruang kelas SMK ke produk <em className="it">sendiri.</em>
+            </h2>
           </Reveal>
           <div className="journey-year" aria-hidden="true">
             {year.split("").map((d, slot) => (

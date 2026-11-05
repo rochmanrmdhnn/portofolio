@@ -6,7 +6,9 @@ export function Contact() {
     <section id="hubungi" className="contact">
       <div className="wrap">
         <Reveal>
-          <h2 className="contact-title">Punya bisnis dan penasaran AI cocoknya di bagian mana?</h2>
+          <h2 className="contact-title">
+            Punya bisnis dan penasaran AI cocoknya di <em className="it">bagian mana?</em>
+          </h2>
         </Reveal>
         <p className="contact-lead">Chat saja lewat WhatsApp, atau DM di Instagram.</p>
         <a className="btn btn-primary btn-xl" href={WA} target="_blank" rel="noopener">

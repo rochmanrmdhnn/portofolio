@@ -20,7 +20,9 @@ export function Owners() {
       <div className="wrap owners-grid">
         <div className="owners-side">
           <Reveal>
-            <h2 className="h2">Kalau Anda pemilik bisnis.</h2>
+            <h2 className="h2">
+              Kalau <em className="it">Anda</em> pemilik bisnis.
+            </h2>
           </Reveal>
           <p className="owners-lead">
             Empat tahap yang saya jalani bareng bisnis Anda. Yang terakhir paling penting: tim Anda menjalankannya sendiri.

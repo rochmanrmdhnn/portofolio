@@ -27,7 +27,7 @@ export function Hero() {
           </span>
           <span className="hero-line" style={{ "--i": 1 } as React.CSSProperties}>
             <span>
-              <span className="hl">
+              <span className="hl it">
                 pemilik bisnis
                 <Mark kind="underline" className="mark-under" delay={1.05} play />
               </span>{" "}
