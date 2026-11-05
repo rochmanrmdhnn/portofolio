@@ -6,7 +6,8 @@
   --chalk: #f2efe4;
   --chalk-dim: #abaea4;
   --line: rgb(242 239 228 / 0.14);
-  --line-strong: rgb(242 239 228 / 0.32);
+  /* 0,38 = 3,2:1 di atas --board: batas tombol ghost dan menu memenuhi kontras non-teks 3:1. */
+  --line-strong: rgb(242 239 228 / 0.38);
   --yellow: #e8c547;
   --yellow-hi: #f0d466;
 
@@ -1282,8 +1283,9 @@ a {
 }
 
 @media (hover: hover) and (pointer: fine) {
+  /* 0,76: teks chalk-dim baris yang diredupkan tetap 4,8:1, di atas AA. */
   .rows:has(a:hover) a:not(:hover) {
-    opacity: 0.45;
+    opacity: 0.76;
   }
 
   .rows a:hover .rows-v {
