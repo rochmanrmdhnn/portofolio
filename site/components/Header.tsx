@@ -73,7 +73,7 @@ export function Header() {
                   if (!n.href.startsWith("#")) return;
                   // Lenis sedang stop() selama menu terbuka; force supaya scroll tetap jalan.
                   e.preventDefault();
-                  if (lenis) lenis.scrollTo(n.href, { offset: -72, force: true });
+                  if (lenis) lenis.scrollTo(n.href, { force: true });
                   else document.querySelector(n.href)?.scrollIntoView();
                 }}
                 initial={{ y: 24, opacity: 0 }}

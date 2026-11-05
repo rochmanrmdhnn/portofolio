@@ -7,6 +7,7 @@ import { useEffect, useRef } from "react";
 
 // Satu loop RAF: Lenis digerakkan oleh frame loop Motion, jadi transform scroll-linked dan posisi scroll
 // dihitung di frame yang sama. Lenis mematikan smoothing sendiri bila prefers-reduced-motion.
+// Anchor tanpa offset: Lenis sudah mengurangkan scroll-padding-top CSS (tinggi header + 8px); offset tambahan dobel.
 export function Providers({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<LenisRef>(null);
 
@@ -18,7 +19,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
   return (
     <MotionConfig reducedMotion="user">
-      <ReactLenis root ref={lenisRef} options={{ autoRaf: false, anchors: { offset: -72 }, lerp: 0.11 }} />
+      <ReactLenis root ref={lenisRef} options={{ autoRaf: false, anchors: true, lerp: 0.11 }} />
       {children}
     </MotionConfig>
   );
