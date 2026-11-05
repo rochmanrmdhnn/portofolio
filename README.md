@@ -11,6 +11,9 @@ Dua dokumen yang saling menopang:
 - **`cv/cv.html`** → **`assets/CV_Rochman_Ramadhani_Product_Engineer.pdf`** — CV Product Engineer tiga halaman,
   fokus ke hasil. Nama lama `CV_Rochman_Ramadhani_Product_Owner.pdf` dialihkan 301 ke sini lewat `_redirects`
   (Cloudflare Pages), karena tautan ke PDF lama masih beredar.
+- **`cv/cv-en.html`** → **`assets/CV_Rochman_Ramadhani_Forward_Deployed_Engineer.pdf`** — versi bahasa Inggris
+  dengan posisi sekarang (Forward Deployed Engineer). Isi dan angkanya sama dengan CV Indonesia; ubah keduanya
+  bersamaan.
 
 Aturan yang mengikat keduanya: **CV menyebut angkanya, deck menunjukkan artefaknya.** Tidak boleh ada
 angka di CV yang tidak punya slide pendukung, dan sebaliknya.
@@ -54,7 +57,7 @@ ditarik lagi. Alias tidak ikut bergeser.
 
 ```bash
 ./scripts/build-assets.sh   # foto & video: sips + ffmpeg (butuh: brew install ffmpeg)
-./cv/build.sh               # CV -> PDF via Chrome headless, plus cek regresi ATS
+./cv/build.sh               # CV ID + EN -> PDF via Chrome headless, plus cek regresi ATS (`id`/`en` untuk satu saja)
 ```
 
 `build-assets.sh` mengambil sumber dari `~/Downloads` dan dari repo `slide-kka-smk`, lalu

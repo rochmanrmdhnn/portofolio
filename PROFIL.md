@@ -54,7 +54,8 @@ yang sama. Di README GitHub pakai alias umum.
 - Kerja bareng Coach Rheo disebut **AI Learning Partner** / "belajar AI bareng", bukan "AI Advisor", "AI Coaching",
   atau "AI Training": kesannya kolaborasi sesama, bukan menggurui.
 - Hub tautan: **omanlabs.tech**. Email rochmanramadhani12@gmail.com · WhatsApp +62 813 8103 9158.
-- CV: `assets/CV_Rochman_Ramadhani_Product_Engineer.pdf` (nama lama `…_Product_Owner.pdf` dialihkan 301).
+- CV: `assets/CV_Rochman_Ramadhani_Product_Engineer.pdf` (Indonesia; nama lama `…_Product_Owner.pdf` dialihkan 301)
+  dan `assets/CV_Rochman_Ramadhani_Forward_Deployed_Engineer.pdf` (English, posisi Forward Deployed Engineer).
 - Handle (21 Oktober 2026):
   - `rochmanrmdhnn`: X, Instagram, Threads, Facebook, YouTube, Pinterest, GitLab, LinkedIn, lynk.id, dan GitHub (sejak rename di Multica OL-861).
   - `rochmanrmdhn`: TikTok (terkunci sampai 19 November 2026).
