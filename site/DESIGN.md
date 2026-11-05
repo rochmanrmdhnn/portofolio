@@ -59,6 +59,14 @@ punya slide pendukung di deck, dan tiap panel kerja menautkan ke slide itu.
 - **Judul hero `7vw - 0.5rem`, maksimum 6rem**: baris terpanjang tetap satu baris dari 820px ke atas.
 - **Salinan label tombol roll** memakai `content: attr(data-text) / ""`; tanpa alt text kosong nama link terbaca
   dua kali.
+- **Teks diperbesar (pengaturan ukuran font browser).** Breakpoint ditulis dalam em, bukan px, supaya layar lebar
+  dengan teks 200% ikut turun ke layout sempit. Semua track grid satu kolom `minmax(0, 1fr)`: `1fr` biasa melebar
+  mengikuti kata terpanjang. Angka raksasa memakai batas vw di `clamp` (`min(3.6rem, 18vw)`), karena rem yang
+  dua kali lipat membuat "50.000+" plus lingkarannya lebih lebar dari ponsel. Satu elemen yang lebih lebar dari
+  viewport membuat Chrome mobile memperlebar layout viewport, dan header fixed ikut terdorong keluar layar.
+  Uji: `Page.setFontSizes` lewat CDP (standard 32), bukan `html{font-size:200%}`, yang tidak menggeser breakpoint em.
+- **Caption polaroid ada dalam arus** (flex column, `margin-top: auto`), bukan absolut, jadi pita bawah ikut tinggi
+  caption dan tidak pernah menimpa foto.
 
 ## Yang sengaja tidak ada
 

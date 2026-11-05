@@ -8,7 +8,7 @@ import { Mark } from "./Mark";
 import { Reveal } from "./Reveal";
 
 // Harus sama dengan media query .work di globals.css.
-const PINNED = "(min-width: 1024px) and (min-height: 640px) and (prefers-reduced-motion: no-preference)";
+const PINNED = "(min-width: 64em) and (min-height: 40em) and (prefers-reduced-motion: no-preference)";
 
 // Desktop: section setinggi 100svh + lebar trek, isinya sticky, trek bergeser 1:1 dengan scroll vertikal.
 // Layar sempit atau reduced motion: dist = 0, trek jadi daftar vertikal biasa (diatur CSS), tanpa transform.

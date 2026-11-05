@@ -36,6 +36,8 @@ body {
   margin: 0;
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  /* Kata panjang patah di dalam kolomnya, bukan melebarkan halaman saat teks diperbesar. */
+  overflow-wrap: break-word;
   line-height: 1.6;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -88,7 +90,9 @@ a {
 .skip {
   position: fixed;
   left: 12px;
-  top: -60px;
+  top: 12px;
+  /* Sembunyi relatif terhadap tingginya sendiri, jadi tetap tersembunyi saat teks diperbesar. */
+  transform: translateY(calc(-100% - 24px));
   z-index: 100;
   padding: 10px 16px;
   background: var(--yellow);
@@ -99,7 +103,7 @@ a {
 }
 
 .skip:focus {
-  top: 12px;
+  transform: none;
 }
 
 .h2 {
@@ -246,9 +250,18 @@ a {
   padding-block: 10px;
 }
 
-/* Di bawah 420px nama lengkap + WhatsApp + Menu tidak muat satu baris. */
-@media (max-width: 420px) {
+/* Breakpoint memakai em (16px = 1em) supaya layout ikut ukuran teks pilihan pengguna: dengan teks 200%,
+   layar 1440px berperilaku seperti 720px, bukan desktop dengan teks yang meluber.
+   Di bawah 26,25em (420px) nama lengkap + WhatsApp + Menu tidak muat satu baris. */
+@media (max-width: 26.25em) {
   .hdr-brand-last {
+    display: none;
+  }
+}
+
+/* Di bawah 20em (320px, atau ponsel dengan teks diperbesar) Menu harus tetap muat. WhatsApp tetap ada di hero. */
+@media (max-width: 20em) {
+  .hdr-actions .btn-sm {
     display: none;
   }
 }
@@ -321,7 +334,7 @@ a {
   text-decoration: none;
 }
 
-@media (max-width: 899px) {
+@media (max-width: 56.1875em) {
   .hdr-nav {
     display: none;
   }
@@ -336,7 +349,7 @@ a {
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 56.25em) {
   .menu {
     display: none;
   }
@@ -369,7 +382,7 @@ a {
   font-weight: 700;
   /* Diskalakan dengan lebar kolom hero (±0,66 × viewport) supaya baris terpanjang, "pemilik bisnis tumbuh"
      (±8,7em), tetap satu baris dari 820px sampai lebar maksimum 1320px. Di bawah 820px boleh membungkus. */
-  font-size: clamp(2.6rem, 7vw - 0.5rem, 6rem);
+  font-size: clamp(min(2.6rem, 11vw), 7vw - 0.5rem, 6rem);
   line-height: 0.96;
   letter-spacing: -0.04em;
 }
@@ -447,7 +460,7 @@ a {
   justify-self: end;
   width: 100%;
   max-width: 420px;
-  padding: 12px 12px 52px;
+  padding: 12px;
   background: var(--chalk);
   color: var(--board);
   rotate: 2deg;
@@ -461,12 +474,20 @@ a {
   object-fit: cover;
 }
 
+/* Caption dalam arus, bukan absolut: pita bawah bingkai ikut tinggi caption saat teks diperbesar.
+   Di ukuran normal jaraknya sama dengan polaroid lama (pita 52px di hero, 46px di bingkai). */
+.hero-photo figcaption {
+  margin: 18px 4px 0;
+}
+
+/* Bingkai sepasang bisa diregangkan setinggi tetangganya; caption tetap duduk di dasar pita. */
+.frame figcaption {
+  margin: auto 6px 0;
+  padding-top: 12px;
+}
+
 .hero-photo figcaption,
 .frame figcaption {
-  position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 12px;
   font-family: var(--font-hand), cursive;
   font-weight: 700;
   font-size: 1.15rem;
@@ -508,9 +529,9 @@ a {
   }
 }
 
-@media (max-width: 819px) {
+@media (max-width: 51.1875em) {
   .hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     min-height: auto;
     align-items: start;
   }
@@ -519,13 +540,13 @@ a {
     justify-self: start;
     max-width: min(68vw, 300px);
     order: -1;
-    padding: 8px 8px 40px;
+    padding: 8px;
     rotate: -2deg;
   }
 
   .hero-photo figcaption {
     font-size: 1rem;
-    bottom: 8px;
+    margin: 13px 8px 0;
   }
 }
 
@@ -596,6 +617,7 @@ a {
 
 .work-track {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(72px, 10vw, 120px);
   width: min(100% - 2 * var(--pad), 1320px);
   margin: clamp(56px, 8vw, 96px) auto 0;
@@ -603,6 +625,7 @@ a {
 
 .wk {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: clamp(24px, 4vw, 48px);
   align-items: end;
 }
@@ -657,7 +680,8 @@ a {
 }
 
 .wk-text .wk-stat-v {
-  font-size: clamp(3.6rem, 2rem + 6vw, 8rem);
+  /* Batas vw di min dan nilai tengah: dengan teks diperbesar, angka plus lingkaran kapurnya tetap muat di ponsel. */
+  font-size: clamp(min(3.6rem, 18vw), min(2rem + 6vw, 17vw), 8rem);
   padding-inline: 0.1em;
 }
 
@@ -773,13 +797,13 @@ a {
   color: var(--chalk-dim);
 }
 
-@media (max-width: 699px) {
+@media (max-width: 43.6875em) {
   .work-head {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .wk-media {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .wk-clip {
@@ -787,8 +811,8 @@ a {
   }
 }
 
-/* Trek ter-pin: sama persis dengan PINNED di WorkTrack.tsx. */
-@media (min-width: 1024px) and (min-height: 640px) and (prefers-reduced-motion: no-preference) {
+/* Trek ter-pin: sama persis dengan PINNED di WorkTrack.tsx (64em = 1024px, 40em = 640px). */
+@media (min-width: 64em) and (min-height: 40em) and (prefers-reduced-motion: no-preference) {
   .work {
     padding-block: 0;
   }
@@ -934,7 +958,8 @@ a {
 }
 
 .ch-note {
-  max-width: 36ch;
+  /* 8px ruang untuk sudut blok yang diputar -1,5deg saat catatan selebar kolom. */
+  max-width: min(36ch, 100% - 8px);
 }
 
 .ch-photo img {
@@ -948,9 +973,9 @@ a {
   margin-top: 8px;
 }
 
-@media (max-width: 899px) {
+@media (max-width: 56.1875em) {
   .journey-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .journey-side {
@@ -1066,9 +1091,9 @@ a {
   max-width: 46ch;
 }
 
-@media (max-width: 899px) {
+@media (max-width: 56.1875em) {
   .owners-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .owners-side {
@@ -1142,6 +1167,7 @@ a {
 
 .now-big {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 12px;
   justify-items: start;
   justify-self: center;
@@ -1152,7 +1178,7 @@ a {
   font-family: var(--font-display), sans-serif;
   font-variation-settings: "opsz" 96;
   font-weight: 800;
-  font-size: clamp(4.5rem, 2rem + 9vw, 11rem);
+  font-size: clamp(min(4.5rem, 20vw), 2rem + 9vw, 11rem);
   line-height: 0.9;
   letter-spacing: -0.05em;
   color: var(--yellow);
@@ -1182,8 +1208,10 @@ a {
 
 .frame {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: min(100%, 300px);
-  padding: 10px 10px 46px;
+  padding: 10px 10px 12px;
   background: var(--chalk);
   color: var(--board);
   box-shadow: 0 24px 48px -24px rgb(0 0 0 / 0.6);
@@ -1204,9 +1232,9 @@ a {
   margin-top: 64px;
 }
 
-@media (max-width: 819px) {
+@media (max-width: 51.1875em) {
   .now-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .now-flip > .now-photos {
@@ -1312,9 +1340,9 @@ a {
   margin-block: -12px;
 }
 
-@media (max-width: 699px) {
+@media (max-width: 43.6875em) {
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
