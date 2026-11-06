@@ -533,7 +533,7 @@ a {
   font-weight: 700;
   /* Diskalakan dengan lebar kolom hero (±0,66 × viewport) supaya baris terpanjang, "pemilik bisnis tumbuh"
      (±8,7em), tetap satu baris dari 820px sampai lebar maksimum 1320px. Di bawah 820px boleh membungkus. */
-  font-size: clamp(min(2.6rem, 11vw), 7vw - 0.5rem, 6rem);
+  font-size: clamp(min(2.4rem, 10vw), 7vw - 0.5rem, 6rem);
   line-height: 0.96;
   letter-spacing: -0.04em;
 }
@@ -690,7 +690,7 @@ a {
   .hero-photo {
     justify-self: start;
     max-width: min(68vw, 300px);
-    order: -1;
+    order: 1;
     padding: 8px;
     rotate: -2deg;
   }
@@ -1161,7 +1161,6 @@ a {
 /* ---------- Pemilik bisnis ---------- */
 
 .owners {
-  background: var(--board-deep);
   padding-block: var(--section);
 }
 
@@ -1224,7 +1223,7 @@ a {
   place-items: center;
   width: 52px;
   height: 52px;
-  background: var(--board-deep);
+  background: var(--board);
   font-family: var(--font-hand), cursive;
   font-weight: 700;
   font-size: 1.6rem;
@@ -1264,6 +1263,7 @@ a {
 /* ---------- Sekarang ---------- */
 
 .now {
+  background: var(--board-deep);
   padding-block: var(--section);
 }
 
@@ -1821,6 +1821,11 @@ a {
 
 .proof-note {
   font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
+}
+
+.proof-cta {
+  justify-self: start;
+  margin-top: 8px;
 }
 
 /* Ponsel: lembar selebar layar; tabel perbandingan jadi kartu per baris, judul kolom pindah ke depan sel. */

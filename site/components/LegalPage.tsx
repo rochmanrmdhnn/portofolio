@@ -17,7 +17,7 @@ export function legalMetadata(t: Copy, doc: LegalDoc, paths: Record<Lang, string
       siteName: "Rochman Ramadhani",
       title,
       description: doc.description,
-      images: [{ url: "/assets/og-landing.jpg", width: 1200, height: 630, alt: "Rochman Ramadhani" }],
+      images: [{ url: t.meta.og, width: 1200, height: 630, alt: "Rochman Ramadhani" }],
     },
   };
 }

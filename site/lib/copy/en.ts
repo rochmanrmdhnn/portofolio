@@ -10,6 +10,7 @@ export const EN: Copy = {
       "Forward Deployed Engineer and Product Engineer who helps business owners grow with AI and well-built systems. Founder of Skolain. 6+ years building for banks, hospitals, schools, and government, with the evidence for each.",
     locale: "en_US",
     path: "/",
+    og: "/assets/og-landing-en.jpg",
   },
   wa: WA_BASE + encodeURIComponent("Hi Oman, I'd like to talk about my business."),
   ui: {
@@ -23,18 +24,19 @@ export const EN: Copy = {
     pause: "Pause video",
     proof: "Open the proof",
     proofClose: "Close",
+    proofCta: "Talk about your business on WhatsApp",
   },
   nav: [
     { href: "#work", label: "Work" },
-    { href: "#journey", label: "Career" },
     { href: "#approach", label: "How I work" },
     { href: "#now", label: "Now" },
+    { href: "#journey", label: "Career" },
     { href: "#gear", label: "Gear" },
   ],
   hero: {
     kicker: "Rochman Ramadhani, S.Kom. · Forward Deployed Engineer · Product Engineer",
     lines: ["I help", "business owners", "grow", "with AI and systems."],
-    sub: "6+ years building systems used in banks, hospitals, schools, and government. Now I work inside your business until the systems and the AI are running.",
+    sub: "I work inside your business until the systems and the AI are running. Behind it: 6+ years building systems used in banks, hospitals, schools, and government.",
     cta: "Chat on WhatsApp",
     secondary: "See the work",
     note: "every number I claim has its proof below",
@@ -155,13 +157,13 @@ export const EN: Copy = {
   },
   owners: {
     head: ["If ", "you", " run a business."],
-    lead: "Four stages I go through with your business. The last one matters most: your team runs it on its own.",
+    lead: "Four stages I go through with your business, from the first visit to handover.",
     cta: "Tell me about your business",
     stages: [
       { title: "Get into the business", body: "I come in and watch how your team actually works, day to day." },
       { title: "Find what costs the most time and money", body: "I price out every option before anything gets built." },
       { title: "Build the systems and the AI", body: "AI-assisted workflows, and systems that keep running when lots of people use them." },
-      { title: "Stay until your team runs it", body: "I stay involved until your team runs it without me." },
+      { title: "Stay until your team runs it", body: "I train the people who will use it and stay close while it becomes part of their daily work." },
     ],
   },
   now: {

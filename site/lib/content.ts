@@ -79,7 +79,7 @@ export type Proof = {
 
 export type Copy = {
   lang: Lang;
-  meta: { title: string; description: string; locale: string; path: string };
+  meta: { title: string; description: string; locale: string; path: string; og: string };
   wa: string;
   ui: {
     skip: string;
@@ -92,6 +92,7 @@ export type Copy = {
     pause: string;
     proof: string;
     proofClose: string;
+    proofCta: string;
   };
   nav: { href: string; label: string }[];
   hero: {

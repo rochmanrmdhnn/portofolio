@@ -9,20 +9,21 @@ type UI = Copy["ui"];
 
 // Tombol pembuka panel bukti. commandfor/command (Invoker Commands) membuka <dialog> tanpa JS;
 // browser yang belum mendukungnya ditangani fallback di Proofs.
-export function ProofOpen({ id, label }: { id: string; label: string }) {
+// `describedBy` menunjuk judul kartu, supaya delapan tombol berlabel sama tetap bisa dibedakan pembaca layar.
+export function ProofOpen({ id, label, describedBy }: { id: string; label: string; describedBy: string }) {
   return (
-    <button type="button" className="proof-open" commandfor={id} command="show-modal" aria-haspopup="dialog">
+    <button type="button" className="proof-open" commandfor={id} command="show-modal" aria-haspopup="dialog" aria-describedby={describedBy}>
       {label}
     </button>
   );
 }
 
-// Panel bukti: satu <dialog> modal per proyek, isinya disusun dari slide deck. Dialog native memberi focus trap,
+// Panel bukti: satu <dialog> modal per proyek, isinya disusun dari slide deck lama. Dialog native memberi focus trap,
 // Escape, latar inert, dan fokus kembali ke tombol pembuka. Di sini hanya yang tidak diberi browser:
 // - hash = id panel (omanlabs.tech/#hris, juga hasil pemetaan alias deck lama) membuka panelnya;
 // - saat terbuka, hash ikut berganti supaya bisa dibagikan, dan Lenis dihentikan supaya halaman di belakang diam;
 // - klik di luar lembar (backdrop) menutup.
-export function Proofs({ proofs, ui }: { proofs: Proof[]; ui: UI }) {
+export function Proofs({ proofs, ui, wa }: { proofs: Proof[]; ui: UI; wa: string }) {
   const lenis = useLenis();
 
   useEffect(() => {
@@ -120,6 +121,11 @@ export function Proofs({ proofs, ui }: { proofs: Proof[]; ui: UI }) {
               </aside>
             )}
             {p.note && <p className="note proof-note">{p.note}</p>}
+            <a className="btn btn-primary proof-cta" href={wa} target="_blank" rel="noopener">
+              <span className="roll" data-text={ui.proofCta}>
+                <span>{ui.proofCta}</span>
+              </span>
+            </a>
           </div>
         </dialog>
       ))}

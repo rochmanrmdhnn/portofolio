@@ -42,7 +42,7 @@ const serif = localFont({
 export const VIEWPORT: Viewport = { themeColor: "#14231C", colorScheme: "dark" };
 
 export function metadataFor(t: Copy): Metadata {
-  const og = { url: "/assets/og-landing.jpg", width: 1200, height: 630, alt: "Rochman Ramadhani, Forward Deployed Engineer and Product Engineer" };
+  const og = { url: t.meta.og, width: 1200, height: 630, alt: "Rochman Ramadhani, Forward Deployed Engineer and Product Engineer" };
   return {
     metadataBase: new URL("https://omanlabs.tech"),
     title: t.meta.title,

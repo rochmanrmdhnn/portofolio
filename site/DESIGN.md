@@ -42,19 +42,19 @@ kata; nama lembaga Indonesia diberi penjelasan singkat saat pertama muncul (KLHK
 
 | Section | Isi | Teknik | Alasan |
 |---|---|---|---|
-| Hero | posisi, CTA WhatsApp, foto | line-mask CSS saat muat, coretan tergambar, hero memudar saat scroll | terbaca tanpa JS, LCP tidak menunggu animasi |
+| Hero | posisi, CTA WhatsApp, foto | line-mask CSS saat muat, coretan tergambar, hero memudar saat scroll | terbaca tanpa JS, LCP tidak menunggu animasi; di ponsel foto di bawah teks supaya CTA masih di layar pertama |
 | Angka | satu paragraf berisi angka bukti | kata di-scrub scroll | angka dibaca sebagai kalimat, bukan kartu statistik |
 | Kerja | 7 proyek, klip potret asli, tombol "Buka buktinya" | trek horizontal ter-pin (desktop), daftar vertikal (mobile) | klip semuanya 9:16; trek memperlihatkan beberapa sekaligus |
-| Perjalanan | 6 bab 2017 sampai 2026 | tahun raksasa sticky, digit bergulir | urutan waktu, isi tetap dibaca dalam arus normal |
-| Pemilik bisnis | 4 tahap kerja | garis kapur tergambar mengikuti scroll | empat langkah ini memang urutan; garisnya menghubungkan |
-| Sekarang | Skolain (modul, sekolah pemakai, 1.600+), Hegemoni, belajar AI bareng | foto berbingkai miring, parallax tipis | kontinuitas gaya foto-berisolasi di deck; Skolain sengaja tidak ada di trek Kerja supaya angka dan medianya tidak dobel |
+| Pemilik bisnis | 4 tahap kerja | garis kapur tergambar mengikuti scroll | langsung sesudah bukti: pemilik bisnis tidak perlu melewati cerita karier untuk tahu cara kerjanya |
+| Sekarang | Skolain (modul, sekolah pemakai, 1.600+), Hegemoni, belajar AI bareng | foto berbingkai miring, parallax tipis | kontinuitas gaya foto-berisolasi di deck lama; Skolain sengaja tidak ada di trek Kerja supaya angka dan medianya tidak dobel |
+| Perjalanan | 6 bab 2017 sampai 2026 | tahun raksasa sticky, digit bergulir | urutan waktu, isi tetap dibaca dalam arus normal; ditaruh sesudah tawaran karena ini konteks, bukan alasan pertama menghubungi |
 | Gear | MacBook Pro M3 Max 96 GB, iPhone, iPad, AirPods Pro, Plaud Note Pro, Claude | mesin utama sticky, daftar mask reveal | orang kenal orangnya, bukan hanya CV-nya; hanya perangkat yang disebut Oman, model iPhone/iPad tidak ditulis |
 | Kontak | WhatsApp, email, sosial, CV dua bahasa | judul mask reveal, roll teks pada tombol | satu aksi utama yang jelas |
 
 ## Panel bukti
 
 Delapan `<dialog>` modal (`components/Proofs.tsx`): tujuh proyek di trek Kerja plus Skolain. Isinya disusun ulang dari
-slide deck dalam blok bertipe (`list`, `entries` dengan `steps` bernomor untuk urutan yang memang berurutan,
+slide deck lama dalam blok bertipe (`list`, `entries` dengan `steps` bernomor untuk urutan yang memang berurutan,
 `compare` sebelum/sesudah, `caveat` untuk yang tidak diklaim).
 
 - **Lembar dari kanan** di desktop (`min(46rem, 100%)`), layar penuh di ponsel. Modal, bukan halaman: pembaca

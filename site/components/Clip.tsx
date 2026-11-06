@@ -26,6 +26,9 @@ export function Clip({
 }) {
   const ref = useRef<HTMLVideoElement>(null);
   const inView = useInView(ref, { amount: 0.5 });
+  // Poster baru dipasang saat klip mendekati layar: enam poster sempat jadi ±40% muatan kunjungan pertama.
+  // Klip di dalam <dialog> tertutup tidak teramati sampai panelnya dibuka.
+  const near = useInView(ref, { margin: "800px 0px", once: true });
   const reduce = useReducedMotion();
   // null = belum disentuh pengunjung; ikuti autoplay. true/false = pilihan pengunjung, menang atas autoplay.
   const [wanted, setWanted] = useState<boolean | null>(null);
@@ -44,7 +47,7 @@ export function Clip({
       <video
         ref={ref}
         src={src}
-        poster={poster}
+        poster={near ? poster : undefined}
         width={w}
         height={h}
         muted

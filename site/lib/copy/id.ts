@@ -10,6 +10,7 @@ export const ID: Copy = {
       "Forward Deployed Engineer dan Product Engineer yang membantu pemilik bisnis tumbuh dengan AI dan sistem. Founder Skolain. 6+ tahun membangun untuk bank, rumah sakit, sekolah, dan pemerintah, lengkap dengan buktinya.",
     locale: "id_ID",
     path: "/id",
+    og: "/assets/og-landing-id.jpg",
   },
   wa: WA_BASE + encodeURIComponent("Halo Oman, saya mau ngobrol soal bisnis saya."),
   ui: {
@@ -23,18 +24,19 @@ export const ID: Copy = {
     pause: "Jeda video",
     proof: "Buka buktinya",
     proofClose: "Tutup",
+    proofCta: "Ngobrol soal bisnis Anda di WhatsApp",
   },
   nav: [
     { href: "#work", label: "Proyek" },
-    { href: "#journey", label: "Perjalanan" },
     { href: "#approach", label: "Cara kerja" },
     { href: "#now", label: "Sekarang" },
+    { href: "#journey", label: "Perjalanan" },
     { href: "#gear", label: "Gear" },
   ],
   hero: {
     kicker: "Rochman Ramadhani, S.Kom. · Forward Deployed Engineer · Product Engineer",
     lines: ["Saya membantu", "pemilik bisnis", "tumbuh", "dengan AI dan sistem."],
-    sub: "6+ tahun membangun sistem yang dipakai di bank, rumah sakit, sekolah, dan pemerintah. Sekarang saya ikut turun ke bisnis Anda sampai sistem dan AI-nya jalan.",
+    sub: "Saya ikut turun ke bisnis Anda sampai sistem dan AI-nya jalan. Bekalnya: 6+ tahun membangun sistem yang dipakai di bank, rumah sakit, sekolah, dan pemerintah.",
     cta: "Chat di WhatsApp",
     secondary: "Lihat proyeknya",
     note: "tiap angka yang saya klaim, buktinya ada di bawah",
@@ -155,13 +157,13 @@ export const ID: Copy = {
   },
   owners: {
     head: ["Kalau ", "Anda", " pemilik bisnis."],
-    lead: "Empat tahap yang saya jalani bareng bisnis Anda. Yang terakhir paling penting: tim Anda menjalankannya sendiri.",
+    lead: "Empat tahap yang saya jalani bareng bisnis Anda, dari kunjungan pertama sampai serah terima.",
     cta: "Ceritakan bisnis Anda",
     stages: [
       { title: "Ikut turun ke bisnisnya", body: "Saya datang dan melihat langsung cara tim Anda bekerja sehari-hari." },
       { title: "Cari yang paling makan waktu dan biaya", body: "Ongkos tiap pilihan saya hitung sebelum ada yang dibangun." },
       { title: "Bangun sistem dan AI-nya", body: "Alur kerja berbantuan AI, dan sistem yang tetap jalan saat dipakai banyak orang." },
-      { title: "Sampai tim jalan sendiri", body: "Saya tetap ikut sampai tim Anda menjalankannya tanpa saya." },
+      { title: "Sampai tim jalan sendiri", body: "Saya melatih orang-orang yang akan memakainya, dan tetap mendampingi sampai sistemnya jadi bagian kerja harian mereka." },
     ],
   },
   now: {
@@ -188,7 +190,7 @@ export const ID: Copy = {
         note: "duduk satu meja, belajar dari pekerjaan yang sedang jalan",
         photos: [
           { src: "/assets/caezar-01.jpg", alt: "Sesi belajar AI bareng Coach Rheo", cap: "sesi kerja", tilt: 2, speed: 24 },
-          { src: "/assets/caezar-03.jpg", alt: "Membedah kasus pakai AI bersama Coach Rheo", cap: "bedah kasus pakai", tilt: -3, speed: 56 },
+          { src: "/assets/caezar-03.jpg", alt: "Membedah satu use case AI bersama Coach Rheo", cap: "bedah use case", tilt: -3, speed: 56 },
         ],
       },
     ],
@@ -363,7 +365,7 @@ export const ID: Copy = {
       media: [
         { kind: "image", src: "/assets/frames-launch-01.jpg", w: 1066, h: 711, alt: "Peluncuran FRAMES di Fakultas Kedokteran Universitas Indonesia" },
         { kind: "video", src: "/assets/frames-acara-01.mp4", poster: "/assets/frames-acara-01-poster.jpg", w: 360, h: 640, label: "Acara peluncuran di FKUI" },
-        { kind: "video", src: "/assets/frames-acara-02.mp4", poster: "/assets/frames-acara-02-poster.jpg", w: 360, h: 640, label: "Disiarkan hibrida ke peserta" },
+        { kind: "video", src: "/assets/frames-acara-02.mp4", poster: "/assets/frames-acara-02-poster.jpg", w: 360, h: 640, label: "Disiarkan ke peserta daring" },
       ],
       blocks: [
         {
@@ -393,7 +395,7 @@ export const ID: Copy = {
           kind: "list",
           items: [
             "Sebagai Product Engineer, saya memegang discovery, penentuan lingkup, dan prioritas rilis.",
-            "Keanggotaan berskala nasional, dilingkup sampai 150.000 pengguna dokter umum di seluruh Indonesia.",
+            "Keanggotaan berskala nasional, dirancang untuk sampai 150.000 dokter umum di seluruh Indonesia.",
             "Diskusi kebutuhan dilakukan langsung bersama Kolegium Dokter, tanpa perantara.",
           ],
         },
