@@ -11,6 +11,7 @@ export function Clip({
   w,
   h,
   label,
+  ui,
   autoplay = true,
   className,
 }: {
@@ -19,6 +20,7 @@ export function Clip({
   w: number;
   h: number;
   label: string;
+  ui: { play: string; pause: string };
   autoplay?: boolean;
   className?: string;
 }) {
@@ -53,7 +55,7 @@ export function Clip({
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
       />
-      <button type="button" className="clip-toggle" onClick={() => setWanted(!playing)} aria-label={playing ? `Jeda video: ${label}` : `Putar video: ${label}`}>
+      <button type="button" className="clip-toggle" onClick={() => setWanted(!playing)} aria-label={`${playing ? ui.pause : ui.play}: ${label}`}>
         <svg viewBox="0 0 16 16" aria-hidden="true">
           {playing ? <path d="M4 3h3v10H4zM9 3h3v10H9z" /> : <path d="M5 3l8 5-8 5z" />}
         </svg>

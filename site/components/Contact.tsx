@@ -1,25 +1,27 @@
-import { CONTACTS, CV, WA } from "@/lib/content";
+import { CHANNELS, type Copy } from "@/lib/content";
+import { Phrase } from "./Phrase";
 import { Reveal } from "./Reveal";
 
-export function Contact() {
+export function Contact({ t, wa }: { t: Copy["contact"]; wa: string }) {
+  const rows = [{ label: "WhatsApp", value: "+62 813 8103 9158", href: wa }, ...CHANNELS];
   return (
-    <section id="hubungi" className="contact">
+    <section id="contact" className="contact">
       <div className="wrap">
         <Reveal>
           <h2 className="contact-title">
-            Punya bisnis dan penasaran AI cocoknya di <em className="it">bagian mana?</em>
+            <Phrase h={t.head} />
           </h2>
         </Reveal>
-        <p className="contact-lead">Chat saja lewat WhatsApp, atau DM di Instagram.</p>
-        <a className="btn btn-primary btn-xl" href={WA} target="_blank" rel="noopener">
-          <span className="roll" data-text="Chat di WhatsApp">
-            <span>Chat di WhatsApp</span>
+        <p className="contact-lead">{t.lead}</p>
+        <a className="btn btn-primary btn-xl" href={wa} target="_blank" rel="noopener">
+          <span className="roll" data-text={t.cta}>
+            <span>{t.cta}</span>
           </span>
         </a>
 
         <div className="contact-grid">
-          <ul className="rows" aria-label="Kontak">
-            {CONTACTS.map((c) => (
+          <ul className="rows" aria-label={t.channels}>
+            {rows.map((c) => (
               <li key={c.label}>
                 <a href={c.href} target={c.href.startsWith("http") ? "_blank" : undefined} rel="noopener">
                   <span className="rows-l">{c.label}</span>
@@ -28,26 +30,22 @@ export function Contact() {
               </li>
             ))}
           </ul>
-          <ul className="rows" aria-label="Dokumen">
-            <li>
-              <a href={CV} target="_blank" rel="noopener">
-                <span className="rows-l">CV, tiga halaman (PDF)</span>
-                <span className="rows-v">Hasil, angka, dan apa saja yang saya kerjakan.</span>
-              </a>
-            </li>
-            <li>
-              <a href="/deck">
-                <span className="rows-l">Deck lengkap, 39 slide</span>
-                <span className="rows-v">Buktinya, ceritanya, dan artefaknya.</span>
-              </a>
-            </li>
+          <ul className="rows" aria-label={t.docsLabel}>
+            {t.docs.map((d) => (
+              <li key={d.href}>
+                <a href={d.href} hrefLang={d.lang} target="_blank" rel="noopener">
+                  <span className="rows-l">{d.label}</span>
+                  <span className="rows-v">{d.value}</span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
 
       <footer className="foot wrap">
         <span>© 2026 Rochman Ramadhani Chiefto Irawan</span>
-        <a href="#top">Kembali ke atas</a>
+        <a href="#top">{t.top}</a>
       </footer>
     </section>
   );

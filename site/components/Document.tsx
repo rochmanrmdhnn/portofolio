@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { DECK_ALIASES } from "@/lib/content";
-import { Providers } from "@/components/Providers";
-import "./globals.css";
+import { LEGACY, LEGACY_SLIDES, type Copy } from "@/lib/content";
+import { Providers } from "./Providers";
+import "@/app/globals.css";
+
+// Kerangka <html> bersama untuk dua root layout: app/(en) di "/" dan app/(id)/id di "/id".
+// Dua root layout, bukan satu, supaya <html lang> sudah benar di HTML statisnya.
 
 const display = localFont({
   src: "../public/assets/fonts/bricolage-grotesque.woff2",
@@ -36,35 +39,36 @@ const serif = localFont({
   display: "swap",
 });
 
-const DESCRIPTION =
-  "Forward Deployed Engineer yang membantu pemilik bisnis tumbuh dengan AI dan sistem. Founder Skolain. 6+ tahun membangun untuk bank, rumah sakit, sekolah, dan pemerintah, lengkap dengan buktinya.";
+export const VIEWPORT: Viewport = { themeColor: "#14231C", colorScheme: "dark" };
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://omanlabs.tech"),
-  title: "Rochman Ramadhani · Forward Deployed Engineer",
-  description: DESCRIPTION,
-  authors: [{ name: "Rochman Ramadhani Chiefto Irawan" }],
-  alternates: { canonical: "/" },
-  icons: {
-    icon: [
-      { url: "/assets/favicon.svg", type: "image/svg+xml" },
-      { url: "/assets/favicon.png", type: "image/png", sizes: "32x32" },
-    ],
-    apple: "/assets/apple-touch-icon.png",
-  },
-  openGraph: {
-    type: "profile",
-    locale: "id_ID",
-    url: "/",
-    siteName: "Rochman Ramadhani",
-    title: "Rochman Ramadhani · Forward Deployed Engineer",
-    description: DESCRIPTION,
-    images: [{ url: "/assets/og-landing.jpg", width: 1200, height: 630, alt: "Rochman Ramadhani, Forward Deployed Engineer" }],
-  },
-  twitter: { card: "summary_large_image" },
-};
-
-export const viewport: Viewport = { themeColor: "#14231C", colorScheme: "dark" };
+export function metadataFor(t: Copy): Metadata {
+  const og = { url: "/assets/og-landing.jpg", width: 1200, height: 630, alt: "Rochman Ramadhani, Forward Deployed Engineer" };
+  return {
+    metadataBase: new URL("https://omanlabs.tech"),
+    title: t.meta.title,
+    description: t.meta.description,
+    authors: [{ name: "Rochman Ramadhani Chiefto Irawan" }],
+    alternates: { canonical: t.meta.path, languages: { en: "/", id: "/id", "x-default": "/" } },
+    icons: {
+      icon: [
+        { url: "/assets/favicon.svg", type: "image/svg+xml" },
+        { url: "/assets/favicon.png", type: "image/png", sizes: "32x32" },
+      ],
+      apple: "/assets/apple-touch-icon.png",
+    },
+    openGraph: {
+      type: "profile",
+      locale: t.meta.locale,
+      alternateLocale: t.lang === "en" ? "id_ID" : "en_US",
+      url: t.meta.path,
+      siteName: "Rochman Ramadhani",
+      title: t.meta.title,
+      description: t.meta.description,
+      images: [og],
+    },
+    twitter: { card: "summary_large_image" },
+  };
+}
 
 const PERSON = {
   "@context": "https://schema.org",
@@ -111,16 +115,17 @@ const PERSON = {
   ],
 };
 
-// Jalan sebelum apa pun dirender: hash lama deck (#skolain, #15) pindah ke /deck tanpa sempat menampilkan landing.
-const DECK_REDIRECT = `(function(){var h=location.hash.slice(1).toLowerCase();if(h&&(/^\\d+$/.test(h)||${JSON.stringify(
-  DECK_ALIASES,
-)}.indexOf(h)>-1))location.replace("/deck#"+h)})()`;
+// Jalan sebelum body diparse: hash lama deck (#skolain, #dokter, #16) diganti hash landing yang setara, jadi
+// browser langsung menggulir ke section-nya, dan Proofs membuka panel bukti bila hash-nya id panel.
+const LEGACY_HASH = `(function(){var r=location.hash.slice(1),h=r.toLowerCase(),m=${JSON.stringify(LEGACY)},s=${JSON.stringify(
+  LEGACY_SLIDES,
+)},n=/^\\d+$/.test(h)?s[h-1]:Object.prototype.hasOwnProperty.call(m,h)?m[h]:void 0;if(n===void 0||n===r)return;history.replaceState(null,"",n?"#"+n:location.pathname+location.search)})()`;
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export function Document({ t, children }: { t: Copy; children: React.ReactNode }) {
   return (
-    <html lang="id" className={`${display.variable} ${body.variable} ${hand.variable} ${serif.variable}`}>
+    <html lang={t.lang} className={`${display.variable} ${body.variable} ${hand.variable} ${serif.variable}`}>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: DECK_REDIRECT }} />
+        <script dangerouslySetInnerHTML={{ __html: LEGACY_HASH }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON) }} />
         <noscript>
           <style>{`[data-reveal]{opacity:1!important;transform:none!important;clip-path:none!important}`}</style>

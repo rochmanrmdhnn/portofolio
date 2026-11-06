@@ -7,6 +7,8 @@ const config: NextConfig = {
   images: { unoptimized: true },
   reactStrictMode: true,
   poweredByHeader: false,
+  // Dua root layout (app/(en), app/(id)/id) tidak punya induk bersama untuk 404; app/global-not-found.tsx mengisinya.
+  experimental: { globalNotFound: true },
 };
 
 export default config;

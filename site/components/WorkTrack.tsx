@@ -2,9 +2,11 @@
 
 import { motion, useMotionValueEvent, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { WORK, type Work } from "@/lib/content";
+import type { Copy, Work } from "@/lib/content";
 import { Clip } from "./Clip";
 import { Mark } from "./Mark";
+import { Phrase } from "./Phrase";
+import { ProofOpen } from "./Proofs";
 import { Reveal } from "./Reveal";
 
 // Harus sama dengan media query .work di globals.css.
@@ -12,7 +14,8 @@ const PINNED = "(min-width: 64em) and (min-height: 40em) and (prefers-reduced-mo
 
 // Desktop: section setinggi 100svh + lebar trek, isinya sticky, trek bergeser 1:1 dengan scroll vertikal.
 // Layar sempit atau reduced motion: dist = 0, trek jadi daftar vertikal biasa (diatur CSS), tanpa transform.
-export function WorkTrack() {
+export function WorkTrack({ t, ui }: { t: Copy["work"]; ui: Copy["ui"] }) {
+  const items = t.items;
   const outer = useRef<HTMLElement>(null);
   const track = useRef<HTMLDivElement>(null);
   const [dist, setDist] = useState(0);
@@ -39,38 +42,36 @@ export function WorkTrack() {
   const { scrollYProgress } = useScroll({ target: outer, offset: ["start start", "end end"] });
   const x = useTransform(scrollYProgress, [0, 1], [0, -dist]);
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (dist) setActive(Math.min(WORK.length - 1, Math.floor(v * WORK.length)));
+    if (dist) setActive(Math.min(items.length - 1, Math.floor(v * items.length)));
   });
 
   return (
-    <section id="kerja" ref={outer} className="work" style={dist ? { height: `calc(100svh + ${dist}px)` } : undefined}>
+    <section id="work" ref={outer} className="work" style={dist ? { height: `calc(100svh + ${dist}px)` } : undefined}>
       <div className="work-pin">
         <div className="work-head wrap">
           <Reveal>
             <h2 className="h2">
-              Sistem yang sudah <em className="it">dipakai</em> orang.
+              <Phrase h={t.head} />
             </h2>
           </Reveal>
-          <p className="work-intro">
-            Tujuh proyek, dari bank sampai rumah sakit. Tiap panel menautkan ke slide buktinya di deck.
-          </p>
+          <p className="work-intro">{t.intro}</p>
         </div>
 
         <motion.div ref={track} className="work-track" style={{ x: dist ? x : 0 }}>
-          {WORK.map((w, i) => (
-            <Panel key={w.id} w={w} i={i} />
+          {items.map((w, i) => (
+            <Panel key={w.id} w={w} i={i} ui={ui} />
           ))}
         </motion.div>
 
         {dist > 0 && (
           <div className="work-foot wrap" aria-hidden="true">
             <span className="work-count">
-              {String(active + 1).padStart(2, "0")} / {String(WORK.length).padStart(2, "0")}
+              {String(active + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}
             </span>
             <span className="work-bar">
               <motion.span style={{ scaleX: scrollYProgress }} />
             </span>
-            <span className="work-org">{WORK[active].org}</span>
+            <span className="work-org">{items[active].org}</span>
           </div>
         )}
       </div>
@@ -78,11 +79,11 @@ export function WorkTrack() {
   );
 }
 
-function Panel({ w, i }: { w: Work; i: number }) {
+function Panel({ w, i, ui }: { w: Work; i: number; ui: Copy["ui"] }) {
   const media = w.media;
   return (
     <article className={`wk ${media ? "wk-media" : "wk-text"}`} aria-labelledby={`wk-${w.id}`}>
-      {media?.kind === "video" && <Clip className="wk-clip" src={media.src} poster={media.poster} w={media.w} h={media.h} label={media.label} />}
+      {media?.kind === "video" && <Clip className="wk-clip" src={media.src} poster={media.poster} w={media.w} h={media.h} label={media.label} ui={ui} />}
       <div className="wk-body">
         <p className="wk-org">
           <span className="wk-n">{String(i + 1).padStart(2, "0")}</span> {w.org}
@@ -102,7 +103,7 @@ function Panel({ w, i }: { w: Work; i: number }) {
         <p className="wk-text-body">{w.body}</p>
         {w.note && <p className="note wk-note">{w.note}</p>}
         <p className="wk-links">
-          <a href={`/deck#${w.deck}`}>Buktinya di deck</a>
+          <ProofOpen id={w.id} label={ui.proof} />
         </p>
       </div>
     </article>
