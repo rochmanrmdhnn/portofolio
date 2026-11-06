@@ -1,4 +1,22 @@
-# Cloudflare Pages. Berkas _next/static ber-hash di namanya, jadi aman di-cache setahun.
-# Aset di /assets tidak ber-hash (nama berkasnya sudah beredar), jadi tetap memakai cache bawaan Pages.
+# Cloudflare Pages. Header keamanan untuk semua halaman. HSTS tanpa includeSubDomains: subdomain lain di zona
+# omanlabs.tech (multica, frames, ...) bukan milik situs ini. CSP hanya frame-ancestors: script inline Next dan
+# Web Analytics yang disuntikkan zona membuat CSP penuh rawan memecahkan halaman.
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Frame-Options: DENY
+  Content-Security-Policy: frame-ancestors 'none'
+  Cross-Origin-Opener-Policy: same-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+
+# Berkas _next/static ber-hash di namanya, jadi aman di-cache setahun. Aset di /assets tidak ber-hash (nama
+# berkasnya sudah beredar), jadi tetap memakai cache bawaan Pages.
 /_next/static/*
   Cache-Control: public, max-age=31536000, immutable
+
+# Alamat *.pages.dev (produksi dan pratinjau per branch) menyajikan isi yang sama dengan omanlabs.tech:
+# jangan diindeks, canonical tetap menunjuk ke omanlabs.tech.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex

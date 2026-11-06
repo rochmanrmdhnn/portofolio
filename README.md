@@ -38,6 +38,16 @@ Pratinjau tanpa menyentuh produksi: ganti `--branch main` dengan nama branch lai
 Uji `dist/` secara lokal dengan `npx wrangler pages dev dist`, yang meniru clean URL (`/id.html` → `/id`)
 dan `_redirects` seperti di Cloudflare.
 
+Domain dan header:
+
+- `www.omanlabs.tech` adalah record dummy `AAAA 100::` (proxied) dengan Redirect Rule di zona yang mengalihkan 301
+  ke apex, path dan query ikut dibawa. Redirect per host tidak bisa lewat `_redirects` Pages.
+- `_headers` memasang HSTS (tanpa `includeSubDomains`, karena subdomain lain di zona bukan milik situs ini),
+  larangan iframe (`X-Frame-Options`, `frame-ancestors`), COOP, `Permissions-Policy`, cache setahun untuk
+  `/_next/static/*`, dan `X-Robots-Tag: noindex` untuk semua alamat `*.pages.dev`.
+- `_redirects` juga menangkap tebakan URL: `/en` dan `/en/*` ke versi tanpa prefix, `/id/privacy` dan `/id/terms`
+  ke nama Indonesianya.
+
 SEO/AEO/GEO: `<head>` kedua halaman memuat satu blok JSON-LD `Person` (nama, alias, jabatan, penghargaan, `sameAs`
 ke semua profil sosial), `canonical`, dan `hreflang` en/id/x-default. `llms.txt` (bahasa Inggris, format
 llmstxt.org) merangkum profil untuk mesin jawaban. `sitemap.xml` mendaftar `/`, `/id`, empat halaman legal (dengan
