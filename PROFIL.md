@@ -137,13 +137,14 @@ Migrasi Go di Telkom OCA:
 | Platform | Nama tampilan | Bio |
 |---|---|---|
 | Instagram, Threads | Rochman Ramadhani \| AI for Business 🇮🇩🇵🇸 | I help business owners grow with AI & systems⏎6+ yrs building for banks, hospitals, schools & gov⏎Founder @skolain.id · Jakarta⏎DM me to chat 👇 |
-| X | Rochman Ramadhani 🇮🇩🇵🇸 | Forward Deployed Engineer. I help business owners grow with AI & systems. 6+ yrs building for banks, hospitals, schools & gov. Founder of Skolain. DM me 👇 |
+| X | Rochman Ramadhani 🇮🇩🇵🇸 | Forward Deployed & Product Engineer. I help business owners grow with AI & systems. 6+ yrs in banks, hospitals, schools & gov. Founder of Skolain. DM me 👇 |
 | TikTok | Rochman \| AI for Business | I help business owners grow with AI & systems 🇮🇩🇵🇸⏎6+ yrs · DM me 👇 |
 | Facebook | — | 🇮🇩🇵🇸 I help business owners grow with AI & systems · 6+ yrs in banking, health, gov & education |
-| GitHub, GitLab | Rochman Ramadhani | Forward Deployed Engineer. I help business owners grow with AI & systems. 6+ yrs across banking, healthcare, gov & education. Founder of Skolain. 🇮🇩🇵🇸 |
+| GitHub, GitLab | Rochman Ramadhani | Forward Deployed & Product Engineer. I help business owners grow with AI & systems. 6+ yrs in banking, healthcare, gov & education. Founder of Skolain. 🇮🇩🇵🇸 |
 | YouTube, Pinterest | Rochman Ramadhani 🇮🇩🇵🇸 | Bio Instagram, satu paragraf. |
 
-Batas karakter: IG/Threads 150, X 160, TikTok 80, Facebook 101, GitHub 160. Semua bio di atas sudah di bawah batas.
+Batas karakter: IG/Threads 150, X 160, TikTok 80, Facebook 101, GitHub 160, headline LinkedIn 220. Semua bio di atas
+sudah di bawah batas.
 
 ### LinkedIn
 
@@ -151,7 +152,7 @@ LinkedIn boleh menyebut nama klien.
 
 Headline:
 
-> Forward Deployed Engineer | I help Indonesian business owners grow with AI & systems | Founder, Skolain | Technology Partner, a multi-brand beauty group | 6+ yrs in banking, health, gov & education 🇮🇩🇵🇸
+> Forward Deployed Engineer & Product Engineer | I help business owners grow with AI & systems | Founder, Skolain | Technology Partner, a multi-brand beauty group | 6+ yrs in banking, health, gov & education 🇮🇩🇵🇸
 
 About:
 
