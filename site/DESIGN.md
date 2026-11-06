@@ -1,10 +1,11 @@
 # Landing omanlabs.tech: keputusan desain
 
-Design Read: halaman pribadi seorang Forward Deployed Engineer untuk pemilik bisnis Indonesia (juga klien korporat dan
-rekruter), dengan bahasa visual papan tulis dan catatan tangan yang diwarisi dari deck. Dial ENERGY 3 / RHYTHM 3 / MOTION 3.
+Design Read: halaman pribadi seorang Forward Deployed Engineer dan Product Engineer untuk pemilik bisnis Indonesia (juga
+klien korporat dan rekruter), dengan bahasa visual papan tulis dan catatan tangan yang diwarisi dari deck lama. Dial
+ENERGY 3 / RHYTHM 3 / MOTION 3.
 
-Satu situs, tanpa tautan keluar ke deck: isi bukti dari 39 slide deck pindah ke panel bukti di halaman ini. Setiap angka
-punya bukti di `PROFIL.md` atau deck arsip (`deck.html`), dan tiap proyek membuka panelnya sendiri.
+Satu situs: isi bukti dari 39 slide deck lama pindah ke panel bukti di halaman ini, dan deck-nya sudah dihapus dari
+repo. Setiap angka punya sumber di `PROFIL.md`, dan tiap proyek membuka panelnya sendiri.
 
 **Bahasa:** Inggris di `/` (default), Indonesia di `/id`. Dua root layout (`app/(en)`, `app/(id)/id`) supaya
 `<html lang>` sudah benar di HTML statis; isi halaman sama, copy dari `lib/copy/en.ts` dan `lib/copy/id.ts` (tipe

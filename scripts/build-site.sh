@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Merakit isi omanlabs.tech ke dist/: landing Next.js (site/, static export), bahasa Inggris di "/" dan
 # Indonesia di "/id" (id.html; Cloudflare Pages menyajikannya tanpa .html), plus berkas statis yang sudah
-# beredar (assets/, CV PDF, PROFIL.md, llms.txt, robots, sitemap, _redirects). deck.html hanya arsip di repo:
+# beredar (assets/, CV PDF, PROFIL.md, llms.txt, robots, sitemap, _redirects). Deck lama sudah dihapus:
 # _redirects mengarahkan /deck ke landing, dan hash lamanya dipetakan ke panel bukti (components/Document.tsx).
 #
 #   ./scripts/build-site.sh     lalu:  npx wrangler pages deploy dist --project-name rochman-ramadhani --branch main
