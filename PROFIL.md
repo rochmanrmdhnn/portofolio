@@ -1,16 +1,16 @@
 # Profil — sumber kebenaran
 
 Satu tempat untuk fakta dan kalimat yang dipakai ulang di semua profil: bio media sosial, LinkedIn, README GitHub,
-landing omanlabs.tech (`site/`), deck `deck.html` (omanlabs.tech/deck), dan `cv/cv.html`. Ubah di sini dulu, baru
-sebarkan. Kalau ada yang bertentangan dengan berkas lain, berkas ini yang benar.
+landing omanlabs.tech (`site/`), dan CV (`cv/cv.html`, `cv/cv-en.html`). Ubah di sini dulu, baru sebarkan. Kalau
+ada yang bertentangan dengan berkas lain, berkas ini yang benar.
 
 ## Aturan
 
 - **Pengalaman: "6+ tahun" / "6+ yrs".** Dihitung dari magang pertama (Juli 2020), bukan dari masuk SMK (2017).
-  Deck boleh tetap bercerita sejak 2017, tapi angka pengalamannya 6+.
-- **Nama asli klien dan produknya dipakai** di LinkedIn, CV, landing dan deck (omanlabs.tech), dan berkas ini: BRI (NDS,
+  Linimasa landing boleh tetap bercerita sejak 2017, tapi angka pengalamannya 6+.
+- **Nama asli klien dan produknya dipakai** di LinkedIn, CV, landing (omanlabs.tech), dan berkas ini: BRI (NDS,
   QLOLA), Telkom Indonesia (OCA), Siloam International Hospitals, PT PKSS (PrimaSejahtera), Kolegium Dokter,
-  Hegemoni Group. Khusus grup kecantikan, deck dan ringkasan profil tetap memakai "grup kecantikan multi-brand";
+  Hegemoni Group. Khusus grup kecantikan, landing dan ringkasan profil tetap memakai "grup kecantikan multi-brand";
   nama perusahaan boleh ada di rincian pengalaman profesional dan CV.
 - **Versi umum** (tanpa nama klien maupun nama produk) hanya untuk **bio media sosial** dan **README profil GitHub**.
   Detailnya cukup ditunjuk ke LinkedIn atau omanlabs.tech. Di README GitHub, Hegemoni ditulis
@@ -27,7 +27,7 @@ sebarkan. Kalau ada yang bertentangan dengan berkas lain, berkas ini yang benar.
 
 ### Nama asli ↔ versi umum
 
-| Nama asli (LinkedIn, CV, deck) | Versi umum — Indonesia (bio) | Versi umum — English (bio, README GitHub) |
+| Nama asli (LinkedIn, CV, landing) | Versi umum — Indonesia (bio) | Versi umum — English (bio, README GitHub) |
 |---|---|---|
 | PT Bank Rakyat Indonesia (BRI), tiga kontrak 2022–2025 | salah satu bank terbesar di Indonesia | one of Indonesia's largest banks |
 | — New Delivery System (NDS) | platform layanan frontliner (teller & CS) | branch frontliner platform |
@@ -40,21 +40,24 @@ sebarkan. Kalau ada yang bertentangan dengan berkas lain, berkas ini yang benar.
 | Kolegium Dokter (dashboard keanggotaan) | kolegium dokter nasional | a national doctors' college |
 | Hegemoni Group | grup kecantikan multi-brand | a multi-brand beauty group |
 
-Alias deep-link deck — umum: `#bank`, `#wholesale`, `#omnichannel`, `#rumahsakit`, `#hris`; nama asli (alias
-lama, tetap hidup): `#bri`, `#qlola`, `#oca`, `#siloam`, `#primasejahtera`. Pasangan yang sama menunjuk ke slide
-yang sama. Di README GitHub pakai alias umum.
+Deep link landing (panel bukti, berlaku di `/` dan `/id`): `#skolain`, `#hris`, `#hse`, `#bri`, `#oca`, `#klhk`,
+`#frames`, `#kolegium`. Alias dari deck lama tetap hidup lewat `LEGACY` di `site/lib/content.ts`: umum `#bank`,
+`#wholesale`, `#omnichannel`, `#rumahsakit`, `#dokter`; nama asli `#qlola`, `#siloam`, `#primasejahtera`. README
+GitHub memakai alias umum supaya tautannya tidak memuat nama klien.
 
 ## Identitas
 
 - Nama lengkap: Rochman Ramadhani Chiefto Irawan, S.Kom. Panggilan: Oman. Jakarta. Lahir 12 Desember 2001.
-- Posisi: Forward Deployed Engineer — membantu pemilik bisnis Indonesia tumbuh dengan AI dan sistem.
+- Posisi: Forward Deployed Engineer dan Product Engineer — membantu pemilik bisnis Indonesia tumbuh dengan AI dan sistem.
 - Peran sekarang: Founder & Product Engineer, Skolain (PT Inovasi Mitra Konsultan); Technology Partner,
   Hegemoni Group (grup kecantikan multi-brand); AI Learning Partner untuk pemilik bisnis (Coach Rheo, sejak
   Agustus 2026).
 - Kerja bareng Coach Rheo disebut **AI Learning Partner** / "belajar AI bareng", bukan "AI Advisor", "AI Coaching",
   atau "AI Training": kesannya kolaborasi sesama, bukan menggurui.
 - Hub tautan: **omanlabs.tech**. Email rochmanramadhani12@gmail.com · WhatsApp +62 813 8103 9158.
-- CV: `assets/CV_Rochman_Ramadhani_Product_Engineer.pdf` (nama lama `…_Product_Owner.pdf` dialihkan 301).
+- CV (judul keduanya "Forward Deployed Engineer · Product Engineer · Tech Founder"):
+  `assets/CV_Rochman_Ramadhani_Product_Engineer.pdf` (Indonesia; nama lama `…_Product_Owner.pdf` dialihkan 301) dan
+  `assets/CV_Rochman_Ramadhani_Forward_Deployed_Engineer.pdf` (English). Nama berkas tetap karena tautannya sudah beredar.
 - Handle (21 Oktober 2026):
   - `rochmanrmdhnn`: X, Instagram, Threads, Facebook, YouTube, Pinterest, GitLab, LinkedIn, lynk.id, dan GitHub (sejak rename di Multica OL-861).
   - `rochmanrmdhn`: TikTok (terkunci sampai 19 November 2026).
@@ -100,11 +103,11 @@ yang sama. Di README GitHub pakai alias umum.
 | 12–13 Agt 2026 | Seminar SMK Jakarta Pusat 1 × TechPedia | Pemateri |
 
 Sistem HSE Siloam International Hospitals (Software Architect, 6 engineer, 500+ pengguna harian) dan HRIS
-PrimaSejahtera untuk PT PKSS (50.000+ pengguna) belum bertanggal di CV maupun deck.
+PrimaSejahtera untuk PT PKSS (50.000+ pengguna) belum bertanggal di CV maupun landing.
 
 ## Angka yang boleh dikutip
 
-Semua punya slide pendukung di deck.
+Semua punya bukti pendukung di panel bukti landing.
 
 - 6+ tahun pengalaman.
 - 50.000+ pengguna aktif — HRIS PrimaSejahtera, PT PKSS.

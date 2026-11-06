@@ -1,7 +1,8 @@
 "use client";
 
+import { useLenis } from "lenis/react";
 import { motion, useMotionValueEvent, useScroll, useTransform } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { type FocusEvent, useEffect, useRef, useState } from "react";
 import type { Copy, Work } from "@/lib/content";
 import { Clip } from "./Clip";
 import { Mark } from "./Mark";
@@ -20,6 +21,7 @@ export function WorkTrack({ t, ui }: { t: Copy["work"]; ui: Copy["ui"] }) {
   const track = useRef<HTMLDivElement>(null);
   const [dist, setDist] = useState(0);
   const [active, setActive] = useState(0);
+  const lenis = useLenis();
 
   useEffect(() => {
     const mq = window.matchMedia(PINNED);
@@ -45,6 +47,22 @@ export function WorkTrack({ t, ui }: { t: Copy["work"]; ui: Copy["ui"] }) {
     if (dist) setActive(Math.min(items.length - 1, Math.floor(v * items.length)));
   });
 
+  // Trek di-clip dan hanya bergerak lewat scroll vertikal, jadi browser tidak bisa menggulir ke tombol yang
+  // difokus Tab di luar layar. Panel yang terpotong digeser ke tepi kiri trek: scroll dan geseran x itu 1:1.
+  const onFocus = (e: FocusEvent<HTMLDivElement>) => {
+    const o = outer.current;
+    const tr = track.current;
+    const panel = (e.target as HTMLElement).closest<HTMLElement>(".wk");
+    if (!dist || !o || !tr || !panel) return;
+    const r = panel.getBoundingClientRect();
+    if (r.left >= 0 && r.right <= window.innerWidth) return;
+    const pad = parseFloat(getComputedStyle(tr).paddingLeft);
+    const shift = Math.min(dist, Math.max(0, r.left - tr.getBoundingClientRect().left - pad));
+    const y = o.getBoundingClientRect().top + window.scrollY + shift;
+    if (lenis) lenis.scrollTo(y, { immediate: true });
+    else window.scrollTo(0, y);
+  };
+
   return (
     <section id="work" ref={outer} className="work" style={dist ? { height: `calc(100svh + ${dist}px)` } : undefined}>
       <div className="work-pin">
@@ -57,7 +75,7 @@ export function WorkTrack({ t, ui }: { t: Copy["work"]; ui: Copy["ui"] }) {
           <p className="work-intro">{t.intro}</p>
         </div>
 
-        <motion.div ref={track} className="work-track" style={{ x: dist ? x : 0 }}>
+        <motion.div ref={track} className="work-track" style={{ x: dist ? x : 0 }} onFocus={onFocus}>
           {items.map((w, i) => (
             <Panel key={w.id} w={w} i={i} ui={ui} />
           ))}
@@ -103,7 +121,7 @@ function Panel({ w, i, ui }: { w: Work; i: number; ui: Copy["ui"] }) {
         <p className="wk-text-body">{w.body}</p>
         {w.note && <p className="note wk-note">{w.note}</p>}
         <p className="wk-links">
-          <ProofOpen id={w.id} label={ui.proof} />
+          <ProofOpen id={w.id} label={ui.proof} describedBy={`wk-${w.id}`} />
         </p>
       </div>
     </article>

@@ -1,0 +1,4 @@
+# Cloudflare Pages. Berkas _next/static ber-hash di namanya, jadi aman di-cache setahun.
+# Aset di /assets tidak ber-hash (nama berkasnya sudah beredar), jadi tetap memakai cache bawaan Pages.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable

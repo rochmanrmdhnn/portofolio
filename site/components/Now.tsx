@@ -47,13 +47,13 @@ export function Now({ t, ui }: { t: Copy["now"]; ui: Copy["ui"] }) {
         <article className="now-row now-skolain">
           <div className="now-copy">
             <p className="now-role">{s.role}</p>
-            <h3 className="now-title">Skolain</h3>
+            <h3 id="now-skolain" className="now-title">Skolain</h3>
             <p>{s.body}</p>
             <p className="now-links">
               <a href="https://skolain.id" target="_blank" rel="noopener">
                 skolain.id
               </a>
-              <ProofOpen id="skolain" label={ui.proof} />
+              <ProofOpen id="skolain" label={ui.proof} describedBy="now-skolain" />
             </p>
           </div>
           <p className="now-big">

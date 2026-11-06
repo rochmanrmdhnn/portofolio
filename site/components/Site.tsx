@@ -22,13 +22,13 @@ export function Site({ t }: { t: Copy }) {
         <Hero t={t.hero} wa={t.wa} />
         <Manifesto t={t.manifesto} />
         <WorkTrack t={t.work} ui={t.ui} />
-        <Journey t={t.journey} ui={t.ui} />
         <Owners t={t.owners} wa={t.wa} />
         <Now t={t.now} ui={t.ui} />
+        <Journey t={t.journey} ui={t.ui} />
         <Gear t={t.gear} />
         <Contact t={t.contact} wa={t.wa} legal={t.legal} lang={t.lang} />
       </main>
-      <Proofs proofs={t.proofs} ui={t.ui} />
+      <Proofs proofs={t.proofs} ui={t.ui} wa={t.wa} />
     </>
   );
 }

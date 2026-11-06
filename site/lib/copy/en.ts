@@ -1,15 +1,16 @@
 import { CV_EN, CV_ID, WA_BASE, type Copy } from "../content";
 
 // English, the default at /. Written for readers outside Indonesia: Indonesian institutions get a short gloss
-// the first time they appear. No em dashes. Numbers only from PROFIL.md and the deck.
+// the first time they appear. No em dashes. Numbers only from PROFIL.md.
 export const EN: Copy = {
   lang: "en",
   meta: {
-    title: "Rochman Ramadhani · Forward Deployed Engineer",
+    title: "Rochman Ramadhani · Forward Deployed Engineer & Product Engineer",
     description:
-      "Forward Deployed Engineer who helps business owners grow with AI and well-built systems. Founder of Skolain. 6+ years building for banks, hospitals, schools, and government, with the evidence for each.",
+      "Forward Deployed Engineer and Product Engineer who helps business owners grow with AI and well-built systems. Founder of Skolain. 6+ years building for banks, hospitals, schools, and government, with the evidence for each.",
     locale: "en_US",
     path: "/",
+    og: "/assets/og-landing-en.jpg",
   },
   wa: WA_BASE + encodeURIComponent("Hi Oman, I'd like to talk about my business."),
   ui: {
@@ -23,18 +24,19 @@ export const EN: Copy = {
     pause: "Pause video",
     proof: "Open the proof",
     proofClose: "Close",
+    proofCta: "Talk about your business on WhatsApp",
   },
   nav: [
     { href: "#work", label: "Work" },
-    { href: "#journey", label: "Career" },
     { href: "#approach", label: "How I work" },
     { href: "#now", label: "Now" },
+    { href: "#journey", label: "Career" },
     { href: "#gear", label: "Gear" },
   ],
   hero: {
-    kicker: "Rochman Ramadhani, S.Kom. · Forward Deployed Engineer",
+    kicker: "Rochman Ramadhani, S.Kom. · Forward Deployed Engineer · Product Engineer",
     lines: ["I help", "business owners", "grow", "with AI and systems."],
-    sub: "6+ years building systems used in banks, hospitals, schools, and government. Now I work inside your business until the systems and the AI are running.",
+    sub: "I work inside your business until the systems and the AI are running. Behind it: 6+ years building systems used in banks, hospitals, schools, and government.",
     cta: "Chat on WhatsApp",
     secondary: "See the work",
     note: "every number I claim has its proof below",
@@ -155,13 +157,13 @@ export const EN: Copy = {
   },
   owners: {
     head: ["If ", "you", " run a business."],
-    lead: "Four stages I go through with your business. The last one matters most: your team runs it on its own.",
+    lead: "Four stages I go through with your business, from the first visit to handover.",
     cta: "Tell me about your business",
     stages: [
       { title: "Get into the business", body: "I come in and watch how your team actually works, day to day." },
       { title: "Find what costs the most time and money", body: "I price out every option before anything gets built." },
       { title: "Build the systems and the AI", body: "AI-assisted workflows, and systems that keep running when lots of people use them." },
-      { title: "Stay until your team runs it", body: "I stay involved until your team runs it without me." },
+      { title: "Stay until your team runs it", body: "I train the people who will use it and stay close while it becomes part of their daily work." },
     ],
   },
   now: {
@@ -177,7 +179,7 @@ export const EN: Copy = {
         role: "Technology Partner · since May 2026",
         title: "A multi-brand beauty group",
         body: "I advise on technology decisions and on how their internal systems get built. I weigh what a technical choice will cost early, before the team is already building it.",
-        note: "a lot like my role at Mastah, except here I come in from outside",
+        note: "with them from the decision until the system is built",
         photos: [{ src: "/assets/hegemoni-01.jpg", alt: "Meeting with the team at a multi-brand beauty group", cap: "Interaksi Kopi, Bekasi", tilt: -2.5, speed: 36 }],
         flip: true,
       },
@@ -219,7 +221,7 @@ export const EN: Copy = {
     docsLabel: "Documents",
     docs: [
       { href: CV_EN, label: "CV, three pages (PDF)", value: "Results, numbers, and the work behind them." },
-      { href: CV_ID, label: "CV in Indonesian (PDF)", value: "The Product Engineer version, three pages.", lang: "id" },
+      { href: CV_ID, label: "CV in Indonesian (PDF)", value: "The same CV in Indonesian, three pages.", lang: "id" },
     ],
     top: "Back to top",
   },
