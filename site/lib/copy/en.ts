@@ -18,7 +18,7 @@ export const EN: Copy = {
     nav: "Main",
     menu: "Menu",
     close: "Close",
-    other: { href: "/id", lang: "id", short: "ID", label: "Baca dalam Bahasa Indonesia" },
+    language: "Language",
     play: "Play video",
     pause: "Pause video",
     proof: "Open the proof",
@@ -222,6 +222,13 @@ export const EN: Copy = {
       { href: CV_ID, label: "CV in Indonesian (PDF)", value: "The Product Engineer version, three pages.", lang: "id" },
     ],
     top: "Back to top",
+  },
+  legal: {
+    label: "Legal",
+    privacy: "Privacy Policy",
+    terms: "Terms of Service",
+    home: "Back to the home page",
+    updated: "Last updated November 6, 2026",
   },
   proofs: [
     {

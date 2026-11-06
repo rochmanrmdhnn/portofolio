@@ -26,7 +26,7 @@ export function Site({ t }: { t: Copy }) {
         <Owners t={t.owners} wa={t.wa} />
         <Now t={t.now} ui={t.ui} />
         <Gear t={t.gear} />
-        <Contact t={t.contact} wa={t.wa} />
+        <Contact t={t.contact} wa={t.wa} legal={t.legal} lang={t.lang} />
       </main>
       <Proofs proofs={t.proofs} ui={t.ui} />
     </>

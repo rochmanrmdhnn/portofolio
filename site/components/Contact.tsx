@@ -1,8 +1,8 @@
-import { CHANNELS, type Copy } from "@/lib/content";
+import { CHANNELS, PATHS, type Copy, type Lang } from "@/lib/content";
 import { Phrase } from "./Phrase";
 import { Reveal } from "./Reveal";
 
-export function Contact({ t, wa }: { t: Copy["contact"]; wa: string }) {
+export function Contact({ t, wa, legal, lang }: { t: Copy["contact"]; wa: string; legal: Copy["legal"]; lang: Lang }) {
   const rows = [{ label: "WhatsApp", value: "+62 813 8103 9158", href: wa }, ...CHANNELS];
   return (
     <section id="contact" className="contact">
@@ -45,7 +45,11 @@ export function Contact({ t, wa }: { t: Copy["contact"]; wa: string }) {
 
       <footer className="foot wrap">
         <span>© 2026 Rochman Ramadhani Chiefto Irawan</span>
-        <a href="#top">{t.top}</a>
+        <nav className="foot-links" aria-label={legal.label}>
+          <a href={PATHS.privacy[lang]}>{legal.privacy}</a>
+          <a href={PATHS.terms[lang]}>{legal.terms}</a>
+          <a href="#top">{t.top}</a>
+        </nav>
       </footer>
     </section>
   );

@@ -19,6 +19,38 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://omanlabs.tech/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://omanlabs.tech/privacy"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://omanlabs.tech/id/privasi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://omanlabs.tech/privacy"/>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://omanlabs.tech/id/privasi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://omanlabs.tech/privacy"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://omanlabs.tech/id/privasi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://omanlabs.tech/privacy"/>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://omanlabs.tech/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://omanlabs.tech/terms"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://omanlabs.tech/id/ketentuan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://omanlabs.tech/terms"/>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://omanlabs.tech/id/ketentuan</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://omanlabs.tech/terms"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://omanlabs.tech/id/ketentuan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://omanlabs.tech/terms"/>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://omanlabs.tech/PROFIL.md</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>

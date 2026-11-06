@@ -3,7 +3,7 @@
 Dokumen yang saling menopang:
 
 - **`site/`** → **omanlabs.tech**. Landing page Next.js (static export), hub tautan yang dituju semua bio media
-  sosial, dalam dua bahasa: Inggris di `/`, Indonesia di `/id` (tombol EN/ID di header). Isinya posisi sekarang
+  sosial, dalam dua bahasa: Inggris di `/`, Indonesia di `/id` (pemilih bahasa berbendera di header). Isinya posisi sekarang
   (Forward Deployed Engineer yang membantu pemilik bisnis tumbuh dengan AI dan sistem), delapan proyek dengan panel
   buktinya, perjalanan 2017–2026, cara kerja, dan kontak dengan WhatsApp paling depan. Copy ada di
   `site/lib/copy/{en,id}.ts`; keputusan desain dan motion di `site/DESIGN.md`.
@@ -13,6 +13,12 @@ Dokumen yang saling menopang:
   PDF lama masih beredar.
 - **`deck.html`**: arsip deck *6+ Tahun Berkarya* (39 slide, satu file HTML). Tidak di-deploy lagi; isinya sudah
   pindah ke panel bukti landing, dan `/deck` dialihkan 301 ke `/`.
+- **Halaman legal** (`/privacy`, `/terms`; Indonesia di `/id/privasi`, `/id/ketentuan`, dan `/privasi`, `/ketentuan`
+  dialihkan 301 ke sana): Kebijakan Privasi dan Ketentuan Layanan untuk alat posting pribadi Omanlabs Konten dan
+  Skolain Konten. URL versi Inggris yang diisi di portal developer TikTok, Google/YouTube, Meta, LinkedIn, dan
+  Pinterest; jangan dipindah. Copy di `site/lib/copy/legal-{en,id}.ts`. Kebijakannya menyatakan token hanya disimpan
+  di macOS Keychain di komputer sendiri, tanpa server, cookie, atau analitik; skrip posting harus mematuhi itu, dan
+  tanggal "Last updated" dinaikkan tiap isinya berubah.
 
 Aturan yang mengikat semuanya: **CV menyebut angkanya, panel bukti menunjukkan artefaknya.** Tidak boleh ada
 angka di CV yang tidak punya bukti pendukung, dan sebaliknya. Landing hanya memakai angka yang sudah ada di
@@ -33,8 +39,8 @@ dan `_redirects` seperti di Cloudflare.
 
 SEO/AEO/GEO: `<head>` kedua halaman memuat satu blok JSON-LD `Person` (nama, alias, jabatan, penghargaan, `sameAs`
 ke semua profil sosial), `canonical`, dan `hreflang` en/id/x-default. `llms.txt` (bahasa Inggris, format
-llmstxt.org) merangkum profil untuk mesin jawaban. `sitemap.xml` mendaftar `/` dan `/id` (dengan `xhtml:link`
-hreflang), `PROFIL.md`, dan `llms.txt`; naikkan `lastmod`-nya tiap ada perubahan isi.
+llmstxt.org) merangkum profil untuk mesin jawaban. `sitemap.xml` mendaftar `/`, `/id`, empat halaman legal (dengan
+`xhtml:link` hreflang), `PROFIL.md`, dan `llms.txt`; naikkan `lastmod`-nya tiap ada perubahan isi.
 
 ## Menjalankan
 

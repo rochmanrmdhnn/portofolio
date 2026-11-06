@@ -263,13 +263,8 @@ a {
 
 /* Breakpoint memakai em (16px = 1em) supaya layout ikut ukuran teks pilihan pengguna: dengan teks 200%,
    layar 1440px berperilaku seperti 720px, bukan desktop dengan teks yang meluber.
-   Header ponsel (terukur): nama lengkap 174px, penanda bahasa aktif 45px, WhatsApp 105px, Menu 72px. Di bawah 32em
-   (512px) penanda bahasa disembunyikan (tautan bahasa lain tetap), di bawah 30em (480px) juga nama belakang. */
-@media (max-width: 32em) {
-  .hdr-lang span {
-    display: none;
-  }
-}
+   Di landing, pemilih bahasa pindah ke dalam Menu di bawah 56.25em, jadi header ponsel berisi nama, WhatsApp,
+   dan Menu. Di bawah 30em (480px) nama belakang disembunyikan. */
 
 @media (max-width: 30em) {
   .hdr-brand-last {
@@ -277,9 +272,10 @@ a {
   }
 }
 
-/* Di bawah 24em (384px: nama + bahasa + WhatsApp + Menu butuh 378px) WhatsApp disembunyikan supaya Menu tetap muat.
-   WhatsApp tetap ada di hero. */
-@media (max-width: 24em) {
+/* Di bawah 21em (336px) WhatsApp disembunyikan. Diukur di 390px: landing (nama + WhatsApp + Menu) sisa 88px,
+   halaman legal (nama + bahasa + WhatsApp) sisa 68px, jadi keduanya masih muat sampai sekitar 335px.
+   WhatsApp tetap ada di hero dan di bagian Kontak. */
+@media (max-width: 21em) {
   .hdr-actions .btn-sm {
     display: none;
   }
@@ -309,42 +305,139 @@ a {
   align-items: center;
 }
 
-/* Pemilih bahasa: bahasa aktif redup sebagai penanda, bahasa lain jadi tautan bergaris bawah. */
-.hdr-lang {
-  display: flex;
+/* Pemilih bahasa berbendera (components/LanguageMenu.tsx), pola adr-medika-web. Panel selalu ada di DOM supaya bisa
+   beranimasi masuk dan keluar; tertutup = tak terlihat + inert. Buka 200 ms, tutup 140 ms. */
+.lang {
+  position: relative;
+}
+
+.lang-btn {
+  display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: 8px;
+  min-height: 44px;
+  padding-inline: 12px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--chalk);
+  font: inherit;
   font-family: var(--font-display), sans-serif;
   font-weight: 700;
   font-size: 0.875rem;
-  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 160ms var(--ease);
 }
 
-.hdr-lang span {
-  padding-inline: 8px 4px;
+.lang-btn:hover {
+  background: rgb(255 255 255 / 0.06);
+}
+
+.lang-btn svg {
   color: var(--chalk-dim);
+  transition: rotate 200ms var(--ease);
 }
 
-.hdr-lang span::after {
-  content: "/";
-  margin-left: 6px;
-  color: var(--line-strong);
+.lang-btn[aria-expanded="true"] svg {
+  rotate: 180deg;
 }
 
-.hdr-lang a {
-  display: inline-flex;
+.lang-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 120px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--board-deep);
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.4);
+  transform-origin: top right;
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 -6px;
+  scale: 0.97;
+  transition:
+    opacity 140ms ease-in,
+    translate 140ms ease-in,
+    scale 140ms ease-in,
+    visibility 0s linear 140ms;
+}
+
+.lang-list[data-open] {
+  opacity: 1;
+  visibility: visible;
+  translate: 0 0;
+  scale: 1;
+  transition:
+    opacity 200ms var(--ease),
+    translate 200ms var(--ease),
+    scale 200ms var(--ease),
+    visibility 0s;
+}
+
+.lang-list a,
+.menu-langs a {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  min-width: 44px;
+  gap: 10px;
   min-height: 44px;
-  text-decoration: underline;
-  text-decoration-color: var(--line-strong);
-  text-underline-offset: 5px;
-  transition: text-decoration-color 160ms var(--ease);
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  text-decoration: none;
 }
 
-.hdr-lang a:hover {
-  text-decoration-color: var(--yellow);
+.lang-list a {
+  padding-inline: 12px;
+  border-radius: 8px;
+}
+
+.lang-list a:hover {
+  background: rgb(255 255 255 / 0.06);
+}
+
+.lang-list a:focus-visible {
+  outline-offset: -3px;
+}
+
+.lang-list a[aria-current="page"],
+.menu-langs a[aria-current="page"] {
+  color: var(--yellow);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+/* Bendera 4:3 dengan garis tipis supaya putih bendera Indonesia tetap terbaca di latar gelap. */
+.flag {
+  flex-shrink: 0;
+  width: 20px;
+  height: 15px;
+  border-radius: 3px;
+  outline: 1px solid rgb(255 255 255 / 0.18);
+  outline-offset: -1px;
+  object-fit: cover;
+}
+
+.menu-langs {
+  display: flex;
+  gap: 4px 20px;
+  margin: auto 0 0;
+  padding: 20px 0 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .hdr-menu {
@@ -381,7 +474,7 @@ a {
   background: var(--board-deep);
 }
 
-.menu a {
+.menu > a {
   padding-block: 10px;
   font-family: var(--font-display), sans-serif;
   font-weight: 700;
@@ -392,7 +485,8 @@ a {
 }
 
 @media (max-width: 56.1875em) {
-  .hdr-nav {
+  .hdr-nav,
+  .hdr-lang {
     display: none;
   }
 
@@ -1865,6 +1959,16 @@ a {
   margin-block: -12px;
 }
 
+.foot-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+}
+
+.foot a[aria-current="page"] {
+  color: var(--chalk);
+}
+
 @media (max-width: 43.6875em) {
   .contact-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -1890,6 +1994,85 @@ a {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 16px;
+}
+
+/* ---------- Halaman legal (Kebijakan Privasi, Ketentuan Layanan) ---------- */
+/* Kolom teks sempit (sekitar 70 karakter per baris): dokumen untuk dibaca, bukan halaman pamer. */
+.legal {
+  width: min(100% - 2 * var(--pad), 46rem);
+  padding-top: calc(var(--hdr) + clamp(48px, 8vh, 96px));
+  color: var(--chalk-dim);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.legal-title {
+  color: var(--chalk);
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 1.75rem + 3vw, 4rem);
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.legal-date {
+  margin-top: 16px;
+  font-size: 0.9375rem;
+}
+
+.legal-intro {
+  margin-top: 32px;
+  color: var(--chalk);
+  font-size: 1.1875rem;
+}
+
+.legal section {
+  margin-top: clamp(40px, 5vw, 56px);
+}
+
+.legal h2 {
+  color: var(--chalk);
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.legal h2 + *,
+.legal section > * + * {
+  margin-top: 12px;
+}
+
+.legal ul {
+  display: grid;
+  gap: 8px;
+  padding-left: 1.25em;
+}
+
+.legal li::marker {
+  color: var(--yellow);
+}
+
+.legal .legal-links {
+  list-style: none;
+  padding-left: 0;
+  gap: 2px;
+}
+
+.legal-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  color: var(--chalk);
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 5px;
+  transition: text-decoration-color 160ms var(--ease);
+}
+
+.legal-links a:hover {
+  text-decoration-color: var(--yellow);
 }
 
 /* ---------- Reduced motion: semua konten langsung tampil, tanpa gerak. ---------- */

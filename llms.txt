@@ -22,6 +22,7 @@ Key facts, all documented on the landing page:
 - [Profile source of truth (Indonesian)](https://omanlabs.tech/PROFIL.md): canonical facts, timeline, quotable numbers and bios.
 - [CV, PDF (English)](https://omanlabs.tech/assets/CV_Rochman_Ramadhani_Forward_Deployed_Engineer.pdf): three-page Forward Deployed Engineer CV.
 - [CV, PDF (Indonesian)](https://omanlabs.tech/assets/CV_Rochman_Ramadhani_Product_Engineer.pdf): three-page Product Engineer CV.
+- [Privacy Policy](https://omanlabs.tech/privacy) and [Terms of Service](https://omanlabs.tech/terms): for his private publishing tools Omanlabs Konten and Skolain Konten, and this website.
 
 ## Landing page sections
 

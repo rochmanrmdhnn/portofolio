@@ -18,7 +18,7 @@ export const ID: Copy = {
     nav: "Utama",
     menu: "Menu",
     close: "Tutup",
-    other: { href: "/", lang: "en", short: "EN", label: "Read in English" },
+    language: "Bahasa",
     play: "Putar video",
     pause: "Jeda video",
     proof: "Buka buktinya",
@@ -222,6 +222,13 @@ export const ID: Copy = {
       { href: CV_EN, label: "CV bahasa Inggris (PDF)", value: "Versi Forward Deployed Engineer, tiga halaman.", lang: "en" },
     ],
     top: "Kembali ke atas",
+  },
+  legal: {
+    label: "Legal",
+    privacy: "Kebijakan Privasi",
+    terms: "Ketentuan Layanan",
+    home: "Kembali ke beranda",
+    updated: "Terakhir diperbarui 6 November 2026",
   },
   proofs: [
     {

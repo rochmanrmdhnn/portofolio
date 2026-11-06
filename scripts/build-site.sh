@@ -21,7 +21,7 @@ rsync -a --exclude assets "$REPO/site/out/" "$DIST/"
 rsync -a "$REPO/assets" "$DIST/"
 cp "$REPO/PROFIL.md" "$REPO/llms.txt" "$REPO/robots.txt" "$REPO/sitemap.xml" "$REPO/_redirects" "$DIST/"
 
-for f in index.html id.html assets/CV_Rochman_Ramadhani_Product_Engineer.pdf assets/CV_Rochman_Ramadhani_Forward_Deployed_Engineer.pdf _redirects; do
+for f in index.html id.html privacy.html terms.html id/privasi.html id/ketentuan.html assets/flags/gb.svg assets/CV_Rochman_Ramadhani_Product_Engineer.pdf assets/CV_Rochman_Ramadhani_Forward_Deployed_Engineer.pdf _redirects; do
   [ -s "$DIST/$f" ] || { echo "hilang di dist: $f" >&2; exit 1; }
 done
 printf 'dist siap: %s (%s)\n' "$DIST" "$(du -sh "$DIST" | cut -f1)"

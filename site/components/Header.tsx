@@ -3,11 +3,11 @@
 import { AnimatePresence, motion, useScroll, useSpring } from "motion/react";
 import { useLenis } from "lenis/react";
 import { useEffect, useState } from "react";
-import type { Copy } from "@/lib/content";
+import { PATHS, type Copy } from "@/lib/content";
+import { LanguageLinks, LanguageMenu } from "./LanguageMenu";
 
 export function Header({ t }: { t: Copy }) {
   const { ui, nav } = t;
-  const other = ui.other;
   const [open, setOpen] = useState(false);
   const lenis = useLenis();
   const { scrollYProgress } = useScroll();
@@ -37,25 +37,9 @@ export function Header({ t }: { t: Copy }) {
         ))}
       </nav>
       <div className="hdr-actions">
-        {/* Bahasa aktif hanya penanda visual; pembaca layar sudah tahu dari <html lang>. Saat diklik, tautan membawa
-            hash section yang sedang dibaca (yang terakhir melewati 40% tinggi layar), jadi pindah bahasa tidak
-            melempar pembaca kembali ke atas. Tanpa JS: ke puncak halaman bahasa lain. */}
+        {/* Desktop: pemilih berbendera di header. Ponsel: daftar bahasa pindah ke dalam Menu supaya WhatsApp muat. */}
         <div className="hdr-lang">
-          <span aria-hidden="true">{t.lang.toUpperCase()}</span>
-          <a
-            href={other.href}
-            hrefLang={other.lang}
-            lang={other.lang}
-            aria-label={`${other.short} · ${other.label}`}
-            onClick={(e) => {
-              const read = Array.from(document.querySelectorAll("main section[id]"))
-                .filter((s) => s.getBoundingClientRect().top <= window.innerHeight * 0.4)
-                .pop();
-              e.currentTarget.href = other.href + (read && read.id !== "top" ? `#${read.id}` : "");
-            }}
-          >
-            {other.short}
-          </a>
+          <LanguageMenu lang={t.lang} hrefs={PATHS.home} label={ui.language} carry />
         </div>
         <a className="btn btn-primary btn-sm" href={t.wa} target="_blank" rel="noopener">
           WhatsApp
@@ -95,6 +79,9 @@ export function Header({ t }: { t: Copy }) {
                 {n.label}
               </motion.a>
             ))}
+            <ul className="menu-langs" aria-label={ui.language}>
+              <LanguageLinks lang={t.lang} hrefs={PATHS.home} carry onPick={() => setOpen(false)} />
+            </ul>
           </motion.nav>
         )}
       </AnimatePresence>

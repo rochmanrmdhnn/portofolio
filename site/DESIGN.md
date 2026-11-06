@@ -8,8 +8,11 @@ punya bukti di `PROFIL.md` atau deck arsip (`deck.html`), dan tiap proyek membuk
 
 **Bahasa:** Inggris di `/` (default), Indonesia di `/id`. Dua root layout (`app/(en)`, `app/(id)/id`) supaya
 `<html lang>` sudah benar di HTML statis; isi halaman sama, copy dari `lib/copy/en.ts` dan `lib/copy/id.ts` (tipe
-`Copy` di `lib/content.ts` memaksa keduanya lengkap). Tanpa deteksi bahasa otomatis: pengunjung memilih lewat EN/ID di
-header, dan tautannya membawa section yang sedang dibaca. Copy Inggris ditulis ulang, bukan diterjemahkan kata per
+`Copy` di `lib/content.ts` memaksa keduanya lengkap). Tanpa deteksi bahasa otomatis: pengunjung memilih lewat pemilih
+berbendera (`components/LanguageMenu.tsx`, pola adr-medika-web: disclosure berisi tautan biasa, bukan `role=menu`;
+bendera dari flag-icons, MIT, di `assets/flags`). Kode bahasa tetap tertulis, jadi bendera hanya penanda. Di ponsel
+daftar bahasa pindah ke dalam Menu. Di landing tautannya membawa section yang sedang dibaca. Halaman legal memakai
+header ringkas yang sama tanpa nav section. Copy Inggris ditulis ulang, bukan diterjemahkan kata per
 kata; nama lembaga Indonesia diberi penjelasan singkat saat pertama muncul (KLHK, Dapodik, e-Rapor, Perum Bulog).
 
 ## Identitas
@@ -96,9 +99,10 @@ slide deck dalam blok bertipe (`list`, `entries` dengan `steps` bernomor untuk u
   Uji: `Page.setFontSizes` lewat CDP (standard 32), bukan `html{font-size:200%}`, yang tidak menggeser breakpoint em.
 - **Caption polaroid ada dalam arus** (flex column, `margin-top: auto`), bukan absolut, jadi pita bawah ikut tinggi
   caption dan tidak pernah menimpa foto.
-- **Header ponsel diukur, bukan ditebak.** Nama lengkap 174px, penanda bahasa aktif 45px, WhatsApp 105px, Menu 72px:
-  penanda bahasa hilang di bawah 32em, nama belakang di bawah 30em, WhatsApp header di bawah 24em. Sapuan 320–1440px
-  per 10px di kedua bahasa tanpa elemen keluar layar.
+- **Header ponsel diukur, bukan ditebak.** Di bawah 56.25em landing berisi nama, WhatsApp, dan Menu (pemilih bahasa
+  pindah ke Menu), sedangkan halaman legal berisi nama, pemilih bahasa, dan WhatsApp. Di 390px sisanya 88px (landing)
+  dan 68px (legal), jadi nama belakang hilang di bawah 30em dan WhatsApp header di bawah 21em. Sapuan 320–1440px
+  tanpa elemen keluar layar atau bertumpuk.
 - **`@types/react` 19.3 belum mengenal `commandfor`/`command`**: deklarasinya di `types/invokers.d.ts`. React
   meneruskan atribut huruf kecil yang tidak dikenal ke DOM apa adanya.
 - **Dua root layout tidak punya induk untuk 404**: `app/global-not-found.tsx` (flag `experimental.globalNotFound`)
