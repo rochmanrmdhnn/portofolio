@@ -251,7 +251,7 @@ export const EN: Copy = {
           kind: "list",
           items: [
             "Used across every hospital unit and the head office, by 500+ people a day.",
-            "As Software Architect, I led 6 engineers and owned architecture decisions, code review, and the delivery timeline.",
+            "As Software Architect, I led 6 engineers and owned architecture decisions, code review, and the release schedule.",
             "Rust backend; Bun, Vite, and React on the frontend.",
             "All infrastructure on AWS: ECS, ECR, RDS PostgreSQL, CloudWatch, S3, ALB, VPC, IAM.",
           ],
@@ -280,7 +280,7 @@ export const EN: Copy = {
             {
               k: "Dec 2024 to Dec 2025",
               t: "NDS, back as Senior",
-              d: "Held back code-quality decay through code review and enforced coding standards, and served as the technical reference for other engineers. SAST, DAST, and SonarQube became part of the release cycle instead of a check at the end.",
+              d: "Kept code quality from slipping through code review and enforced coding standards, and served as the technical reference for other engineers. SAST, DAST, and SonarQube became part of the release cycle instead of a check at the end.",
             },
           ],
         },
