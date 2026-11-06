@@ -1,5 +1,5 @@
 // Tipe dan data yang tidak bergantung bahasa. Teks halaman ada di lib/copy/en.ts dan lib/copy/id.ts.
-// Sumber kebenaran fakta: PROFIL.md dan deck.html. Jangan menambah angka yang tidak ada di sana.
+// Sumber kebenaran fakta: PROFIL.md. Jangan menambah angka yang tidak ada di sana.
 
 export type Lang = "en" | "id";
 
@@ -59,7 +59,7 @@ export type Chapter = {
 
 export type Photo = { src: string; alt: string; cap: string; tilt: number; speed: number };
 
-// Isi panel bukti, disusun ulang dari slide deck. `steps` = urutan yang memang berurutan (diberi nomor).
+// Isi panel bukti, disusun ulang dari slide deck lama. `steps` = urutan yang memang berurutan (diberi nomor).
 export type Block =
   | { kind: "list"; title?: string; items: string[] }
   | { kind: "entries"; title?: string; steps?: boolean; items: { k?: string; t: string; d: string }[] }
@@ -146,7 +146,7 @@ export type LegalDoc = {
 };
 export type Legal = { privacy: LegalDoc; terms: LegalDoc };
 
-// Tautan lama deck: alias dan nomor slide (1-based, /#16 = slide indeks 15) yang tercetak di CV lama.
+// Tautan deck lama: alias dan nomor slide (1-based, /#16 = slide indeks 15) yang tercetak di CV lama.
 // Skrip di <head> menukarnya ke hash landing sebelum halaman dirender. "" = puncak halaman.
 export const LEGACY: Record<string, string> = {
   peta: "journey", angka: "", wisuda: "journey", produk: "work", skolain: "skolain", hris: "hris",

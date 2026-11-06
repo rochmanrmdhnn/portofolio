@@ -1,13 +1,13 @@
 import { CV_EN, CV_ID, WA_BASE, type Copy } from "../content";
 
 // English, the default at /. Written for readers outside Indonesia: Indonesian institutions get a short gloss
-// the first time they appear. No em dashes. Numbers only from PROFIL.md and the deck.
+// the first time they appear. No em dashes. Numbers only from PROFIL.md.
 export const EN: Copy = {
   lang: "en",
   meta: {
-    title: "Rochman Ramadhani · Forward Deployed Engineer",
+    title: "Rochman Ramadhani · Forward Deployed Engineer & Product Engineer",
     description:
-      "Forward Deployed Engineer who helps business owners grow with AI and well-built systems. Founder of Skolain. 6+ years building for banks, hospitals, schools, and government, with the evidence for each.",
+      "Forward Deployed Engineer and Product Engineer who helps business owners grow with AI and well-built systems. Founder of Skolain. 6+ years building for banks, hospitals, schools, and government, with the evidence for each.",
     locale: "en_US",
     path: "/",
   },
@@ -32,7 +32,7 @@ export const EN: Copy = {
     { href: "#gear", label: "Gear" },
   ],
   hero: {
-    kicker: "Rochman Ramadhani, S.Kom. · Forward Deployed Engineer",
+    kicker: "Rochman Ramadhani, S.Kom. · Forward Deployed Engineer · Product Engineer",
     lines: ["I help", "business owners", "grow", "with AI and systems."],
     sub: "6+ years building systems used in banks, hospitals, schools, and government. Now I work inside your business until the systems and the AI are running.",
     cta: "Chat on WhatsApp",
@@ -177,7 +177,7 @@ export const EN: Copy = {
         role: "Technology Partner · since May 2026",
         title: "A multi-brand beauty group",
         body: "I advise on technology decisions and on how their internal systems get built. I weigh what a technical choice will cost early, before the team is already building it.",
-        note: "a lot like my role at Mastah, except here I come in from outside",
+        note: "with them from the decision until the system is built",
         photos: [{ src: "/assets/hegemoni-01.jpg", alt: "Meeting with the team at a multi-brand beauty group", cap: "Interaksi Kopi, Bekasi", tilt: -2.5, speed: 36 }],
         flip: true,
       },
@@ -219,7 +219,7 @@ export const EN: Copy = {
     docsLabel: "Documents",
     docs: [
       { href: CV_EN, label: "CV, three pages (PDF)", value: "Results, numbers, and the work behind them." },
-      { href: CV_ID, label: "CV in Indonesian (PDF)", value: "The Product Engineer version, three pages.", lang: "id" },
+      { href: CV_ID, label: "CV in Indonesian (PDF)", value: "The same CV in Indonesian, three pages.", lang: "id" },
     ],
     top: "Back to top",
   },

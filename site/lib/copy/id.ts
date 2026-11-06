@@ -1,13 +1,13 @@
 import { CV_EN, CV_ID, WA_BASE, type Copy } from "../content";
 
 // Bahasa Indonesia, di /id. Register: "saya" dan "Anda", boleh santai ("bareng", "chat") di kalimat pendek.
-// Tanpa em dash. Angka hanya dari PROFIL.md dan deck.
+// Tanpa em dash. Angka hanya dari PROFIL.md.
 export const ID: Copy = {
   lang: "id",
   meta: {
-    title: "Rochman Ramadhani · Forward Deployed Engineer",
+    title: "Rochman Ramadhani · Forward Deployed Engineer & Product Engineer",
     description:
-      "Forward Deployed Engineer yang membantu pemilik bisnis tumbuh dengan AI dan sistem. Founder Skolain. 6+ tahun membangun untuk bank, rumah sakit, sekolah, dan pemerintah, lengkap dengan buktinya.",
+      "Forward Deployed Engineer dan Product Engineer yang membantu pemilik bisnis tumbuh dengan AI dan sistem. Founder Skolain. 6+ tahun membangun untuk bank, rumah sakit, sekolah, dan pemerintah, lengkap dengan buktinya.",
     locale: "id_ID",
     path: "/id",
   },
@@ -32,7 +32,7 @@ export const ID: Copy = {
     { href: "#gear", label: "Gear" },
   ],
   hero: {
-    kicker: "Rochman Ramadhani, S.Kom. · Forward Deployed Engineer",
+    kicker: "Rochman Ramadhani, S.Kom. · Forward Deployed Engineer · Product Engineer",
     lines: ["Saya membantu", "pemilik bisnis", "tumbuh", "dengan AI dan sistem."],
     sub: "6+ tahun membangun sistem yang dipakai di bank, rumah sakit, sekolah, dan pemerintah. Sekarang saya ikut turun ke bisnis Anda sampai sistem dan AI-nya jalan.",
     cta: "Chat di WhatsApp",
@@ -177,7 +177,7 @@ export const ID: Copy = {
         role: "Technology Partner · sejak Mei 2026",
         title: "Grup kecantikan multi-brand",
         body: "Saya mendampingi keputusan teknologi dan arah implementasi sistem internalnya. Ongkos sebuah pilihan teknis saya nilai sejak awal, sebelum tim telanjur mengerjakannya.",
-        note: "peran yang mirip dengan di Mastah, bedanya di sini saya datang dari luar",
+        note: "ikut dari keputusan sampai sistemnya jadi",
         photos: [{ src: "/assets/hegemoni-01.jpg", alt: "Pertemuan bersama tim grup kecantikan multi-brand", cap: "Interaksi Kopi, Bekasi", tilt: -2.5, speed: 36 }],
         flip: true,
       },
@@ -219,7 +219,7 @@ export const ID: Copy = {
     docsLabel: "Dokumen",
     docs: [
       { href: CV_ID, label: "CV, tiga halaman (PDF)", value: "Hasil, angka, dan apa saja yang saya kerjakan." },
-      { href: CV_EN, label: "CV bahasa Inggris (PDF)", value: "Versi Forward Deployed Engineer, tiga halaman.", lang: "en" },
+      { href: CV_EN, label: "CV bahasa Inggris (PDF)", value: "CV yang sama dalam bahasa Inggris, tiga halaman.", lang: "en" },
     ],
     top: "Kembali ke atas",
   },

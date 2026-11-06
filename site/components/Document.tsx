@@ -42,7 +42,7 @@ const serif = localFont({
 export const VIEWPORT: Viewport = { themeColor: "#14231C", colorScheme: "dark" };
 
 export function metadataFor(t: Copy): Metadata {
-  const og = { url: "/assets/og-landing.jpg", width: 1200, height: 630, alt: "Rochman Ramadhani, Forward Deployed Engineer" };
+  const og = { url: "/assets/og-landing.jpg", width: 1200, height: 630, alt: "Rochman Ramadhani, Forward Deployed Engineer and Product Engineer" };
   return {
     metadataBase: new URL("https://omanlabs.tech"),
     title: t.meta.title,
@@ -77,9 +77,9 @@ const PERSON = {
   name: "Rochman Ramadhani Chiefto Irawan",
   alternateName: ["Rochman Ramadhani", "Oman"],
   honorificSuffix: "S.Kom.",
-  jobTitle: "Forward Deployed Engineer",
+  jobTitle: ["Forward Deployed Engineer", "Product Engineer"],
   description:
-    "Forward Deployed Engineer who helps Indonesian business owners grow with AI and well-built systems. Founder of Skolain. 6+ years building production systems for banking, healthcare, government and education.",
+    "Forward Deployed Engineer and Product Engineer who helps Indonesian business owners grow with AI and well-built systems. Founder of Skolain. 6+ years building production systems for banking, healthcare, government and education.",
   url: "https://omanlabs.tech",
   image: "https://omanlabs.tech/assets/profile.jpg",
   email: "mailto:rochmanramadhani12@gmail.com",
