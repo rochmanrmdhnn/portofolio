@@ -3,3 +3,7 @@
 /deck.html / 301
 /privasi /id/privasi 301
 /ketentuan /id/ketentuan 301
+/id/privacy /id/privasi 301
+/id/terms /id/ketentuan 301
+/en / 301
+/en/* /:splat 301
