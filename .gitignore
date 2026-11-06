@@ -2,3 +2,8 @@
 node_modules/
 cv/out/
 .wrangler/
+dist/
+site/.next/
+site/out/
+site/next-env.d.ts
+site/tsconfig.tsbuildinfo

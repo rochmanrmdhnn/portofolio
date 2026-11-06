@@ -1,20 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://omanlabs.tech/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://omanlabs.tech/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://omanlabs.tech/id"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://omanlabs.tech/"/>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://omanlabs.tech/id</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://omanlabs.tech/"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://omanlabs.tech/id"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://omanlabs.tech/"/>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://omanlabs.tech/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://omanlabs.tech/privacy"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://omanlabs.tech/id/privasi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://omanlabs.tech/privacy"/>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://omanlabs.tech/id/privasi</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://omanlabs.tech/privacy"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://omanlabs.tech/id/privasi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://omanlabs.tech/privacy"/>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://omanlabs.tech/terms</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://omanlabs.tech/terms"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://omanlabs.tech/id/ketentuan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://omanlabs.tech/terms"/>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://omanlabs.tech/id/ketentuan</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://omanlabs.tech/terms"/>
+    <xhtml:link rel="alternate" hreflang="id" href="https://omanlabs.tech/id/ketentuan"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://omanlabs.tech/terms"/>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://omanlabs.tech/PROFIL.md</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://omanlabs.tech/llms.txt</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

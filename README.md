@@ -1,54 +1,70 @@
 # Portofolio — Rochman Ramadhani Chiefto Irawan
 
-Dua dokumen yang saling menopang:
+Dokumen yang saling menopang:
 
-- **`index.html`** — deck *6+ Tahun Berkarya*. 39 slide, satu file HTML, tanpa dependensi. Ini hub tautan
-  (omanlabs.tech) yang dituju semua bio media sosial, jadi sampul, slide kenalan, dan penutupnya membuka dengan
-  posisi sekarang: Forward Deployed Engineer yang membantu pemilik bisnis tumbuh dengan AI dan sistem — Founder
-  Skolain, Technology Partner di Hegemoni Group, AI Learning Partner. Slide `#bisnis` merangkum yang dikerjakan
-  untuk pemilik bisnis, dan slide kontak menaruh WhatsApp paling depan.
-  Lapisan dokumentasi: linimasa lengkap 2017–2026, produk yang dipegang, konsultansi, dan bukti kerjanya.
-- **`cv/cv.html`** → **`assets/CV_Rochman_Ramadhani_Product_Engineer.pdf`** — CV Product Engineer tiga halaman,
-  fokus ke hasil. Nama lama `CV_Rochman_Ramadhani_Product_Owner.pdf` dialihkan 301 ke sini lewat `_redirects`
-  (Cloudflare Pages), karena tautan ke PDF lama masih beredar.
+- **`site/`** → **omanlabs.tech**. Landing page Next.js (static export), hub tautan yang dituju semua bio media
+  sosial, dalam dua bahasa: Inggris di `/`, Indonesia di `/id` (pemilih bahasa berbendera di header). Isinya posisi sekarang
+  (Forward Deployed Engineer yang membantu pemilik bisnis tumbuh dengan AI dan sistem), delapan proyek dengan panel
+  buktinya, perjalanan 2017–2026, cara kerja, dan kontak dengan WhatsApp paling depan. Copy ada di
+  `site/lib/copy/{en,id}.ts`; keputusan desain dan motion di `site/DESIGN.md`.
+- **`cv/cv.html`** → **`assets/CV_Rochman_Ramadhani_Product_Engineer.pdf`**: CV Product Engineer tiga halaman,
+  fokus ke hasil. Versi Inggris: `assets/CV_Rochman_Ramadhani_Forward_Deployed_Engineer.pdf`. Nama lama
+  `CV_Rochman_Ramadhani_Product_Owner.pdf` dialihkan 301 lewat `_redirects` (Cloudflare Pages), karena tautan ke
+  PDF lama masih beredar.
+- **`deck.html`**: arsip deck *6+ Tahun Berkarya* (39 slide, satu file HTML). Tidak di-deploy lagi; isinya sudah
+  pindah ke panel bukti landing, dan `/deck` dialihkan 301 ke `/`.
+- **Halaman legal** (`/privacy`, `/terms`; Indonesia di `/id/privasi`, `/id/ketentuan`, dan `/privasi`, `/ketentuan`
+  dialihkan 301 ke sana): Kebijakan Privasi dan Ketentuan Layanan untuk alat posting pribadi Omanlabs Konten dan
+  Skolain Konten. URL versi Inggris yang diisi di portal developer TikTok, Google/YouTube, Meta, LinkedIn, dan
+  Pinterest; jangan dipindah. Copy di `site/lib/copy/legal-{en,id}.ts`. Kebijakannya menyatakan token hanya disimpan
+  di macOS Keychain di komputer sendiri, tanpa server, cookie, atau analitik; skrip posting harus mematuhi itu, dan
+  tanggal "Last updated" dinaikkan tiap isinya berubah.
 
-Aturan yang mengikat keduanya: **CV menyebut angkanya, deck menunjukkan artefaknya.** Tidak boleh ada
-angka di CV yang tidak punya slide pendukung, dan sebaliknya.
+Aturan yang mengikat semuanya: **CV menyebut angkanya, panel bukti menunjukkan artefaknya.** Tidak boleh ada
+angka di CV yang tidak punya bukti pendukung, dan sebaliknya. Landing hanya memakai angka yang sudah ada di
+`PROFIL.md` dan deck.
 
 Hosting: [omanlabs.tech](https://omanlabs.tech) (Cloudflare Pages, proyek `rochman-ramadhani` di akun yang
 sama dengan zona `omanlabs.tech`). Domain lama `oman-porto.skolain.id` (proyek `oman-porto` di akun lain)
-dialihkan ke sini. Deploy: `git archive main` ke folder sementara, lalu `wrangler pages deploy . --project-name
-rochman-ramadhani --branch main`.
+dialihkan ke sini. Deploy dari checkout `main` yang bersih:
 
-SEO/AEO/GEO: `<head>` deck memuat satu blok JSON-LD `Person` (nama, alias, jabatan, penghargaan, `sameAs` ke
-semua profil sosial). `llms.txt` (bahasa Inggris, format llmstxt.org) merangkum profil untuk mesin jawaban.
-`sitemap.xml` mendaftar deck, `PROFIL.md`, dan `llms.txt`; naikkan `lastmod`-nya tiap ada perubahan isi.
+```bash
+./scripts/build-site.sh   # next build di site/, lalu rakit dist/: landing EN/ID + aset + berkas root
+npx wrangler pages deploy dist --project-name rochman-ramadhani --branch main
+```
+
+Pratinjau tanpa menyentuh produksi: ganti `--branch main` dengan nama branch lain (mis. `sesi-landing`).
+Uji `dist/` secara lokal dengan `npx wrangler pages dev dist`, yang meniru clean URL (`/id.html` → `/id`)
+dan `_redirects` seperti di Cloudflare.
+
+SEO/AEO/GEO: `<head>` kedua halaman memuat satu blok JSON-LD `Person` (nama, alias, jabatan, penghargaan, `sameAs`
+ke semua profil sosial), `canonical`, dan `hreflang` en/id/x-default. `llms.txt` (bahasa Inggris, format
+llmstxt.org) merangkum profil untuk mesin jawaban. `sitemap.xml` mendaftar `/`, `/id`, empat halaman legal (dengan
+`xhtml:link` hreflang), `PROFIL.md`, dan `llms.txt`; naikkan `lastmod`-nya tiap ada perubahan isi.
 
 ## Menjalankan
 
-Buka `index.html` di browser mana pun. Tidak perlu build, tidak perlu npm.
+Landing: `cd site && npm ci && npm run dev` (Node 24), lalu buka `/` atau `/id`.
 
-Navigasi: `→` / `←` / `Space` / `PageUp`–`PageDown`, scroll, atau geser di layar sentuh.
-`Home` dan `End` melompat ke slide pertama dan terakhir.
-
-Tekan `E` (atau arahkan kursor ke pojok kiri atas) untuk menyunting teks langsung di slide.
-Perubahan tersimpan di `localStorage`; `Ctrl/⌘+S` mengekspor salinan HTML baru.
+Deck arsip: buka `deck.html` di browser mana pun, tanpa build. Navigasi `→` / `←` / `Space` / `PageUp`–`PageDown`,
+scroll, atau geser di layar sentuh; `E` untuk menyunting teks langsung di slide (tersimpan di `localStorage`,
+`Ctrl/⌘+S` mengekspor salinan HTML baru).
 
 ### Deep link
 
-Nomor slide tersimpan di hash URL (`#15`), tapi untuk ditulis di CV pakai **alias**, bukan angka:
+Tiap proyek punya panel bukti (`<dialog>`) yang terbuka dari hash, di kedua bahasa (`/#hris`, `/id#hris`):
 
 ```
-#peta  #angka  #skolain  #hris  #rumahsakit  #wholesale  #omnichannel  #bank
-#frames  #klhk  #dokter  #advisory  #hegemoni  #seminar  #pdc  #peringkat  #carakerja  #bisnis  #kontak
+#skolain  #hris  #hse  #bri  #oca  #klhk  #frames  #kolegium
 ```
 
-Alias lama dari sebelum Oktober 2026 tetap hidup dan menunjuk ke slide yang sama, karena tautannya masih
-beredar: `#primasejahtera` (= `#hris`), `#siloam` (= `#rumahsakit`), `#qlola` (= `#wholesale`),
-`#oca` (= `#omnichannel`), `#bri` (= `#bank`).
+Section: `#work  #journey  #approach  #now  #gear  #contact`.
 
-Hash posisional putus begitu ada satu slide disisipkan, sementara PDF CV yang sudah beredar tidak bisa
-ditarik lagi. Alias tidak ikut bergeser.
+PDF CV dan bio lama menautkan alias deck (`omanlabs.tech/#rumahsakit`, `/deck#15`, `/#16`), dan PDF yang sudah
+beredar tidak bisa ditarik lagi. Skrip kecil di `<head>` (`LEGACY_HASH` di `site/components/Document.tsx`, peta di
+`LEGACY` dan `LEGACY_SLIDES` pada `site/lib/content.ts`) menukar alias atau nomor slide ke hash landing yang setara
+sebelum halaman dirender: `#rumahsakit`/`#siloam` → `#hse`, `#dokter` → `#kolegium`, `#kontak` → `#contact`, nomor
+slide → panel atau section-nya. `/deck#…` sampai ke sana lewat 301 ke `/`, karena hash ikut dibawa browser.
 
 ## Membangun ulang
 
@@ -66,10 +82,10 @@ bagian masih terbaca dalam urutan yang benar. Kalau ada yang hilang, build gagal
 
 ## Keputusan yang perlu diketahui sebelum mengubah
 
-**Font di-host sendiri di `assets/fonts/` (~128 KB), bukan lewat Google Fonts CDN.** Deck harus tetap
+**Font di-host sendiri di `assets/fonts/` (~160 KB), bukan lewat Google Fonts CDN.** Deck harus tetap
 tampil sama di jaringan yang memblokir CDN, dan headless Chrome bisa mencetak sebelum webfont selesai
 dimuat — PDF-nya jadi diam-diam beda dari preview. Bricolage dan Familjen itu variable font, satu berkas
-untuk semua weight.
+untuk semua weight. Instrument Serif (tegak dan italic, subset latin) hanya dipakai landing.
 
 **`.pos` di-deklarasikan ulang setelah semua komponen** (bagian 24 di stylesheet). Hampir setiap arketipe
 (`.cards`, `.maptable`, `.flow`, `.linkcard`, `.hbox`, `.rail`, `.lanes`, …) menyetel `position:relative`
