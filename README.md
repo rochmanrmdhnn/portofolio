@@ -17,8 +17,10 @@ Dokumen yang saling menopang:
   dialihkan 301 ke sana): Kebijakan Privasi dan Ketentuan Layanan untuk alat posting pribadi Omanlabs Konten dan
   Skolain Konten. URL versi Inggris yang diisi di portal developer TikTok, Google/YouTube, Meta, LinkedIn, dan
   Pinterest; jangan dipindah. Copy di `site/lib/copy/legal-{en,id}.ts`. Kebijakannya menyatakan token hanya disimpan
-  di macOS Keychain di komputer sendiri, tanpa server, cookie, atau analitik; skrip posting harus mematuhi itu, dan
-  tanggal "Last updated" dinaikkan tiap isinya berubah.
+  di macOS Keychain di komputer sendiri, tanpa server; skrip posting harus mematuhi itu. Untuk situs, kebijakan
+  menyebut tanpa cookie dan dengan Cloudflare Web Analytics (disuntikkan zona `omanlabs.tech`, tidak tampak di
+  `*.pages.dev`); bila analitik atau cookie berubah, ubah juga bagian "This website". Tanggal "Last updated"
+  dinaikkan tiap isi kebijakan berubah.
 
 Aturan yang mengikat semuanya: **CV menyebut angkanya, panel bukti menunjukkan artefaknya.** Tidak boleh ada
 angka di CV yang tidak punya bukti pendukung, dan sebaliknya. Landing hanya memakai angka yang sudah ada di
