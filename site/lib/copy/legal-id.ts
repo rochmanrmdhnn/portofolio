@@ -101,7 +101,7 @@ export const LEGAL_ID: Legal = {
         id: "website",
         h: "Situs ini",
         body: [
-          "omanlabs.tech tidak memasang cookie dan tidak menjalankan analitik atau iklan. Situs ini di-hosting di Cloudflare, yang memproses data teknis permintaan seperti alamat IP untuk menyajikan dan melindungi situs. Tautan ke WhatsApp, LinkedIn, Instagram, dan GitHub membawa Anda ke layanan itu, dengan kebijakannya sendiri.",
+          "omanlabs.tech tidak memasang cookie dan tidak menampilkan iklan. Situs ini di-hosting di Cloudflare, yang memproses data teknis permintaan seperti alamat IP untuk menyajikan dan melindungi situs. Situs ini memakai Cloudflare Web Analytics untuk menghitung kunjungan halaman; analitik itu tidak menyimpan apa pun di browser Anda dan tidak melacak Anda di situs lain. Tautan ke WhatsApp, LinkedIn, Instagram, dan GitHub membawa Anda ke layanan itu, dengan kebijakannya sendiri.",
         ],
       },
       {

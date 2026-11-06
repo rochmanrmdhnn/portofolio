@@ -103,7 +103,7 @@ export const LEGAL_EN: Legal = {
         id: "website",
         h: "This website",
         body: [
-          "omanlabs.tech sets no cookies and runs no analytics or ads. It is hosted on Cloudflare, which processes technical request data such as IP addresses to deliver and protect the site. Links to WhatsApp, LinkedIn, Instagram, and GitHub take you to those services, under their own policies.",
+          "omanlabs.tech sets no cookies and shows no ads. It is hosted on Cloudflare, which processes technical request data such as IP addresses to deliver and protect the site. The site uses Cloudflare Web Analytics to count page views; it stores nothing in your browser and does not follow you across other sites. Links to WhatsApp, LinkedIn, Instagram, and GitHub take you to those services, under their own policies.",
         ],
       },
       {
