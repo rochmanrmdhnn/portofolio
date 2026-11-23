@@ -864,6 +864,7 @@ a {
 
 /* Pembuka panel bukti (tombol) dan tautan di bawah proyek: satu gaya tautan bergaris bawah, target 44px. */
 .proof-open,
+.wk-links a,
 .now-links a {
   display: inline-flex;
   align-items: center;
@@ -882,6 +883,7 @@ a {
 }
 
 .proof-open:hover,
+.wk-links a:hover,
 .now-links a:hover {
   text-decoration-color: var(--yellow);
 }
@@ -957,6 +959,18 @@ a {
   color: var(--chalk-dim);
 }
 
+/* Tangkapan layar diam di trek dan di panel: rasio asli gambarnya, tidak dipotong seperti klip 9:16.
+   Garis tepi tipis memisahkan layar gelap dari papan yang sama gelapnya. */
+.wk-shot img,
+.proof-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--board-lift);
+}
+
 @media (max-width: 43.6875em) {
   .work-head {
     grid-template-columns: minmax(0, 1fr);
@@ -1017,6 +1031,22 @@ a {
   .wk-clip video {
     height: calc(100% - 30px);
     width: auto;
+  }
+
+  /* Tinggi sama dengan klip, lebar mengikuti rasio gambar. Keterangan tidak ikut melebarkan figure
+     (width 0 + min-width), jadi keterangan yang panjang patah di lebar gambar. */
+  .wk-shot {
+    aspect-ratio: auto;
+  }
+
+  .wk-shot img {
+    height: calc(100% - 30px);
+    width: auto;
+  }
+
+  .wk-shot .clip-cap {
+    width: 0;
+    min-width: 100%;
   }
 
   .wk-text {
@@ -1378,6 +1408,69 @@ a {
   margin-top: 64px;
 }
 
+/* Pekerjaan berjalan: daftar bergaris tanpa media. Tiga kolom (nama, isi, status tulisan tangan) supaya status
+   terbaca sejajar di tiap baris dan komposisinya berbeda dari baris berfoto di atasnya. */
+.now-more {
+  padding-top: clamp(56px, 9vh, 112px);
+}
+
+.now-more-h {
+  font-family: var(--font-display), sans-serif;
+  font-variation-settings: "opsz" 48;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.now-item {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) minmax(0, 3fr);
+  gap: 12px clamp(24px, 4vw, 56px);
+  align-items: start;
+  padding-block: clamp(24px, 3.5vw, 40px);
+  border-bottom: 1px solid var(--line);
+}
+
+.now-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.now-item-head {
+  display: grid;
+  gap: 8px;
+}
+
+.now-item-name {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-variation-settings: "opsz" 72;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 1.15rem + 1.3vw, 2.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.now-item-body {
+  display: grid;
+  gap: 4px;
+  justify-items: start;
+  color: var(--chalk-dim);
+}
+
+.now-item-body .now-links {
+  color: var(--chalk);
+}
+
+.now-item-status {
+  justify-self: end;
+  text-align: right;
+  transform-origin: right center;
+}
+
 @media (max-width: 51.1875em) {
   .now-row {
     grid-template-columns: minmax(0, 1fr);
@@ -1389,6 +1482,16 @@ a {
 
   .now-big {
     justify-self: start;
+  }
+
+  .now-item {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .now-item-status {
+    justify-self: start;
+    text-align: left;
+    transform-origin: left center;
   }
 }
 
@@ -1686,6 +1789,15 @@ a {
 .proof-clip {
   flex: 0 1 13rem;
   min-width: 0;
+}
+
+.proof-shot {
+  flex: 0 1 13rem;
+  min-width: 0;
+}
+
+.proof-img .clip-cap {
+  margin-top: 8px;
 }
 
 .proof-block {

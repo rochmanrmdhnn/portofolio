@@ -35,7 +35,7 @@ export type Head = [string, string, string?];
 
 export type Media =
   | { kind: "video"; src: string; poster: string; w: number; h: number; label: string }
-  | { kind: "image"; src: string; w: number; h: number; alt: string };
+  | { kind: "image"; src: string; w: number; h: number; alt: string; cap?: string };
 
 // id = id <dialog> bukti, sekaligus hash deep link (omanlabs.tech/#hris).
 export type Work = {
@@ -46,6 +46,8 @@ export type Work = {
   stat?: { value: string; label: string };
   note?: string;
   media?: Media;
+  // Tautan ke produk yang tayang untuk umum. Halaman login tidak pernah ditautkan.
+  link?: { href: string; label: string };
 };
 
 export type Chapter = {
@@ -114,6 +116,11 @@ export type Copy = {
     head: Head;
     skolain: { role: string; body: string; big: string; bigLabel: string };
     partners: { role: string; title: string; body: string; note: string; photos: Photo[]; flip?: boolean }[];
+    // Pekerjaan berjalan tanpa media: daftar bergaris, tiap baris wajib membawa statusnya.
+    building: {
+      title: string;
+      items: { name: string; role: string; status: string; body: string; link?: { href: string; label: string } }[];
+    };
   };
   gear: {
     head: Head;

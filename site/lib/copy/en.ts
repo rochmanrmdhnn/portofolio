@@ -51,7 +51,7 @@ export const EN: Copy = {
   work: {
     head: ["Systems people actually ", "use."],
     intro:
-      "Seven projects across banking, hospitals, government, and medicine. Each panel opens its proof: the technical detail, my exact role, and footage where there is any.",
+      "Nine projects: banking, hospitals, government, medicine, occupational health, and one hair salon. Each panel opens its proof: the technical detail, my exact role, and footage or screenshots where there are any.",
     items: [
       {
         id: "hris",
@@ -78,11 +78,44 @@ export const EN: Copy = {
         note: "being called back is a review I can't write myself",
       },
       {
+        id: "adr",
+        org: "ADR Medika · PT Anggi Darta Raksita",
+        title: "From a website form to a quotation letter.",
+        body: "I built two connected products for this occupational health company: a public website in three languages and the sales team's internal quotation app. An inquiry sent from the site lands in the app, is assigned to a salesperson, and becomes a draft quotation and a letter.",
+        stat: { value: "76", label: "service areas on the site's map, across 30 provinces" },
+        note: "both in production since September 2026",
+        media: {
+          kind: "image",
+          src: "/assets/medika-situs-02.jpg",
+          w: 390,
+          h: 846,
+          alt: "The service-area section of adr-medika.co.id at phone width, in Indonesian: 76 areas, 30 provinces, 6 sectors, and a map of Indonesia with routes from the Jakarta head office",
+          cap: "Service-area section",
+        },
+        link: { href: "https://adr-medika.co.id", label: "adr-medika.co.id" },
+      },
+      {
         id: "oca",
         org: "Telkom Indonesia · Omni Communication Assistant",
         title: "A migration built for peak traffic.",
         body: "I proposed moving the backend from NestJS to Go, wrote the plan, and led the work. The goal: use CPU and memory more efficiently, and keep the platform standing when traffic peaks.",
         note: "no savings percentage claimed without measuring it",
+      },
+      {
+        id: "marsya",
+        org: "Marsya Hairdesign · hair salon, Gading Serpong",
+        title: "A salon website the owner edits and publishes without a developer.",
+        body: "The owner edits prices, photos, and journal posts in an admin panel, presses one Publish button, and the site rebuilds itself with the new content. The published pages don't depend on the admin panel, so the site stays up even when the panel has a problem.",
+        stat: { value: "140", label: "price cells tested to match the salon's price list" },
+        media: {
+          kind: "image",
+          src: "/assets/salon-01.jpg",
+          w: 390,
+          h: 846,
+          alt: "The services section of marsyahairdesign.id at phone width: the heading A little hair magic, a lot more you, above the hair extension card",
+          cap: "Services section",
+        },
+        link: { href: "https://marsyahairdesign.id", label: "marsyahairdesign.id" },
       },
       {
         id: "klhk",
@@ -93,16 +126,17 @@ export const EN: Copy = {
       },
       {
         id: "frames",
-        org: "FRAMES · FKUI × Garuda Indonesia Training Center",
+        org: "FRAMES · Aviation Medicine, FKUI",
         title: "A fatigue assessment app for flight crews.",
-        body: "Launched by the Aviation Medicine specialist program at FKUI, the medical faculty of Universitas Indonesia. I owned the product and built the app. Version 1 was built October to December 2020; version 2 shipped March 7, 2024.",
+        body: "Launched by the Aviation Medicine specialist program at FKUI, the medical faculty of Universitas Indonesia. I owned the product and built the app: version 1 in 2020, then version 2, shipped March 7, 2024, both developed with Garuda Indonesia Training Center. Since October 13, 2026 I have been rebuilding it from scratch in Flutter and Go.",
+        note: "the 2026 rebuild runs on staging, it isn't in the app stores yet",
         media: { kind: "video", src: "/assets/frames-acara-01.mp4", poster: "/assets/frames-acara-01-poster.jpg", w: 360, h: 640, label: "FRAMES launch event" },
       },
       {
         id: "kolegium",
         org: "Kolegium Dokter",
         title: "A membership dashboard for 150,000 general practitioners.",
-        body: "As Product Engineer I owned discovery, scoping, and release priorities. The requirements came straight from Kolegium Dokter, with nobody in between.",
+        body: "As Product Engineer I owned discovery, scoping, and release priorities. The requirements came straight from Kolegium Dokter, with nobody in between. In November 2026 I started the research and design for the platform that will replace their old website. Its code has not been built yet.",
         note: "150,000 is the scope it was designed for, not today's active users",
         media: { kind: "video", src: "/assets/kedokteran-01.mp4", poster: "/assets/kedokteran-01-poster.jpg", w: 360, h: 640, label: "Requirements discussion day" },
       },
@@ -194,6 +228,30 @@ export const EN: Copy = {
         ],
       },
     ],
+    building: {
+      title: "Also in progress",
+      items: [
+        {
+          name: "Koperasi by Erat",
+          role: "My own product · since October 2026",
+          status: "on staging",
+          body: "Software for savings-and-loan cooperatives. Daily transactions such as deposits and loan payments become bookkeeping under SAK EP, Indonesia's accounting standard for private entities. Each cooperative's data is kept apart with PostgreSQL Row Level Security.",
+        },
+        {
+          name: "SIM Faskes",
+          role: "Research and specification · since November 2026",
+          status: "no code yet",
+          body: "A management system for a clinic and its pharmacy that runs on one set of data. So far: 7 existing systems observed as benchmarks, 26 processes written out with acceptance criteria, and 111 screens designed.",
+        },
+        {
+          name: "PT Kharisma Andal Raya",
+          role: "Brand system and company website · November 2026",
+          status: "the site is live",
+          body: "Logo, colors, typeface, company stamp, and document templates for letters, quotations, and invoices, plus the company website.",
+          link: { href: "https://kharisma-andal-raya.pages.dev", label: "kharisma-andal-raya.pages.dev" },
+        },
+      ],
+    },
   },
   gear: {
     head: ["What comes to ", "work", " with me."],
@@ -306,6 +364,84 @@ export const EN: Copy = {
       note: "what I took from here: how a bank designs, tests, and ships a product",
     },
     {
+      id: "adr",
+      org: "ADR Medika · PT Anggi Darta Raksita · in production since September 2026",
+      title: "A website inquiry that ends up as a quotation letter.",
+      kicker: "Occupational health services for remote work sites",
+      lead: [
+        "Two products that hand work to each other. The public website brings in inquiries from companies that need medical staff or a clinic at their site. The internal app is where ADR Medika's sales team turns each inquiry into a quotation.",
+        "My role: Product Engineer for both, from product decisions and architecture to release.",
+      ],
+      media: [
+        {
+          kind: "image",
+          src: "/assets/medika-situs-01.jpg",
+          w: 390,
+          h: 846,
+          alt: "Home page of adr-medika.co.id at phone width, in Indonesian, with the headline about health services for workplaces far from the city",
+          cap: "Public site, home page",
+        },
+        {
+          kind: "image",
+          src: "/assets/medika-situs-02.jpg",
+          w: 390,
+          h: 846,
+          alt: "The service-area section of adr-medika.co.id: 76 areas, 30 provinces, 6 sectors, and a map of Indonesia",
+          cap: "Public site, service areas",
+        },
+        {
+          kind: "image",
+          src: "/assets/medika-sales-02.jpg",
+          w: 600,
+          h: 1044,
+          alt: "The quotation list in the sales app at phone width, with sample company names and a status for each quotation",
+          cap: "Sales app, quotation list. Sample data.",
+        },
+        {
+          kind: "image",
+          src: "/assets/medika-sales-01.jpg",
+          w: 1000,
+          h: 1040,
+          alt: "An inquiry in the sales app: a sample company and contact, the status Assigned, and buttons to start processing, log a follow-up, or create a quotation",
+          cap: "Sales app, an inquiry assigned to a salesperson. The picture comes from the app's user guide, which is why it has numbered markers. Sample data.",
+        },
+      ],
+      blocks: [
+        {
+          kind: "entries",
+          title: "How an inquiry travels",
+          steps: true,
+          items: [
+            { t: "The form on the website", d: "A company fills in the inquiry form on adr-medika.co.id. The site keeps no database of its own. Its server passes the inquiry to the internal app." },
+            { t: "Assigned to a salesperson", d: "The inquiry shows up in the app, and an admin assigns it to someone on the sales team." },
+            { t: "Draft quotation", d: "The salesperson turns it into a draft. The contact details carry over, and the prices come from the list the admin maintains." },
+            { t: "Letter", d: "The app produces the quotation letter as an A4 PDF or DOCX. The client opens it through a link protected by an access code, then accepts or declines." },
+          ],
+        },
+        {
+          kind: "entries",
+          title: "The two products",
+          items: [
+            {
+              k: "In production since September 25, 2026",
+              t: "Public website, adr-medika.co.id",
+              d: "Indonesian, English, and Simplified Chinese. 6 services, a map of 76 service areas in 30 provinces, and 61 articles on occupational health rules and operations. Built with Next.js, with the content written in MDX.",
+            },
+            {
+              k: "In production since September 21, 2026",
+              t: "Internal quotation app",
+              d: "Two roles, admin and sales. The admin sets prices, and sales builds a quotation per work site from them. Cost columns are never sent to the sales role. Built with Next.js and PostgreSQL.",
+            },
+          ],
+        },
+      ],
+      caveat: {
+        t: "What I don't show or claim",
+        d: "The app sits behind a login, so there is no link to it here. Its screenshots show sample data, and the company names in them are made up. I claim no user counts, and I don't name ADR Medika's clients.",
+      },
+      note: "the site and the app share one inquiry, so nobody types it twice",
+    },
+    {
       id: "oca",
       org: "Telkom Indonesia · Omni Communication Assistant",
       title: "A migration built for peak traffic.",
@@ -335,6 +471,50 @@ export const EN: Copy = {
       },
     },
     {
+      id: "marsya",
+      org: "Marsya Hairdesign · live at marsyahairdesign.id",
+      title: "A salon website the owner edits and publishes without a developer.",
+      kicker: "Hair extension and coloring salon, Gading Serpong",
+      lead: [
+        "On a salon's website, the prices and the booking message have to be right every day. So the owner controls the content, and the site keeps running even when the admin panel has a problem.",
+        "My role: Product Engineer. I built the site, set up the admin panel, and built the publishing flow.",
+      ],
+      media: [
+        {
+          kind: "image",
+          src: "/assets/salon-01.jpg",
+          w: 390,
+          h: 846,
+          alt: "The services section of marsyahairdesign.id at phone width: the heading A little hair magic, a lot more you, above the hair extension card",
+          cap: "Services section at phone width, captured September 18, 2026",
+        },
+      ],
+      blocks: [
+        {
+          kind: "entries",
+          title: "How a price change goes live",
+          steps: true,
+          items: [
+            { t: "The owner edits", d: "Prices, photos, and journal posts are edited in the admin panel, which runs on Directus." },
+            { t: "One Publish button", d: "Pressing Publish rebuilds the site with the new content. Nobody has to touch the code." },
+            { t: "Static pages go out", d: "The site is built with Astro. It reads the content only while building, and the published pages never call the admin panel." },
+          ],
+        },
+        {
+          kind: "list",
+          title: "What gets checked",
+          items: [
+            "140 price cells are tested to be identical to the salon's price list.",
+            "Automated checks also cover the WhatsApp booking message, the browser flows, and the layout.",
+          ],
+        },
+      ],
+      caveat: {
+        t: "What I don't claim",
+        d: "I claim no ratings, visitor numbers, or performance scores for this site. The screenshot leaves out customer photos and the price list on purpose.",
+      },
+    },
+    {
       id: "klhk",
       org: "KLHK · January to April 2024",
       title: "Helping write the national environmental monitoring rules.",
@@ -355,22 +535,59 @@ export const EN: Copy = {
     },
     {
       id: "frames",
-      org: "FRAMES · v1 Oct to Dec 2020 · v2 shipped March 7, 2024",
+      org: "FRAMES · v1 2020 · v2 shipped March 7, 2024 · rebuilt since October 13, 2026",
       title: "A fatigue assessment app for flight crews.",
       kicker: "Fatigue Risk Assessment with MEdical adviceS",
       lead: [
-        "Launched by the Aviation Medicine specialist program in the Department of Community Medicine, Faculty of Medicine, Universitas Indonesia, and developed with Garuda Indonesia Training Center and medical experts.",
-        "The app assesses flight crews' fatigue risk, physical activity, and sleep habits, and was designed to plug into airline and military aviation systems. My role: Product Engineer, owning the product and building the app.",
+        "Launched by the Aviation Medicine specialist program in the Department of Community Medicine, Faculty of Medicine, Universitas Indonesia. Versions 1 and 2 were developed with Garuda Indonesia Training Center and medical experts.",
+        "The app assesses flight crews' fatigue risk, physical activity, and sleep habits, and was designed to plug into airline and military aviation systems. My role in all three versions: Product Engineer, owning the product and building the app.",
       ],
       media: [
         { kind: "image", src: "/assets/frames-launch-01.jpg", w: 1066, h: 711, alt: "FRAMES launch at the Faculty of Medicine, Universitas Indonesia" },
         { kind: "video", src: "/assets/frames-acara-01.mp4", poster: "/assets/frames-acara-01-poster.jpg", w: 360, h: 640, label: "Launch event at FKUI" },
         { kind: "video", src: "/assets/frames-acara-02.mp4", poster: "/assets/frames-acara-02-poster.jpg", w: 360, h: 640, label: "Streamed to hybrid participants" },
+        {
+          kind: "image",
+          src: "/assets/frames-2026-01.jpg",
+          w: 603,
+          h: 1312,
+          alt: "FRAMES 2026 store image, in Indonesian: the home screen lists this period's questionnaires, with CIS20R next and the Jenkins Sleep Scale and GPAQ below it",
+          cap: "2026 rebuild, home. Store image from the design file, synthetic data.",
+        },
+        {
+          kind: "image",
+          src: "/assets/frames-2026-02.jpg",
+          w: 603,
+          h: 1312,
+          alt: "FRAMES 2026 store image, in Indonesian: a CIS20R result of 92 points against a cut-off of 76, with a note that it is not a diagnosis",
+          cap: "2026 rebuild, result. Synthetic data.",
+        },
+        {
+          kind: "image",
+          src: "/assets/frames-2026-03.jpg",
+          w: 603,
+          h: 1312,
+          alt: "FRAMES 2026 store image, in Indonesian: a trend chart of six CIS20R results from June to November with the cut-off line",
+          cap: "2026 rebuild, trend. Synthetic data.",
+        },
       ],
       blocks: [
         {
+          kind: "entries",
+          title: "Three versions",
+          items: [
+            { k: "October to December 2020", t: "Version 1", d: "An Android app built with Laravel and Kotlin." },
+            { k: "Shipped March 7, 2024", t: "Version 2", d: "Rewritten in Kotlin with an MVVM architecture, 108 files." },
+            {
+              k: "Since October 13, 2026",
+              t: "The 2026 rebuild",
+              d: "Started again from an empty repository: a Flutter app for iOS and Android, a Go API, and a web admin for the people who review the answers.",
+            },
+          ],
+        },
+        {
           kind: "list",
-          title: "What I built",
+          title: "What I built in version 2",
           items: [
             "A questionnaire engine with per-user assessment history, so results can be compared over time instead of used once.",
             "Sleep-habit and physical-activity questions get their own flows and detail screens, because they are scored differently.",
@@ -378,16 +595,26 @@ export const EN: Copy = {
             "Scheduled reminders through Firebase Cloud Messaging, and local storage with Room so assessments can be filled in offline.",
           ],
         },
+        {
+          kind: "list",
+          title: "What the 2026 rebuild does",
+          items: [
+            "Pilots fill in three questionnaires: CIS20R for chronic fatigue, GPAQ for physical activity, and the Jenkins Sleep Scale for sleep.",
+            "The result appears as soon as the answers are sent. An Aviation Medicine doctor then reviews it in the web admin.",
+            "4 roles: pilot, Aviation Medicine reviewer, airline safety staff, and superadmin. Data is kept separate per airline.",
+            "The app and the admin both come in Indonesian and English.",
+          ],
+        },
       ],
       caveat: {
-        t: "Version notes",
-        d: "Version 2 shipped March 7, 2024: Kotlin, MVVM architecture, 108 files. I built version 1 from October to December 2020 with Laravel and Kotlin.",
+        t: "What I don't claim about the 2026 rebuild",
+        d: "It runs on staging and is not in the App Store or Google Play. The integration with REDCap, FKUI's research database, still runs against a mock. There is no ethics committee approval yet. I claim no pilot or airline numbers for it.",
       },
       note: "crew fatigue is a safety issue, and before this there was no way to assess it independently",
     },
     {
       id: "kolegium",
-      org: "Kolegium Dokter · released",
+      org: "Kolegium Dokter · dashboard released · new platform in design",
       title: "A membership dashboard for 150,000 general practitioners.",
       media: [{ kind: "video", src: "/assets/kedokteran-01.mp4", poster: "/assets/kedokteran-01-poster.jpg", w: 360, h: 640, label: "Requirements discussion day" }],
       blocks: [
@@ -397,6 +624,16 @@ export const EN: Copy = {
             "As Product Engineer, I own discovery, scoping, and release priorities.",
             "National membership, scoped for up to 150,000 general practitioners across Indonesia.",
             "Requirements are discussed directly with Kolegium Dokter, with no intermediary.",
+          ],
+        },
+        {
+          kind: "list",
+          title: "November 2026: research and design for the platform replacing the old website",
+          items: [
+            "4 modules in scope: Announcements, Membership, Events, and an LMS.",
+            "5 benchmark studies: one for the landing page and one for each module.",
+            "About 680 screens designed in Figma, per role, including the loading and empty states.",
+            "The code for this platform has not been built yet. What exists today is the research and the design.",
           ],
         },
       ],

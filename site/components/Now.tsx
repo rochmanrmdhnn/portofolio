@@ -82,6 +82,31 @@ export function Now({ t, ui }: { t: Copy["now"]; ui: Copy["ui"] }) {
             </article>
           );
         })}
+
+        <div className="now-more">
+          <h3 className="now-more-h">{t.building.title}</h3>
+          <ul className="now-more-list">
+            {t.building.items.map((it) => (
+              <li key={it.name} className="now-item">
+                <div className="now-item-head">
+                  <p className="now-role">{it.role}</p>
+                  <h4 className="now-item-name">{it.name}</h4>
+                </div>
+                <div className="now-item-body">
+                  <p>{it.body}</p>
+                  {it.link && (
+                    <p className="now-links">
+                      <a href={it.link.href} target="_blank" rel="noopener">
+                        {it.link.label}
+                      </a>
+                    </p>
+                  )}
+                </div>
+                <p className="note now-item-status">{it.status}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

@@ -51,7 +51,7 @@ export const ID: Copy = {
   work: {
     head: ["Sistem yang sudah ", "dipakai", " orang."],
     intro:
-      "Tujuh proyek di perbankan, rumah sakit, pemerintahan, dan kedokteran. Tiap panel membuka buktinya: rincian teknis, peran saya, dan rekamannya kalau ada.",
+      "Sembilan proyek: perbankan, rumah sakit, pemerintahan, kedokteran, kesehatan kerja, dan satu salon rambut. Tiap panel membuka buktinya: rincian teknis, peran saya, dan rekaman atau tangkapan layarnya kalau ada.",
     items: [
       {
         id: "hris",
@@ -78,11 +78,44 @@ export const ID: Copy = {
         note: "dipanggil balik itu penilaian yang tidak bisa saya tulis sendiri",
       },
       {
+        id: "adr",
+        org: "ADR Medika · PT Anggi Darta Raksita",
+        title: "Dari form di situs sampai jadi surat penawaran.",
+        body: "Saya membangun dua produk yang saling terhubung untuk perusahaan layanan kesehatan kerja ini: situs publik tiga bahasa dan aplikasi penawaran internal tim sales. Inquiry dari situs masuk ke aplikasi, ditugaskan ke sales, lalu jadi draf penawaran dan surat.",
+        stat: { value: "76", label: "wilayah layanan di peta situsnya, di 30 provinsi" },
+        note: "keduanya produksi sejak September 2026",
+        media: {
+          kind: "image",
+          src: "/assets/medika-situs-02.jpg",
+          w: 390,
+          h: 846,
+          alt: "Bagian wilayah layanan di adr-medika.co.id pada lebar ponsel: 76 wilayah, 30 provinsi, 6 sektor, dan peta Indonesia dengan rute dari kantor pusat Jakarta",
+          cap: "Bagian wilayah layanan",
+        },
+        link: { href: "https://adr-medika.co.id", label: "adr-medika.co.id" },
+      },
+      {
         id: "oca",
         org: "Telkom Indonesia · Omni Communication Assistant",
         title: "Migrasi untuk menghadapi trafik puncak.",
         body: "Saya yang mengusulkan migrasi backend dari NestJS ke Go, menyusun rencananya, lalu memimpin pengerjaannya. Tujuannya pemakaian CPU dan memori yang lebih efisien, dan platform yang tetap tahan saat trafik puncak.",
         note: "tidak ada persentase hemat yang saya klaim tanpa diukur",
+      },
+      {
+        id: "marsya",
+        org: "Marsya Hairdesign · salon rambut, Gading Serpong",
+        title: "Situs salon yang diedit dan diterbitkan pemiliknya sendiri.",
+        body: "Pemilik salon mengedit harga, foto, dan jurnal di panel admin, menekan satu tombol Publish, lalu situsnya terbit ulang dengan isi baru. Halaman yang tayang tidak bergantung pada panel admin, jadi situs tetap hidup walau panelnya sedang bermasalah.",
+        stat: { value: "140", label: "sel harga diuji identik dengan pricelist salon" },
+        media: {
+          kind: "image",
+          src: "/assets/salon-01.jpg",
+          w: 390,
+          h: 846,
+          alt: "Bagian layanan di marsyahairdesign.id pada lebar ponsel: judul A little hair magic, a lot more you, di atas kartu hair extension",
+          cap: "Bagian layanan",
+        },
+        link: { href: "https://marsyahairdesign.id", label: "marsyahairdesign.id" },
       },
       {
         id: "klhk",
@@ -93,16 +126,17 @@ export const ID: Copy = {
       },
       {
         id: "frames",
-        org: "FRAMES · FKUI × Garuda Indonesia Training Center",
+        org: "FRAMES · Kedokteran Penerbangan FKUI",
         title: "Aplikasi ukur kelelahan untuk awak penerbangan.",
-        body: "Diluncurkan Program Studi Spesialis Kedokteran Penerbangan FKUI. Saya memegang produknya sekaligus membangun aplikasinya. Versi pertama Oktober sampai Desember 2020, versi 2 rilis 7 Maret 2024.",
+        body: "Diluncurkan Program Studi Spesialis Kedokteran Penerbangan FKUI. Saya memegang produknya sekaligus membangun aplikasinya: versi pertama tahun 2020, lalu versi 2 yang rilis 7 Maret 2024, keduanya dikembangkan bersama Garuda Indonesia Training Center. Sejak 13 Oktober 2026 saya membangunnya ulang dari nol dengan Flutter dan Go.",
+        note: "versi 2026 masih di staging, belum ada di toko aplikasi",
         media: { kind: "video", src: "/assets/frames-acara-01.mp4", poster: "/assets/frames-acara-01-poster.jpg", w: 360, h: 640, label: "Acara peluncuran FRAMES" },
       },
       {
         id: "kolegium",
         org: "Kolegium Dokter",
         title: "Dashboard keanggotaan untuk 150.000 dokter umum.",
-        body: "Sebagai Product Engineer saya memegang discovery, penentuan lingkup, dan prioritas rilis. Diskusi kebutuhannya langsung bersama Kolegium Dokter, tanpa perantara.",
+        body: "Sebagai Product Engineer saya memegang discovery, penentuan lingkup, dan prioritas rilis. Diskusi kebutuhannya langsung bersama Kolegium Dokter, tanpa perantara. November 2026 saya mulai riset dan desain platform yang akan menggantikan situs lama mereka. Kodenya belum dibangun.",
         note: "150.000 itu lingkup rancangan, bukan pengguna aktif hari ini",
         media: { kind: "video", src: "/assets/kedokteran-01.mp4", poster: "/assets/kedokteran-01-poster.jpg", w: 360, h: 640, label: "Hari diskusi kebutuhan" },
       },
@@ -194,6 +228,30 @@ export const ID: Copy = {
         ],
       },
     ],
+    building: {
+      title: "Juga sedang berjalan",
+      items: [
+        {
+          name: "Koperasi by Erat",
+          role: "Produk sendiri · sejak Oktober 2026",
+          status: "masih staging",
+          body: "Aplikasi untuk koperasi simpan pinjam. Transaksi harian seperti setoran dan angsuran pinjaman langsung jadi pembukuan SAK EP. Data tiap koperasi dipisahkan lewat Row Level Security di PostgreSQL.",
+        },
+        {
+          name: "SIM Faskes",
+          role: "Riset dan spesifikasi · sejak November 2026",
+          status: "belum ada kode",
+          body: "Sistem untuk klinik dan apoteknya yang berjalan dari satu data. Sejauh ini: 7 sistem pembanding diamati, 26 proses ditulis lengkap dengan kriteria penerimaannya, dan 111 layar didesain.",
+        },
+        {
+          name: "PT Kharisma Andal Raya",
+          role: "Sistem merek dan situs perusahaan · November 2026",
+          status: "situsnya sudah tayang",
+          body: "Logo, warna, huruf, stempel perusahaan, dan templat dokumen untuk surat, penawaran, dan faktur, ditambah situs perusahaannya.",
+          link: { href: "https://kharisma-andal-raya.pages.dev", label: "kharisma-andal-raya.pages.dev" },
+        },
+      ],
+    },
   },
   gear: {
     head: ["Yang selalu ikut ", "kerja."],
@@ -306,6 +364,84 @@ export const ID: Copy = {
       note: "yang saya bawa dari sini: cara produk bank disusun, diuji, dan dirilis",
     },
     {
+      id: "adr",
+      org: "ADR Medika · PT Anggi Darta Raksita · produksi sejak September 2026",
+      title: "Inquiry dari situs yang berakhir jadi surat penawaran.",
+      kicker: "Layanan kesehatan kerja untuk lokasi yang jauh dari kota",
+      lead: [
+        "Dua produk yang saling mengoper pekerjaan. Situs publik mendatangkan inquiry dari perusahaan yang butuh tenaga medis atau klinik di lokasi kerjanya. Di aplikasi internal, tim sales ADR Medika mengubah tiap inquiry jadi penawaran.",
+        "Peran saya: Product Engineer untuk keduanya, dari keputusan produk dan arsitektur sampai rilis.",
+      ],
+      media: [
+        {
+          kind: "image",
+          src: "/assets/medika-situs-01.jpg",
+          w: 390,
+          h: 846,
+          alt: "Beranda adr-medika.co.id pada lebar ponsel, dengan judul Layanan kesehatan untuk tempat kerja yang jauh dari kota",
+          cap: "Situs publik, beranda",
+        },
+        {
+          kind: "image",
+          src: "/assets/medika-situs-02.jpg",
+          w: 390,
+          h: 846,
+          alt: "Bagian wilayah layanan di adr-medika.co.id: 76 wilayah, 30 provinsi, 6 sektor, dan peta Indonesia",
+          cap: "Situs publik, wilayah layanan",
+        },
+        {
+          kind: "image",
+          src: "/assets/medika-sales-02.jpg",
+          w: 600,
+          h: 1044,
+          alt: "Daftar penawaran di aplikasi sales pada lebar ponsel, berisi nama perusahaan contoh dan status tiap penawaran",
+          cap: "Aplikasi sales, daftar penawaran. Data contoh.",
+        },
+        {
+          kind: "image",
+          src: "/assets/medika-sales-01.jpg",
+          w: 1000,
+          h: 1040,
+          alt: "Satu inquiry di aplikasi sales: perusahaan dan kontak contoh, status Ditugaskan, dan tombol Mulai diproses, Catat tindak lanjut, dan Buat penawaran",
+          cap: "Aplikasi sales, inquiry yang sudah ditugaskan ke sales. Gambarnya dari panduan pengguna aplikasi, makanya ada penanda bernomor. Data contoh.",
+        },
+      ],
+      blocks: [
+        {
+          kind: "entries",
+          title: "Perjalanan satu inquiry",
+          steps: true,
+          items: [
+            { t: "Form di situs", d: "Perusahaan mengisi form inquiry di adr-medika.co.id. Situsnya tidak menyimpan database sendiri. Server situs meneruskan inquiry itu ke aplikasi internal." },
+            { t: "Ditugaskan ke sales", d: "Inquiry muncul di aplikasi, lalu admin menugaskannya ke salah satu sales." },
+            { t: "Draf penawaran", d: "Sales mengubahnya jadi draf. Data kontak ikut tersalin, dan harganya diambil dari daftar yang dijaga admin." },
+            { t: "Surat", d: "Aplikasi menghasilkan surat penawaran A4 dalam bentuk PDF atau DOCX. Klien membukanya lewat tautan berkode akses, lalu menerima atau menolak." },
+          ],
+        },
+        {
+          kind: "entries",
+          title: "Dua produknya",
+          items: [
+            {
+              k: "Produksi sejak 25 September 2026",
+              t: "Situs publik, adr-medika.co.id",
+              d: "Bahasa Indonesia, Inggris, dan Mandarin Sederhana. 6 layanan, peta 76 wilayah layanan di 30 provinsi, dan 61 artikel tentang regulasi dan operasional kesehatan kerja. Dibangun dengan Next.js, kontennya ditulis dalam MDX.",
+            },
+            {
+              k: "Produksi sejak 21 September 2026",
+              t: "Aplikasi penawaran internal",
+              d: "Dua peran, admin dan sales. Admin menetapkan harga, sales menyusun penawaran per lokasi kerja dari harga itu. Kolom biaya tidak pernah dikirim ke peran sales. Dibangun dengan Next.js dan PostgreSQL.",
+            },
+          ],
+        },
+      ],
+      caveat: {
+        t: "Yang tidak saya tampilkan atau klaim",
+        d: "Aplikasinya ada di balik login, jadi tidak ditautkan di sini. Tangkapan layarnya berisi data contoh, dan nama perusahaan di dalamnya karangan. Saya tidak mengklaim jumlah pengguna dan tidak menyebut klien ADR Medika.",
+      },
+      note: "situs dan aplikasi memakai inquiry yang sama, jadi tidak ada yang mengetik ulang",
+    },
+    {
       id: "oca",
       org: "Telkom Indonesia · Omni Communication Assistant",
       title: "Migrasi untuk menghadapi trafik puncak.",
@@ -335,6 +471,50 @@ export const ID: Copy = {
       },
     },
     {
+      id: "marsya",
+      org: "Marsya Hairdesign · tayang di marsyahairdesign.id",
+      title: "Situs salon yang diedit dan diterbitkan pemiliknya sendiri.",
+      kicker: "Salon hair extension dan coloring, Gading Serpong",
+      lead: [
+        "Di situs salon, harga dan pesan reservasi harus benar setiap hari. Karena itu isinya dipegang pemilik salon, dan situsnya tetap jalan walau panel admin sedang bermasalah.",
+        "Peran saya: Product Engineer. Saya membangun situsnya, menyiapkan panel adminnya, dan membangun alur terbitnya.",
+      ],
+      media: [
+        {
+          kind: "image",
+          src: "/assets/salon-01.jpg",
+          w: 390,
+          h: 846,
+          alt: "Bagian layanan di marsyahairdesign.id pada lebar ponsel: judul A little hair magic, a lot more you, di atas kartu hair extension",
+          cap: "Bagian layanan di lebar ponsel, diambil 18 September 2026",
+        },
+      ],
+      blocks: [
+        {
+          kind: "entries",
+          title: "Perjalanan satu perubahan harga",
+          steps: true,
+          items: [
+            { t: "Pemilik mengedit", d: "Harga, foto, dan jurnal diedit di panel admin yang berjalan di atas Directus." },
+            { t: "Satu tombol Publish", d: "Menekan Publish membangun ulang situs dengan isi baru. Tidak ada yang perlu menyentuh kode." },
+            { t: "Halaman statis terbit", d: "Situsnya dibangun dengan Astro. Isi hanya dibaca saat build, dan halaman yang tayang tidak pernah memanggil panel admin." },
+          ],
+        },
+        {
+          kind: "list",
+          title: "Yang diperiksa",
+          items: [
+            "140 sel harga diuji identik dengan pricelist salon.",
+            "Pemeriksaan otomatis juga mencakup pesan reservasi WhatsApp, alur di browser, dan tata letak.",
+          ],
+        },
+      ],
+      caveat: {
+        t: "Yang tidak saya klaim",
+        d: "Saya tidak mengklaim rating, jumlah pengunjung, atau skor performa untuk situs ini. Tangkapan layarnya sengaja tidak memuat foto pelanggan dan daftar harga.",
+      },
+    },
+    {
       id: "klhk",
       org: "KLHK · Januari sampai April 2024",
       title: "Ikut menyusun aturan pemantauan lingkungan nasional.",
@@ -355,22 +535,59 @@ export const ID: Copy = {
     },
     {
       id: "frames",
-      org: "FRAMES · v1 Okt sampai Des 2020 · v2 rilis 7 Maret 2024",
+      org: "FRAMES · v1 2020 · v2 rilis 7 Maret 2024 · dibangun ulang sejak 13 Oktober 2026",
       title: "Aplikasi ukur kelelahan untuk awak penerbangan.",
       kicker: "Fatigue Risk Assessment with MEdical adviceS",
       lead: [
-        "Diluncurkan Program Studi Spesialis Kedokteran Penerbangan, Departemen Ilmu Kedokteran Komunitas, Fakultas Kedokteran Universitas Indonesia, dan dikembangkan bersama Garuda Indonesia Training Center serta para pakar kedokteran.",
-        "Aplikasinya menilai risiko kelelahan, tingkat aktivitas fisik, dan kebiasaan tidur awak penerbangan, dan dirancang agar bisa diintegrasikan ke sistem maskapai maupun penerbangan militer. Peran saya: Product Engineer, memegang produknya sekaligus membangun aplikasinya.",
+        "Diluncurkan Program Studi Spesialis Kedokteran Penerbangan, Departemen Ilmu Kedokteran Komunitas, Fakultas Kedokteran Universitas Indonesia. Versi 1 dan 2 dikembangkan bersama Garuda Indonesia Training Center serta para pakar kedokteran.",
+        "Aplikasinya menilai risiko kelelahan, tingkat aktivitas fisik, dan kebiasaan tidur awak penerbangan, dan dirancang agar bisa diintegrasikan ke sistem maskapai maupun penerbangan militer. Peran saya di ketiga versinya: Product Engineer, memegang produknya sekaligus membangun aplikasinya.",
       ],
       media: [
         { kind: "image", src: "/assets/frames-launch-01.jpg", w: 1066, h: 711, alt: "Peluncuran FRAMES di Fakultas Kedokteran Universitas Indonesia" },
         { kind: "video", src: "/assets/frames-acara-01.mp4", poster: "/assets/frames-acara-01-poster.jpg", w: 360, h: 640, label: "Acara peluncuran di FKUI" },
         { kind: "video", src: "/assets/frames-acara-02.mp4", poster: "/assets/frames-acara-02-poster.jpg", w: 360, h: 640, label: "Disiarkan ke peserta daring" },
+        {
+          kind: "image",
+          src: "/assets/frames-2026-01.jpg",
+          w: 603,
+          h: 1312,
+          alt: "Gambar toko FRAMES 2026: beranda berisi daftar kuesioner periode ini, CIS20R berikutnya, lalu Jenkins Sleep Scale dan GPAQ",
+          cap: "Versi 2026, beranda. Gambar toko dari berkas desain, data sintetis.",
+        },
+        {
+          kind: "image",
+          src: "/assets/frames-2026-02.jpg",
+          w: 603,
+          h: 1312,
+          alt: "Gambar toko FRAMES 2026: hasil CIS20R 92 poin dengan batas 76, disertai catatan bahwa ini bukan diagnosis",
+          cap: "Versi 2026, hasil. Data sintetis.",
+        },
+        {
+          kind: "image",
+          src: "/assets/frames-2026-03.jpg",
+          w: 603,
+          h: 1312,
+          alt: "Gambar toko FRAMES 2026: grafik tren enam hasil CIS20R dari Juni sampai November dengan garis batasnya",
+          cap: "Versi 2026, tren. Data sintetis.",
+        },
       ],
       blocks: [
         {
+          kind: "entries",
+          title: "Tiga versi",
+          items: [
+            { k: "Oktober sampai Desember 2020", t: "Versi 1", d: "Aplikasi Android, dibangun dengan Laravel dan Kotlin." },
+            { k: "Rilis 7 Maret 2024", t: "Versi 2", d: "Ditulis ulang dengan Kotlin, arsitektur MVVM, 108 berkas." },
+            {
+              k: "Sejak 13 Oktober 2026",
+              t: "Versi 2026",
+              d: "Mulai lagi dari repo kosong: aplikasi Flutter untuk iOS dan Android, API Go, dan admin web untuk yang meninjau jawaban.",
+            },
+          ],
+        },
+        {
           kind: "list",
-          title: "Yang saya bangun",
+          title: "Yang saya bangun di versi 2",
           items: [
             "Mesin kuesioner dengan riwayat penilaian per pengguna, jadi hasilnya bisa dibandingkan antarwaktu, tidak sekali pakai.",
             "Pertanyaan kebiasaan tidur dan aktivitas fisik punya alur dan layar detailnya sendiri, karena cara menilainya memang berbeda.",
@@ -378,16 +595,26 @@ export const ID: Copy = {
             "Pengingat terjadwal lewat Firebase Cloud Messaging, dan penyimpanan lokal Room supaya penilaian tetap bisa diisi tanpa koneksi.",
           ],
         },
+        {
+          kind: "list",
+          title: "Isi versi 2026",
+          items: [
+            "Pilot mengisi tiga kuesioner: CIS20R untuk kelelahan kronis, GPAQ untuk aktivitas fisik, dan Jenkins Sleep Scale untuk tidur.",
+            "Hasil tampil begitu jawaban terkirim. Sesudah itu dokter Kedokteran Penerbangan meninjaunya di admin web.",
+            "4 peran: pilot, peninjau Kedokteran Penerbangan, staf safety maskapai, dan superadmin. Data dipisah per maskapai.",
+            "Aplikasi dan adminnya tersedia dalam bahasa Indonesia dan Inggris.",
+          ],
+        },
       ],
       caveat: {
-        t: "Catatan versi",
-        d: "Versi kedua rilis 7 Maret 2024: Kotlin, arsitektur MVVM, 108 berkas. Versi pertama saya bangun Oktober sampai Desember 2020 dengan Laravel dan Kotlin.",
+        t: "Yang tidak saya klaim soal versi 2026",
+        d: "Masih berjalan di staging dan belum rilis di App Store maupun Google Play. Integrasi dengan REDCap, basis data riset FKUI, masih memakai tiruan. Persetujuan komite etik belum ada. Saya tidak mengklaim jumlah pilot atau maskapai pemakainya.",
       },
       note: "kelelahan awak pesawat itu isu keselamatan, dan sebelum ini belum ada cara menilainya secara mandiri",
     },
     {
       id: "kolegium",
-      org: "Kolegium Dokter · sudah rilis",
+      org: "Kolegium Dokter · dashboard sudah rilis · platform baru masih desain",
       title: "Dashboard keanggotaan untuk 150.000 dokter umum.",
       media: [{ kind: "video", src: "/assets/kedokteran-01.mp4", poster: "/assets/kedokteran-01-poster.jpg", w: 360, h: 640, label: "Hari diskusi kebutuhan" }],
       blocks: [
@@ -397,6 +624,16 @@ export const ID: Copy = {
             "Sebagai Product Engineer, saya memegang discovery, penentuan lingkup, dan prioritas rilis.",
             "Keanggotaan berskala nasional, dirancang untuk sampai 150.000 dokter umum di seluruh Indonesia.",
             "Diskusi kebutuhan dilakukan langsung bersama Kolegium Dokter, tanpa perantara.",
+          ],
+        },
+        {
+          kind: "list",
+          title: "November 2026: riset dan desain platform pengganti situs lama",
+          items: [
+            "4 modul dalam lingkupnya: Pengumuman, Keanggotaan, Event, dan LMS.",
+            "5 benchmark: satu untuk landing dan satu untuk tiap modul.",
+            "Sekitar 680 layar didesain di Figma, per peran, termasuk keadaan memuat dan kosong.",
+            "Kode platform ini belum dibangun. Yang ada hari ini riset dan desainnya.",
           ],
         },
       ],
