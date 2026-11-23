@@ -18,7 +18,7 @@
 @font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:400 800;font-display:block;
   src:url(../assets/fonts/bricolage-grotesque.woff2) format('woff2');}
 
-@page{size:A4;margin:12mm 13mm 11mm;}
+@page{size:A4;margin:11mm 13mm 10mm;}
 
 :root{
   --ink:#15201B;
@@ -85,7 +85,7 @@ h2{
 .dampak b{color:var(--ink);font-weight:700;}
 
 /* ---------- entri pengalaman ---------- */
-.entry{margin-bottom:3mm;break-inside:avoid;page-break-inside:avoid;}
+.entry{margin-bottom:2.6mm;break-inside:avoid;page-break-inside:avoid;}
 .entry-head{display:flex;justify-content:space-between;align-items:baseline;gap:6mm;}
 .entry-org{font-size:10pt;font-weight:700;color:var(--ink);}
 .entry-when{flex:0 0 auto;font-size:8.7pt;font-weight:600;color:var(--ink-mute);white-space:nowrap;}
@@ -102,6 +102,9 @@ h2{
 
 /* satu baris tanpa bullet, untuk peran-peran awal */
 .entry .oneline{font-size:9.4pt;line-height:1.36;color:var(--ink-soft);}
+/* entri ringkas: paragraf langsung di bawah kepala entri, tanpa baris peran dan tanpa jarak paragraf bawaan */
+.entry-head + .oneline{margin:.3mm 0 0;}
+.entry .oneline b{color:var(--ink);font-weight:700;}
 
 /* ---------- catatan kecil di bawah judul bagian ---------- */
 .note{
