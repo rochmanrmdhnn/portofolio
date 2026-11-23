@@ -44,16 +44,16 @@ kata; nama lembaga Indonesia diberi penjelasan singkat saat pertama muncul (KLHK
 |---|---|---|---|
 | Hero | posisi, CTA WhatsApp, foto | line-mask CSS saat muat, coretan tergambar, hero memudar saat scroll | terbaca tanpa JS, LCP tidak menunggu animasi; di ponsel foto di bawah teks supaya CTA masih di layar pertama |
 | Angka | satu paragraf berisi angka bukti | kata di-scrub scroll | angka dibaca sebagai kalimat, bukan kartu statistik |
-| Kerja | 7 proyek, klip potret asli, tombol "Buka buktinya" | trek horizontal ter-pin (desktop), daftar vertikal (mobile) | klip semuanya 9:16; trek memperlihatkan beberapa sekaligus |
+| Kerja | 9 proyek, klip potret asli atau tangkapan layar ponsel, tombol "Buka buktinya" | trek horizontal ter-pin (desktop), daftar vertikal (mobile) | media semuanya potret; trek memperlihatkan beberapa sekaligus. Kartu teks, klip, dan tangkapan layar diselang supaya tidak ada tiga kartu berurutan yang sama bentuknya di awal trek |
 | Pemilik bisnis | 4 tahap kerja | garis kapur tergambar mengikuti scroll | langsung sesudah bukti: pemilik bisnis tidak perlu melewati cerita karier untuk tahu cara kerjanya |
-| Sekarang | Skolain (modul, sekolah pemakai, 1.600+), Hegemoni, belajar AI bareng | foto berbingkai miring, parallax tipis | kontinuitas gaya foto-berisolasi di deck lama; Skolain sengaja tidak ada di trek Kerja supaya angka dan medianya tidak dobel |
+| Sekarang | Skolain (modul, sekolah pemakai, 1.600+), Hegemoni, belajar AI bareng, lalu daftar "Juga sedang berjalan" (Koperasi by Erat, SIM Faskes, PT Kharisma Andal Raya) | foto berbingkai miring, parallax tipis; daftar bergaris tiga kolom tanpa media | kontinuitas gaya foto-berisolasi di deck lama; Skolain sengaja tidak ada di trek Kerja supaya angka dan medianya tidak dobel. Pekerjaan berjalan belum punya bukti untuk dipanelkan, jadi tampil sebagai baris teks yang lebih kecil dari baris berfoto, dengan status ditulis tangan (motif catatan kapur) di kolom yang sama tiap baris |
 | Perjalanan | 6 bab 2017 sampai 2026 | tahun raksasa sticky, digit bergulir | urutan waktu, isi tetap dibaca dalam arus normal; ditaruh sesudah tawaran karena ini konteks, bukan alasan pertama menghubungi |
 | Gear | MacBook Pro M3 Max 96 GB, iPhone, iPad, AirPods Pro, Plaud Note Pro, Claude | mesin utama sticky, daftar mask reveal | orang kenal orangnya, bukan hanya CV-nya; hanya perangkat yang disebut Oman, model iPhone/iPad tidak ditulis |
 | Kontak | WhatsApp, email, sosial, CV dua bahasa | judul mask reveal, roll teks pada tombol | satu aksi utama yang jelas |
 
 ## Panel bukti
 
-Delapan `<dialog>` modal (`components/Proofs.tsx`): tujuh proyek di trek Kerja plus Skolain. Isinya disusun ulang dari
+Sepuluh `<dialog>` modal (`components/Proofs.tsx`): sembilan proyek di trek Kerja plus Skolain. Isinya disusun ulang dari
 slide deck lama dalam blok bertipe (`list`, `entries` dengan `steps` bernomor untuk urutan yang memang berurutan,
 `compare` sebelum/sesudah, `caveat` untuk yang tidak diklaim).
 
@@ -76,6 +76,11 @@ slide deck lama dalam blok bertipe (`list`, `entries` dengan `steps` bernomor un
   (blok `@media (prefers-reduced-motion: reduce)` di akhir `globals.css`), bukan cabang `useReducedMotion` saat
   render: HTML statis selalu dirender tanpa preferensi itu, jadi cabang JS memicu hydration mismatch.
 - Video: muted, diputar hanya saat terlihat (juga di dalam panel), tombol jeda di tiap klip.
+- Tangkapan layar (kartu ADR Medika dan Marsya, panel `#adr`, `#marsya`, `#frames`) diam: `<img>` dengan dimensi
+  eksplisit dan `loading="lazy"`, tanpa animasi sendiri. Di trek tingginya sama dengan klip tetapi rasionya rasio asli
+  gambar (tidak dipotong ke 9:16), bergaris tepi tipis supaya layar gelap tidak lebur ke papan. Di panel, gambar yang
+  jauh lebih tinggi daripada lebar berjajar selebar klip; gambar lain selebar lembar. Keterangan di bawah gambar
+  menyebut asalnya dan, untuk layar aplikasi, bahwa datanya data contoh.
 - Panel bukti: masuk 420 ms `--ease-expo`, keluar 240 ms `--ease` (menutup harus cepat selesai), hanya `translate`;
   `@starting-style` + `transition-behavior: allow-discrete` untuk `display`/`overlay`. Latar diredupkan tanpa blur.
   Reduced motion: muncul di tempat.

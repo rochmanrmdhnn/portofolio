@@ -9,15 +9,18 @@ Key facts, all documented on the landing page:
 - Senior Software Engineer, Telkom Indonesia, Omni Communication Assistant (OCA), August 2024 to January 2025: proposed, planned and led a NestJS → Go backend migration to improve resource efficiency and resilience under peak traffic.
 - Architected PrimaSejahtera, a national HRIS for PT PKSS with 50,000+ active users.
 - Software Architect leading 6 engineers on the Health, Safety & Environment system of Siloam International Hospitals, 500+ daily users.
-- Product Engineer on FRAMES (Faculty of Medicine Universitas Indonesia × Garuda Indonesia Training Center): v1 October to December 2020, v2 released 7 March 2024.
-- Product Engineer on the Kolegium Dokter membership dashboard, scoped for 150,000 general practitioners.
+- Product Engineer on FRAMES, a fatigue assessment app for flight crews from the Aviation Medicine program at the Faculty of Medicine Universitas Indonesia: v1 October to December 2020 and v2 released 7 March 2024 (both with Garuda Indonesia Training Center). Since 13 October 2026 he has been rebuilding it from scratch (Flutter for iOS and Android, Go API, web admin; three questionnaires: CIS20R, GPAQ, Jenkins Sleep Scale). The rebuild is on staging, not released in the app stores, its REDCap integration still runs against a mock, and it has no ethics committee approval yet.
+- Product Engineer on the Kolegium Dokter membership dashboard, scoped for 150,000 general practitioners. In November 2026 he started research and design for the platform replacing the old website (4 modules: Announcements, Membership, Events, LMS; about 680 screens in Figma). Its code has not been built yet.
+- Product Engineer for ADR Medika (PT Anggi Darta Raksita), an occupational health services company: a public website in three languages (adr-medika.co.id, in production since 25 September 2026; 76 service areas in 30 provinces, 6 services, 61 articles) and an internal quotation app for the sales team (in production since 21 September 2026). Inquiries from the website flow into the app, are assigned to a salesperson, and become draft quotations and letters.
+- Product Engineer for Marsya Hairdesign, a hair salon: a live website (marsyahairdesign.id) whose prices, photos and journal the owner edits and republishes with one Publish button; 140 price cells are tested to match the salon's price list.
+- In progress, not released: Koperasi by Erat, his own SaaS for savings-and-loan cooperatives with SAK EP bookkeeping (staging); SIM Faskes, research and specification for a clinic and pharmacy system (no code yet); brand system and company website for PT Kharisma Andal Raya (site live).
 - Engineering Manager (part-time, hybrid), PT Mastah Digital Teknologi, July 2025 to May 2026. Lead Software Engineer at PT Lumos Inisiatif Indonesia, team grown from 7 to 30+.
 - Awards: 1st place, SEAMEO SEAMOLEC Southeast Asia Creative Camp batch 3 (January 2019) with Smart Green Garden, an automatic IoT plant-watering system; 1st place, Kamp Kreatif SMK Indonesia 2019 with Ngajar; 1st place, PermataYouthPreneur 2020 with Bayar.
 - Education: B.Sc. (S.Kom.) Information Systems, BINUS Online Learning, 3.85 GPA, Magna Cum Laude (August 2026); SMK Negeri 26 Jakarta (2017 to 2021).
 
 ## Portfolio
 
-- [Landing page (English)](https://omanlabs.tech/): what he does for business owners, eight projects each with an evidence panel, how he works, what he is working on now, the 2017 to 2026 journey, and how to get in touch.
+- [Landing page (English)](https://omanlabs.tech/): what he does for business owners, ten projects each with an evidence panel, how he works, what he is working on now, the 2017 to 2026 journey, and how to get in touch.
 - [Landing page (Indonesian)](https://omanlabs.tech/id): the same page in Indonesian.
 - [Profile source of truth (Indonesian)](https://omanlabs.tech/PROFIL.md): canonical facts, timeline, quotable numbers and bios.
 - [CV, PDF (English)](https://omanlabs.tech/assets/CV_Rochman_Ramadhani_Forward_Deployed_Engineer.pdf): three pages, Forward Deployed Engineer and Product Engineer.
@@ -32,7 +35,9 @@ Project links open that project's evidence panel; the last two scroll to a secti
 - [PrimaSejahtera HRIS, PT PKSS](https://omanlabs.tech/#hris)
 - [Siloam Health, Safety & Environment](https://omanlabs.tech/#hse)
 - [Three contracts at BRI](https://omanlabs.tech/#bri)
+- [ADR Medika: website and quotation app](https://omanlabs.tech/#adr)
 - [Telkom OCA: NestJS → Go migration](https://omanlabs.tech/#oca)
+- [Marsya Hairdesign: salon website](https://omanlabs.tech/#marsya)
 - [KLHK: SPARING and CEMS monitoring rules](https://omanlabs.tech/#klhk)
 - [FRAMES](https://omanlabs.tech/#frames)
 - [Kolegium Dokter membership dashboard](https://omanlabs.tech/#kolegium)
