@@ -42,8 +42,14 @@ vid() {
     "$(du -h "$OUT/${2%.mp4}-poster.jpg" | cut -f1)"
 }
 
+# shot <sumber> <tujuan> <lebar> [crop w:h:x:y]: tangkapan layar produk, dipotong lalu dikecilkan
+shot() {
+  ffmpeg -loglevel error -y -i "$1" -vf "${4:+crop=$4,}scale=$3:-2" -q:v 4 "$OUT/$2"
+  printf '  %-32s %s\n' "$2" "$(du -h "$OUT/$2" | cut -f1)"
+}
+
 # ---------- 1. salin apa adanya dari deck lama ----------
-say "1/4  Salin dari slide-kka-smk"
+say "1/5  Salin dari slide-kka-smk"
 for f in rochman.jpg \
          klhk-sparing.mp4 klhk-sparing-poster.jpg; do
   cp "$OLD/$f" "$OUT/$f"
@@ -58,7 +64,7 @@ for f in hse-rs.mp4 hse-rs-poster.jpg; do
 done
 
 # ---------- 2. re-encode wisuda (18 MB di deck lama) ----------
-say "2/4  Re-encode wisuda"
+say "2/5  Re-encode wisuda"
 vid "$OLD/wisuda.mp4" wisuda.mp4 960 30 v 3
 cp "$OLD/wisuda-poster.jpg" "$OUT/wisuda-poster.jpg"
 
@@ -70,7 +76,7 @@ cp "$OLD/wisuda-poster.jpg" "$OUT/wisuda-poster.jpg"
 #    ikut terbit selama tidak ditampilkan.
 
 # ---------- 3. foto baru ----------
-say "3/4  Foto baru (sips)"
+say "3/5  Foto baru (sips)"
 img "$DL/frames-1.jpg"            frames-launch-01.jpg      1066   # sumber cuma 1066x711
 img "$DL/ig.webp"                 seminar-smkjp1-poster.jpg  900
 img "$DL/IMG_E9087.HEIC"          pdc-01.jpg                1400
@@ -80,9 +86,23 @@ img "$DL/private-3.HEIC"          caezar-03.jpg              820
 img "$DL/hegemoni.HEIC"           hegemoni-01.jpg            820
 
 # ---------- 4. video baru ----------
-say "4/4  Video baru (ffmpeg, H.264, tanpa audio)"
+say "4/5  Video baru (ffmpeg, H.264, tanpa audio)"
 vid "$DL/IMG_7159.MOV"            frames-acara-01.mp4  960 30 v 6
 vid "$DL/IMG_7172.MOV"            frames-acara-02.mp4  960 30 v 3.5
 vid "$DL/badan-kedokteran.MOV"    kedokteran-01.mp4    960 30 v 1
+
+# ---------- 5. tangkapan layar produk ----------
+# Hanya layar publik atau layar berdata contoh. Yang sengaja TIDAK diambil: layar admin aplikasi penawaran
+# (memuat harga pokok), berkas di specs/, beranda salon (foto pelanggan), dan daftar harga salon.
+say "5/5  Tangkapan layar produk (ffmpeg)"
+GH="$HOME/code/github.com/omanlabs"
+shot "$GH/adr-medika-web/docs/verification/landing-hero-gelap-390.png"        medika-situs-01.jpg   390 390:845:0:0
+shot "$GH/adr-medika-web/docs/verification/landing-wilayah-gelap-390.png"     medika-situs-02.jpg   390 390:845:0:30
+shot "$GH/adr-medika/public/panduan/sales/inquiry/detail.jpg"                 medika-sales-01.jpg  1000
+shot "$GH/adr-medika/public/panduan/sales/penawaran/daftar-ponsel.jpg"        medika-sales-02.jpg   600
+shot "$GH/marsyahairdesign/.screens/audit-2026-09-18/section-services-390.png" salon-01.jpg         390 390:845:0:0
+shot "$DL/frames-toko/appstore-iphone-1.png"                                  frames-2026-01.jpg    603
+shot "$DL/frames-toko/appstore-iphone-3.png"                                  frames-2026-02.jpg    603
+shot "$DL/frames-toko/appstore-iphone-4.png"                                  frames-2026-03.jpg    603
 
 say "Selesai — total aset: $(du -sh "$OUT" | cut -f1)"
