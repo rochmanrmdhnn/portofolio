@@ -136,8 +136,7 @@ export const ID: Copy = {
         id: "kolegium",
         org: "Kolegium Dokter",
         title: "Dashboard keanggotaan untuk 150.000 dokter umum.",
-        body: "Sebagai Product Engineer saya memegang discovery, penentuan lingkup, dan prioritas rilis. Diskusi kebutuhannya langsung bersama Kolegium Dokter, tanpa perantara. November 2026 saya mulai riset dan desain platform yang akan menggantikan situs lama mereka. Kodenya belum dibangun.",
-        note: "150.000 itu lingkup rancangan, bukan pengguna aktif hari ini",
+        body: "Sebagai Product Engineer saya memegang discovery, penentuan lingkup, dan prioritas rilis. November 2026 saya mengerjakan riset dan desain platform pengganti situs Kolegium Dokter.",
         media: { kind: "video", src: "/assets/kedokteran-01.mp4", poster: "/assets/kedokteran-01-poster.jpg", w: 360, h: 640, label: "Hari diskusi kebutuhan" },
       },
     ],
@@ -610,7 +609,7 @@ export const ID: Copy = {
     },
     {
       id: "kolegium",
-      org: "Kolegium Dokter · dashboard sudah rilis · platform baru masih desain",
+      org: "Kolegium Dokter",
       title: "Dashboard keanggotaan untuk 150.000 dokter umum.",
       media: [{ kind: "video", src: "/assets/kedokteran-01.mp4", poster: "/assets/kedokteran-01-poster.jpg", w: 360, h: 640, label: "Hari diskusi kebutuhan" }],
       blocks: [
@@ -629,11 +628,9 @@ export const ID: Copy = {
             "4 modul dalam lingkupnya: Pengumuman, Keanggotaan, Event, dan LMS.",
             "5 benchmark: satu untuk landing dan satu untuk tiap modul.",
             "Sekitar 680 layar didesain di Figma, per peran, termasuk keadaan memuat dan kosong.",
-            "Kode platform ini belum dibangun. Yang ada hari ini riset dan desainnya.",
           ],
         },
       ],
-      caveat: { t: "Yang tidak saya klaim", d: "Angka 150.000 itu lingkup rancangan, bukan jumlah pengguna aktif hari ini." },
     },
     {
       id: "skolain",

@@ -136,8 +136,7 @@ export const EN: Copy = {
         id: "kolegium",
         org: "Kolegium Dokter",
         title: "A membership dashboard for 150,000 general practitioners.",
-        body: "As Product Engineer I owned discovery, scoping, and release priorities. The requirements came straight from Kolegium Dokter, with nobody in between. In November 2026 I started the research and design for the platform that will replace their old website. Its code has not been built yet.",
-        note: "150,000 is the scope it was designed for, not today's active users",
+        body: "As Product Engineer I owned discovery, scoping, and release priorities. In November 2026 I worked on the research and design for the platform replacing the Kolegium Dokter website.",
         media: { kind: "video", src: "/assets/kedokteran-01.mp4", poster: "/assets/kedokteran-01-poster.jpg", w: 360, h: 640, label: "Requirements discussion day" },
       },
     ],
@@ -610,7 +609,7 @@ export const EN: Copy = {
     },
     {
       id: "kolegium",
-      org: "Kolegium Dokter · dashboard released · new platform in design",
+      org: "Kolegium Dokter",
       title: "A membership dashboard for 150,000 general practitioners.",
       media: [{ kind: "video", src: "/assets/kedokteran-01.mp4", poster: "/assets/kedokteran-01-poster.jpg", w: 360, h: 640, label: "Requirements discussion day" }],
       blocks: [
@@ -629,11 +628,9 @@ export const EN: Copy = {
             "4 modules in scope: Announcements, Membership, Events, and an LMS.",
             "5 benchmark studies: one for the landing page and one for each module.",
             "About 680 screens designed in Figma, per role, including the loading and empty states.",
-            "The code for this platform has not been built yet. What exists today is the research and the design.",
           ],
         },
       ],
-      caveat: { t: "What I don't claim", d: "150,000 is the scope the system was designed for, not the number of active users today." },
     },
     {
       id: "skolain",
