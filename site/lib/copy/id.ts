@@ -258,7 +258,6 @@ export const ID: Copy = {
     lead: "Ya, saya anak Apple. Semuanya satu akun, jadi pekerjaan pindah dari laptop ke ponsel tanpa mengirim file ke diri sendiri.",
     role: "Mesin utama",
     specLabel: "memori, chip M3 Max",
-    note: "lega untuk model AI yang jalan langsung di laptop",
     items: [
       { name: "iPhone", what: "Tombol WhatsApp di situs ini berakhir di sini." },
       { name: "iPad", what: "Layar kedua di samping Mac." },

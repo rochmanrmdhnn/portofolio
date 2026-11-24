@@ -258,7 +258,6 @@ export const EN: Copy = {
     lead: "Yes, I'm an Apple person. Everything runs on one account, so work moves from laptop to phone without emailing files to myself.",
     role: "Main machine",
     specLabel: "of memory, M3 Max chip",
-    note: "room to run AI models right on the laptop",
     items: [
       { name: "iPhone", what: "Where the WhatsApp button on this site ends up." },
       { name: "iPad", what: "A second screen next to the Mac." },

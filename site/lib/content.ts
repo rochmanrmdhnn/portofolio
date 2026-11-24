@@ -127,7 +127,6 @@ export type Copy = {
     lead: string;
     role: string;
     specLabel: string;
-    note: string;
     items: { name: string; what: string; note?: string }[];
   };
   contact: {

@@ -1577,10 +1577,6 @@ a {
   color: var(--chalk-dim);
 }
 
-.gear-main .note {
-  margin-top: 16px;
-}
-
 .gear-list {
   margin: 0;
   padding: 0;
