@@ -1416,8 +1416,7 @@ a {
   margin-top: 64px;
 }
 
-/* Pekerjaan berjalan: daftar bergaris tanpa media. Tiga kolom (nama, isi, status tulisan tangan) supaya status
-   terbaca sejajar di tiap baris dan komposisinya berbeda dari baris berfoto di atasnya. */
+/* Daftar bergaris dengan nama dan ringkasan, berbeda dari baris berfoto di atasnya. */
 .now-more {
   padding-top: clamp(56px, 9vh, 112px);
 }
@@ -1435,7 +1434,7 @@ a {
 
 .now-item {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) minmax(0, 3fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   gap: 12px clamp(24px, 4vw, 56px);
   align-items: start;
   padding-block: clamp(24px, 3.5vw, 40px);
@@ -1466,17 +1465,12 @@ a {
   display: grid;
   gap: 4px;
   justify-items: start;
+  max-width: 65ch;
   color: var(--chalk-dim);
 }
 
 .now-item-body .now-links {
   color: var(--chalk);
-}
-
-.now-item-status {
-  justify-self: end;
-  text-align: right;
-  transform-origin: right center;
 }
 
 @media (max-width: 51.1875em) {
@@ -1494,12 +1488,6 @@ a {
 
   .now-item {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .now-item-status {
-    justify-self: start;
-    text-align: left;
-    transform-origin: left center;
   }
 }
 

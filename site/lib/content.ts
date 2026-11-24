@@ -116,10 +116,10 @@ export type Copy = {
     head: Head;
     skolain: { role: string; body: string; big: string; bigLabel: string };
     partners: { role: string; title: string; body: string; note: string; photos: Photo[]; flip?: boolean }[];
-    // Pekerjaan berjalan tanpa media: daftar bergaris, tiap baris wajib membawa statusnya.
+    // Pekerjaan berjalan tanpa media: daftar bergaris dengan nama dan ringkasan.
     building: {
       title: string;
-      items: { name: string; role: string; status: string; body: string; link?: { href: string; label: string } }[];
+      items: { name: string; role: string; body: string; link?: { href: string; label: string } }[];
     };
   };
   gear: {

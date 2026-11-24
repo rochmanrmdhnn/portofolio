@@ -234,19 +234,16 @@ export const ID: Copy = {
         {
           name: "Koperasi by Erat",
           role: "Produk sendiri · sejak Oktober 2026",
-          status: "masih staging",
           body: "Aplikasi untuk koperasi simpan pinjam. Transaksi harian seperti setoran dan angsuran pinjaman langsung jadi pembukuan SAK EP. Data tiap koperasi dipisahkan lewat Row Level Security di PostgreSQL.",
         },
         {
           name: "SIM Faskes",
           role: "Riset dan spesifikasi · sejak November 2026",
-          status: "belum ada kode",
           body: "Sistem untuk klinik dan apoteknya yang berjalan dari satu data. Sejauh ini: 7 sistem pembanding diamati, 26 proses ditulis lengkap dengan kriteria penerimaannya, dan 111 layar didesain.",
         },
         {
           name: "PT Kharisma Andal Raya",
           role: "Sistem merek dan situs perusahaan · November 2026",
-          status: "situsnya sudah tayang",
           body: "Logo, warna, huruf, stempel perusahaan, dan templat dokumen untuk surat, penawaran, dan faktur, ditambah situs perusahaannya.",
           link: { href: "https://kharisma-andal-raya.pages.dev", label: "kharisma-andal-raya.pages.dev" },
         },

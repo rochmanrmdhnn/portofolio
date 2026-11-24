@@ -102,7 +102,6 @@ export function Now({ t, ui }: { t: Copy["now"]; ui: Copy["ui"] }) {
                     </p>
                   )}
                 </div>
-                <p className="note now-item-status">{it.status}</p>
               </li>
             ))}
           </ul>

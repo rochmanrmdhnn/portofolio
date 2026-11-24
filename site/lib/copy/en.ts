@@ -234,19 +234,16 @@ export const EN: Copy = {
         {
           name: "Koperasi by Erat",
           role: "My own product · since October 2026",
-          status: "on staging",
           body: "Software for savings-and-loan cooperatives. Daily transactions such as deposits and loan payments become bookkeeping under SAK EP, Indonesia's accounting standard for private entities. Each cooperative's data is kept apart with PostgreSQL Row Level Security.",
         },
         {
           name: "SIM Faskes",
           role: "Research and specification · since November 2026",
-          status: "no code yet",
           body: "A management system for a clinic and its pharmacy that runs on one set of data. So far: 7 existing systems observed as benchmarks, 26 processes written out with acceptance criteria, and 111 screens designed.",
         },
         {
           name: "PT Kharisma Andal Raya",
           role: "Brand system and company website · November 2026",
-          status: "the site is live",
           body: "Logo, colors, typeface, company stamp, and document templates for letters, quotations, and invoices, plus the company website.",
           link: { href: "https://kharisma-andal-raya.pages.dev", label: "kharisma-andal-raya.pages.dev" },
         },
