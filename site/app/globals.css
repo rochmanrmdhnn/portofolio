@@ -787,6 +787,7 @@ a {
 
 .wk-body {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
   max-width: 560px;
   align-content: end;
@@ -856,6 +857,11 @@ a {
   max-width: 52ch;
 }
 
+.wk-note {
+  /* Ruang untuk sudut catatan yang diputar, terutama saat teks diperbesar. */
+  max-width: calc(100% - 8px);
+}
+
 .wk-links {
   display: flex;
   flex-wrap: wrap;
@@ -864,6 +870,7 @@ a {
 
 /* Pembuka panel bukti (tombol) dan tautan di bawah proyek: satu gaya tautan bergaris bawah, target 44px. */
 .proof-open,
+.wk-links a,
 .now-links a {
   display: inline-flex;
   align-items: center;
@@ -882,6 +889,7 @@ a {
 }
 
 .proof-open:hover,
+.wk-links a:hover,
 .now-links a:hover {
   text-decoration-color: var(--yellow);
 }
@@ -957,6 +965,18 @@ a {
   color: var(--chalk-dim);
 }
 
+/* Tangkapan layar diam di trek dan di panel: rasio asli gambarnya, tidak dipotong seperti klip 9:16.
+   Garis tepi tipis memisahkan layar gelap dari papan yang sama gelapnya. */
+.wk-shot img,
+.proof-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--board-lift);
+}
+
 @media (max-width: 43.6875em) {
   .work-head {
     grid-template-columns: minmax(0, 1fr);
@@ -971,7 +991,7 @@ a {
   }
 }
 
-/* Trek ter-pin: sama persis dengan PINNED di WorkTrack.tsx (64em = 1024px, 40em = 640px). */
+/* Samakan batas pin dengan PINNED di WorkTrack.tsx. Layar pendek memakai tata letak ringkas, tetap horizontal. */
 @media (min-width: 64em) and (min-height: 40em) and (prefers-reduced-motion: no-preference) {
   .work {
     padding-block: 0;
@@ -985,8 +1005,9 @@ a {
     overflow: clip;
     display: grid;
     grid-template-rows: auto minmax(0, 1fr) auto;
-    padding-top: calc(var(--hdr) + clamp(32px, 5vh, 56px));
-    padding-bottom: clamp(24px, 4vh, 40px);
+    row-gap: 16px;
+    padding-top: calc(var(--hdr) + clamp(24px, 4vh, 48px));
+    padding-bottom: clamp(24px, 4vh, 32px);
   }
 
   .work-track {
@@ -1009,7 +1030,7 @@ a {
   }
 
   .wk-clip {
-    height: min(56svh, 600px);
+    height: min(52svh, 570px);
     aspect-ratio: 9 / 16;
     width: auto;
   }
@@ -1017,6 +1038,22 @@ a {
   .wk-clip video {
     height: calc(100% - 30px);
     width: auto;
+  }
+
+  /* Tinggi sama dengan klip, lebar mengikuti rasio gambar. Keterangan tidak ikut melebarkan figure
+     (width 0 + min-width), jadi keterangan yang panjang patah di lebar gambar. */
+  .wk-shot {
+    aspect-ratio: auto;
+  }
+
+  .wk-shot img {
+    height: calc(100% - 30px);
+    width: auto;
+  }
+
+  .wk-shot .clip-cap {
+    width: 0;
+    min-width: 100%;
   }
 
   .wk-text {
@@ -1029,6 +1066,56 @@ a {
 
   .wk-text .wk-body {
     max-width: none;
+  }
+
+  @media (height < 54em) {
+    .work-pin {
+      row-gap: 8px;
+      padding-top: calc(var(--hdr) + 16px);
+      padding-bottom: 16px;
+    }
+
+    .work-head .h2 {
+      font-size: clamp(2.25rem, 3.5vw, 3.25rem);
+    }
+
+    .work-intro {
+      line-height: 1.45;
+    }
+
+    .wk-text {
+      width: min(560px, 49vw);
+    }
+
+    .wk-media {
+      grid-template-columns: min(24svh, 200px) minmax(0, min(510px, 47vw));
+    }
+
+    .wk-body {
+      gap: 8px;
+      max-width: none;
+      line-height: 1.45;
+    }
+
+    .wk-title {
+      font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+    }
+
+    .wk-text .wk-stat-v {
+      font-size: clamp(4rem, 5.6vw, 5.25rem);
+    }
+
+    .wk-clip {
+      height: auto;
+      width: 100%;
+      aspect-ratio: auto;
+    }
+
+    .wk-clip video,
+    .wk-shot img {
+      height: auto;
+      width: 100%;
+    }
   }
 }
 
@@ -1048,6 +1135,7 @@ a {
   position: sticky;
   top: calc(var(--hdr) + 40px);
   align-self: start;
+  container-type: inline-size;
 }
 
 .journey-year {
@@ -1056,16 +1144,16 @@ a {
   font-family: var(--font-display), sans-serif;
   font-variation-settings: "opsz" 96;
   font-weight: 800;
-  font-size: clamp(6rem, 2rem + 11vw, 15rem);
-  line-height: 0.9;
-  letter-spacing: -0.05em;
+  font-size: min(clamp(6rem, 2rem + 11vw, 15rem), 34cqi);
+  line-height: 1;
   font-variant-numeric: tabular-nums;
 }
 
 .digit {
   position: relative;
-  display: inline-block;
-  height: 0.9em;
+  flex: none;
+  height: 1em;
+  padding-inline: 0.025em;
   overflow: clip;
 }
 
@@ -1133,7 +1221,7 @@ a {
   margin-top: 8px;
 }
 
-@media (max-width: 56.1875em) {
+@media (max-width: 56.1875em), (height < 46em) {
   .journey-grid {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1378,6 +1466,63 @@ a {
   margin-top: 64px;
 }
 
+/* Daftar bergaris dengan nama dan ringkasan, berbeda dari baris berfoto di atasnya. */
+.now-more {
+  padding-top: clamp(56px, 9vh, 112px);
+}
+
+.now-more-h {
+  font-family: var(--font-display), sans-serif;
+  font-variation-settings: "opsz" 48;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.now-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 12px clamp(24px, 4vw, 56px);
+  align-items: start;
+  padding-block: clamp(24px, 3.5vw, 40px);
+  border-bottom: 1px solid var(--line);
+}
+
+.now-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.now-item-head {
+  display: grid;
+  gap: 8px;
+}
+
+.now-item-name {
+  margin: 0;
+  font-family: var(--font-display), sans-serif;
+  font-variation-settings: "opsz" 72;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 1.15rem + 1.3vw, 2.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.now-item-body {
+  display: grid;
+  gap: 4px;
+  justify-items: start;
+  max-width: 65ch;
+  color: var(--chalk-dim);
+}
+
+.now-item-body .now-links {
+  color: var(--chalk);
+}
+
 @media (max-width: 51.1875em) {
   .now-row {
     grid-template-columns: minmax(0, 1fr);
@@ -1389,6 +1534,10 @@ a {
 
   .now-big {
     justify-self: start;
+  }
+
+  .now-item {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -1464,10 +1613,6 @@ a {
 
 .gear-spec-l {
   color: var(--chalk-dim);
-}
-
-.gear-main .note {
-  margin-top: 16px;
 }
 
 .gear-list {
@@ -1686,6 +1831,15 @@ a {
 .proof-clip {
   flex: 0 1 13rem;
   min-width: 0;
+}
+
+.proof-shot {
+  flex: 0 1 13rem;
+  min-width: 0;
+}
+
+.proof-img .clip-cap {
+  margin-top: 8px;
 }
 
 .proof-block {

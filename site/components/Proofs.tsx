@@ -9,7 +9,7 @@ type UI = Copy["ui"];
 
 // Tombol pembuka panel bukti. commandfor/command (Invoker Commands) membuka <dialog> tanpa JS;
 // browser yang belum mendukungnya ditangani fallback di Proofs.
-// `describedBy` menunjuk judul kartu, supaya delapan tombol berlabel sama tetap bisa dibedakan pembaca layar.
+// `describedBy` menunjuk judul kartu, supaya tombol-tombol berlabel sama tetap bisa dibedakan pembaca layar.
 export function ProofOpen({ id, label, describedBy }: { id: string; label: string; describedBy: string }) {
   return (
     <button type="button" className="proof-open" commandfor={id} command="show-modal" aria-haspopup="dialog" aria-describedby={describedBy}>
@@ -104,8 +104,10 @@ export function Proofs({ proofs, ui, wa }: { proofs: Proof[]; ui: UI; wa: string
                   m.kind === "video" ? (
                     <Clip key={m.src} className="proof-clip" src={m.src} poster={m.poster} w={m.w} h={m.h} label={m.label} ui={ui} />
                   ) : (
-                    <figure key={m.src} className="proof-img">
+                    // Tangkapan layar ponsel (jauh lebih tinggi daripada lebar) berjajar selebar klip, bukan selebar lembar.
+                    <figure key={m.src} className={m.h > m.w * 1.4 ? "proof-shot" : "proof-img"}>
                       <img src={m.src} width={m.w} height={m.h} alt={m.alt} loading="lazy" decoding="async" />
+                      {m.cap && <figcaption className="clip-cap">{m.cap}</figcaption>}
                     </figure>
                   ),
                 )}

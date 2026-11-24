@@ -4,8 +4,9 @@ Dokumen yang saling menopang:
 
 - **`site/`** → **omanlabs.tech**. Landing page Next.js (static export), hub tautan yang dituju semua bio media
   sosial, dalam dua bahasa: Inggris di `/`, Indonesia di `/id` (pemilih bahasa berbendera di header). Isinya posisi sekarang
-  (Forward Deployed Engineer dan Product Engineer yang membantu pemilik bisnis tumbuh dengan AI dan sistem), delapan
-  proyek dengan panel buktinya, perjalanan 2017–2026, cara kerja, dan kontak dengan WhatsApp paling depan. Copy ada di
+  (Forward Deployed Engineer dan Product Engineer yang membantu pemilik bisnis tumbuh dengan AI dan sistem), sembilan
+  proyek di trek Kerja ditambah Skolain, masing-masing dengan panel buktinya, pekerjaan yang sedang berjalan beserta
+  statusnya, perjalanan 2017–2026, cara kerja, dan kontak dengan WhatsApp paling depan. Copy ada di
   `site/lib/copy/{en,id}.ts`; keputusan desain dan motion di `site/DESIGN.md`.
 - **`cv/cv.html`** → **`assets/CV_Rochman_Ramadhani_Product_Engineer.pdf`** (Indonesia) dan **`cv/cv-en.html`** →
   **`assets/CV_Rochman_Ramadhani_Forward_Deployed_Engineer.pdf`** (Inggris): CV tiga halaman dengan judul
@@ -62,7 +63,7 @@ Landing: `cd site && npm ci && npm run dev` (Node 24), lalu buka `/` atau `/id`.
 Tiap proyek punya panel bukti (`<dialog>`) yang terbuka dari hash, di kedua bahasa (`/#hris`, `/id#hris`):
 
 ```
-#skolain  #hris  #hse  #bri  #oca  #klhk  #frames  #kolegium
+#skolain  #hris  #hse  #bri  #adr  #oca  #marsya  #klhk  #frames  #kolegium
 ```
 
 Section: `#work  #journey  #approach  #now  #gear  #contact`.
@@ -83,6 +84,8 @@ slide → panel atau section-nya. `/deck#…` sampai ke sana lewat 301 ke `/`, k
 `build-assets.sh` mengambil sumber dari `~/Downloads` dan dari repo `slide-kka-smk`, lalu
 mengonversi video 4K HEVC ke H.264. Bukan sekadar optimasi: **HEVC tidak jalan di Firefox sama sekali.**
 Audio dibuang (`-an`) — semua klip diputar `muted`, dan audio rapat internal tidak perlu ikut terbit.
+Langkah terakhirnya memotong dan mengecilkan tangkapan layar produk dari repo proyek di `~/code/github.com/omanlabs/`
+(ADR Medika, Marsya) dan dari `~/Downloads/frames-toko/` (FRAMES 2026).
 
 `cv/build.sh` menutup dengan `pdftotext -layout` dan memeriksa nama, nomor telepon, URL, serta judul
 bagian masih terbaca dalam urutan yang benar. Kalau ada yang hilang, build gagal — itu regresi ATS.
@@ -101,9 +104,14 @@ resmi boleh tampil; dokumen internal yang memuat nama, wajah, atau skor rekan ke
 Konkretnya: papan peringkat "Support System" Maret 2025 **tidak** ditampilkan sebagai gambar — prestasinya
 tetap diklaim penuh, hanya bentuk buktinya jadi teks. Foto tim di kantor BRI dan rekaman acara internal tidak dipakai.
 
-Nama klien dan produknya (BRI, QLOLA, NDS, Telkom OCA, Siloam, PT PKSS, Kolegium Dokter) **boleh dan memang
-disebut** di landing, CV, dan `PROFIL.md`. Yang tetap umum hanya bio media sosial dan README profil GitHub; cara
-menyebutnya mengikuti tabel di `PROFIL.md`. Nama berkas aset tetap netral (`hse-rs.mp4`, `pdc-01.jpg`, …).
+Nama klien dan produknya (BRI, QLOLA, NDS, Telkom OCA, Siloam, PT PKSS, Kolegium Dokter, ADR Medika, Marsya
+Hairdesign) **boleh dan memang disebut** di landing, CV, dan `PROFIL.md`. Yang tetap umum hanya bio media sosial dan
+README profil GitHub; cara menyebutnya mengikuti tabel di `PROFIL.md`. Nama berkas aset tetap netral (`hse-rs.mp4`,
+`pdc-01.jpg`, `medika-situs-01.jpg`, `salon-01.jpg`, …).
+
+Tangkapan layar produk klien hanya diambil dari layar publik atau layar berdata contoh. Yang tidak pernah terbit: layar
+admin aplikasi penawaran ADR Medika (memuat harga pokok), nama klien ADR Medika, berkas spesifikasi klien, foto
+pelanggan dan daftar harga salon, serta nama klinik, apotek, atau perusahaan di proyek SIM Faskes.
 
 Deck lama (sudah dihapus dari repo) sempat memuat tiga screenshot WhatsApp dari mantan rekan kerja. Slide itu dicabut dan
 berkasnya ikut dihapus dari repo, bukan sekadar disembunyikan — pesan pribadi dari orang bernama tidak

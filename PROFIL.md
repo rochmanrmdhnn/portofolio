@@ -21,6 +21,14 @@ ada yang bertentangan dengan berkas lain, berkas ini yang benar.
 - **Migrasi Telkom OCA tidak diberi angka.** Tidak ada persentase penghematan maupun angka benchmark; pakai
   kalimat kualitatif di bagian "Kalimat baku" di bawah.
 - Institusi pemerintah, kampus, sekolah, mitra advisory, dan startup boleh disebut di mana pun.
+- **ADR Medika (PT Anggi Darta Raksita) dan Marsya Hairdesign boleh disebut** di landing, CV, dan LinkedIn. Yang
+  tidak disebut di mana pun: nama klien ADR Medika, jumlah pengguna aplikasinya, dan harga atau biayanya. Tangkapan
+  layar yang dipakai hanya situs publik dan sisi sales berdata contoh, tidak pernah layar admin.
+- **SIM Faskes ditulis tanpa nama klinik, apotek, atau perusahaan**, dan tanpa jumlah klinik sasaran.
+- **PT Kharisma Andal Raya** boleh disebut sebagai pemilik merek dan situs yang dikerjakan. Jabatan Oman di sana
+  tidak ditulis selama data pengurus di AHU belum sinkron, dan jumlah pekerjaan di situsnya bukan angka Oman.
+- **Pekerjaan yang belum rilis selalu ditulis bersama statusnya** (staging, riset, belum ada kode). Jumlah commit
+  dan kata "sendirian" tidak dipakai. Hoki Tour & Travel tidak masuk portofolio (keputusan pemilik, 23 November 2026).
 - Bio dan deskripsi platform berbahasa Inggris. Ajakan penutup: "DM me to chat 👇", bukan bahasa Indonesia.
 - Bendera 🇮🇩🇵🇸 ditaruh di nama tampilan (X, Instagram, Threads, YouTube, Pinterest). LinkedIn tidak menerima
   emoji di nama, jadi benderanya di akhir headline; Facebook di awal bio; TikTok di bio selama nickname terkunci.
@@ -39,9 +47,11 @@ ada yang bertentangan dengan berkas lain, berkas ini yang benar.
 | PT PKSS — PrimaSejahtera (HRIS 50.000+ pengguna) | perusahaan jasa SDM nasional | a national HR services company |
 | Kolegium Dokter (dashboard keanggotaan) | kolegium dokter nasional | a national doctors' college |
 | Hegemoni Group | grup kecantikan multi-brand | a multi-brand beauty group |
+| ADR Medika (PT Anggi Darta Raksita) | perusahaan layanan kesehatan kerja | an occupational health services company |
+| Marsya Hairdesign | sebuah salon rambut | a hair salon |
 
-Deep link landing (panel bukti, berlaku di `/` dan `/id`): `#skolain`, `#hris`, `#hse`, `#bri`, `#oca`, `#klhk`,
-`#frames`, `#kolegium`. Alias dari deck lama tetap hidup lewat `LEGACY` di `site/lib/content.ts`: umum `#bank`,
+Deep link landing (panel bukti, berlaku di `/` dan `/id`): `#skolain`, `#hris`, `#hse`, `#bri`, `#adr`, `#oca`,
+`#marsya`, `#klhk`, `#frames`, `#kolegium`. Alias dari deck lama tetap hidup lewat `LEGACY` di `site/lib/content.ts`: umum `#bank`,
 `#wholesale`, `#omnichannel`, `#rumahsakit`, `#dokter`; nama asli `#qlola`, `#siloam`, `#primasejahtera`. README
 GitHub memakai alias umum supaya tautannya tidak memuat nama klien.
 
@@ -101,6 +111,13 @@ GitHub memakai alias umum supaya tautannya tidak memuat nama klien.
 | Jun 2026 – sekarang | Skolain | Founder & Product Engineer |
 | Agt 2026 – sekarang | Belajar AI bareng pemilik bisnis (Coach Rheo, doatrto.com) | AI Learning Partner |
 | 12–13 Agt 2026 | Seminar SMK Jakarta Pusat 1 × TechPedia | Pemateri |
+| Sep 2026 – sekarang | ADR Medika (PT Anggi Darta Raksita): aplikasi penawaran internal untuk tim sales (produksi sejak 21 Sep 2026) dan situs publik tiga bahasa adr-medika.co.id (produksi sejak 25 Sep 2026); form inquiry di situs masuk ke aplikasi | Product Engineer |
+| Sejak Sep 2026 | Marsya Hairdesign: situs salon marsyahairdesign.id (Astro, Directus); harga, foto, dan jurnal diedit pemilik salon lalu terbit ulang lewat satu tombol Publish | Product Engineer |
+| Okt 2026 – sekarang | Koperasi by Erat: produk sendiri, SaaS koperasi simpan pinjam dengan pembukuan SAK EP, tiap koperasi terpisah lewat Row Level Security. Status: staging | Product Engineer |
+| 13 Okt 2026 – sekarang | FRAMES 2026: dibangun ulang dari nol (Flutter iOS dan Android, API Go, admin web), tiga kuesioner, 4 peran. Status: staging, belum rilis di toko | Product Engineer |
+| Nov 2026 – sekarang | Kolegium Dokter: riset dan desain platform pengganti situs lama (Pengumuman, Keanggotaan, Event, LMS). Status: kode belum dibangun | Product Engineer |
+| Nov 2026 – sekarang | SIM Faskes: riset dan spesifikasi sistem klinik dan apotek dari satu data. Status: belum ada kode | Product Engineer |
+| Nov 2026 | PT Kharisma Andal Raya: sistem merek dan situs perusahaan, kharisma-andal-raya.pages.dev | Merek dan situs |
 
 Sistem HSE Siloam International Hospitals (Software Architect, 6 engineer, 500+ pengguna harian) dan HRIS
 PrimaSejahtera untuk PT PKSS (50.000+ pengguna) belum bertanggal di CV maupun landing.
@@ -116,6 +133,21 @@ Semua punya bukti pendukung di panel bukti landing.
 - Tim 7 → 30+ — Lumos.
 - Tiga kontrak di BRI (dua di NDS, satu di QLOLA), naik ke Senior Software Engineer.
 - Peringkat 1 kategori Supporter, program "Support System" BRI, periode Maret 2025, skor 10/10.
+
+Angka proyek 2026 (ditambahkan 23 November 2026). Ini angka isi produk dan dokumen, bukan angka pengguna. Sumbernya
+repo proyek masing-masing:
+
+- ADR Medika: 76 wilayah layanan di 30 provinsi (`lib/regions.test.ts` di repo situs, juga tampil di situsnya),
+  6 layanan dan 61 artikel (`content/registry.ts`), 3 bahasa (Indonesia, Inggris, Mandarin Sederhana). Bukti: panel `#adr`.
+- Marsya Hairdesign: 140 sel harga diuji identik dengan pricelist salon (suite verifikasi di README repo). Bukti: panel `#marsya`.
+- FRAMES 2026: 3 kuesioner (CIS20R, GPAQ, Jenkins Sleep Scale) dan 4 peran (`docs/produk.md`). Bukti: panel `#frames`.
+- Kolegium Dokter, fase November 2026: 4 modul, 5 benchmark, sekitar 680 layar di Figma (`README.md` dan
+  `desain/README.md` repo riset; tabelnya menjumlah 682, jadi ditulis "sekitar"). Bukti: panel `#kolegium`.
+- SIM Faskes: 7 sistem pembanding diamati, 26 proses dengan kriteria penerimaan, 111 layar desain (repo riset).
+  Belum punya panel bukti; hanya tampil di section "Sekarang" bersama statusnya.
+
+Yang **tidak** punya angka dan tidak boleh diberi angka: pengguna ADR Medika, koperasi pemakai Koperasi by Erat,
+pilot pemakai FRAMES 2026, rating atau skor Lighthouse proyek mana pun, dan anggota Kolegium selain 150.000 di atas.
 
 Telkom OCA **tidak** punya angka. Pakai kalimat baku di bawah.
 

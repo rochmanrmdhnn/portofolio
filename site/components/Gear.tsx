@@ -29,7 +29,6 @@ export function Gear({ t }: { t: Copy["gear"] }) {
               </span>
               <span className="gear-spec-l">{t.specLabel}</span>
             </p>
-            <p className="note">{t.note}</p>
           </article>
 
           <ul className="gear-list">

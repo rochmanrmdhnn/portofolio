@@ -44,16 +44,16 @@ kata; nama lembaga Indonesia diberi penjelasan singkat saat pertama muncul (KLHK
 |---|---|---|---|
 | Hero | posisi, CTA WhatsApp, foto | line-mask CSS saat muat, coretan tergambar, hero memudar saat scroll | terbaca tanpa JS, LCP tidak menunggu animasi; di ponsel foto di bawah teks supaya CTA masih di layar pertama |
 | Angka | satu paragraf berisi angka bukti | kata di-scrub scroll | angka dibaca sebagai kalimat, bukan kartu statistik |
-| Kerja | 7 proyek, klip potret asli, tombol "Buka buktinya" | trek horizontal ter-pin (desktop), daftar vertikal (mobile) | klip semuanya 9:16; trek memperlihatkan beberapa sekaligus |
+| Kerja | 9 proyek, klip potret asli atau tangkapan layar ponsel, tombol "Buka buktinya" | trek horizontal ter-pin (desktop), daftar vertikal (mobile) | media semuanya potret; trek memperlihatkan beberapa sekaligus. Kartu teks, klip, dan tangkapan layar diselang supaya tidak ada tiga kartu berurutan yang sama bentuknya di awal trek |
 | Pemilik bisnis | 4 tahap kerja | garis kapur tergambar mengikuti scroll | langsung sesudah bukti: pemilik bisnis tidak perlu melewati cerita karier untuk tahu cara kerjanya |
-| Sekarang | Skolain (modul, sekolah pemakai, 1.600+), Hegemoni, belajar AI bareng | foto berbingkai miring, parallax tipis | kontinuitas gaya foto-berisolasi di deck lama; Skolain sengaja tidak ada di trek Kerja supaya angka dan medianya tidak dobel |
+| Sekarang | Skolain (modul, sekolah pemakai, 1.600+), Hegemoni, belajar AI bareng, lalu daftar "Juga sedang berjalan" (Koperasi by Erat, SIM Faskes, PT Kharisma Andal Raya) | foto berbingkai miring, parallax tipis; daftar bergaris dengan nama dan ringkasan | kontinuitas gaya foto-berisolasi di deck lama; Skolain sengaja tidak ada di trek Kerja supaya angka dan medianya tidak dobel. Pekerjaan berjalan tampil sebagai baris teks ringkas, dengan nama di atas ringkasan pada layar sempit |
 | Perjalanan | 6 bab 2017 sampai 2026 | tahun raksasa sticky, digit bergulir | urutan waktu, isi tetap dibaca dalam arus normal; ditaruh sesudah tawaran karena ini konteks, bukan alasan pertama menghubungi |
 | Gear | MacBook Pro M3 Max 96 GB, iPhone, iPad, AirPods Pro, Plaud Note Pro, Claude | mesin utama sticky, daftar mask reveal | orang kenal orangnya, bukan hanya CV-nya; hanya perangkat yang disebut Oman, model iPhone/iPad tidak ditulis |
 | Kontak | WhatsApp, email, sosial, CV dua bahasa | judul mask reveal, roll teks pada tombol | satu aksi utama yang jelas |
 
 ## Panel bukti
 
-Delapan `<dialog>` modal (`components/Proofs.tsx`): tujuh proyek di trek Kerja plus Skolain. Isinya disusun ulang dari
+Sepuluh `<dialog>` modal (`components/Proofs.tsx`): sembilan proyek di trek Kerja plus Skolain. Isinya disusun ulang dari
 slide deck lama dalam blok bertipe (`list`, `entries` dengan `steps` bernomor untuk urutan yang memang berurutan,
 `compare` sebelum/sesudah, `caveat` untuk yang tidak diklaim).
 
@@ -76,6 +76,11 @@ slide deck lama dalam blok bertipe (`list`, `entries` dengan `steps` bernomor un
   (blok `@media (prefers-reduced-motion: reduce)` di akhir `globals.css`), bukan cabang `useReducedMotion` saat
   render: HTML statis selalu dirender tanpa preferensi itu, jadi cabang JS memicu hydration mismatch.
 - Video: muted, diputar hanya saat terlihat (juga di dalam panel), tombol jeda di tiap klip.
+- Tangkapan layar (kartu ADR Medika dan Marsya, panel `#adr`, `#marsya`, `#frames`) diam: `<img>` dengan dimensi
+  eksplisit dan `loading="lazy"`, tanpa animasi sendiri. Di trek tingginya sama dengan klip tetapi rasionya rasio asli
+  gambar (tidak dipotong ke 9:16), bergaris tepi tipis supaya layar gelap tidak lebur ke papan. Di panel, gambar yang
+  jauh lebih tinggi daripada lebar berjajar selebar klip; gambar lain selebar lembar. Keterangan di bawah gambar
+  menyebut asalnya dan, untuk layar aplikasi, bahwa datanya data contoh.
 - Panel bukti: masuk 420 ms `--ease-expo`, keluar 240 ms `--ease` (menutup harus cepat selesai), hanya `translate`;
   `@starting-style` + `transition-behavior: allow-discrete` untuk `display`/`overlay`. Latar diredupkan tanpa blur.
   Reduced motion: muncul di tempat.
@@ -88,7 +93,11 @@ slide deck lama dalam blok bertipe (`list`, `entries` dengan `steps` bernomor un
   non-scaling-stroke` digabung `pathLength` memecah dash jadi titik-titik.
 - **Garis tahap (`Owners`) tergambar lewat clip-path**, bukan `pathLength`, karena path-nya non-scaling-stroke.
 - **Kolom trek dikunci `minmax(0, 1fr)`.** Tanpa itu trek max-content melebarkan kolom grid dan judul serta
-  penghitung terlempar keluar layar. Media query pin (`PINNED` di `WorkTrack.tsx`) harus sama dengan CSS `.work`.
+  penghitung terlempar keluar layar. Pin aktif pada lebar `64em` dan tinggi `40em`; di bawah tinggi `54em`, judul,
+  media, dan jarak kartu lebih ringkas agar semuanya muat. Media query `PINNED` di `WorkTrack.tsx` harus sama dengan CSS.
+- **Tahun Perjalanan mengikuti lebar kolom.** Slot animasi tiap digit menyisakan ruang tinta; tracking negatif di
+  dalam slot ter-clip memotong sisi kanan angka. Di layar pendek (di bawah `46em`), tahun tampil per bab supaya
+  panel judul tidak menempel lebih tinggi daripada ruang baca.
 - **Judul hero `7vw - 0.5rem`, maksimum 6rem**: baris terpanjang tetap satu baris dari 820px ke atas.
 - **Salinan label tombol roll** memakai `content: attr(data-text) / ""`; tanpa alt text kosong nama link terbaca
   dua kali.

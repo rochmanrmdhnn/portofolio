@@ -21,12 +21,19 @@ export function WorkTrack({ t, ui }: { t: Copy["work"]; ui: Copy["ui"] }) {
   const track = useRef<HTMLDivElement>(null);
   const [dist, setDist] = useState(0);
   const [active, setActive] = useState(0);
+  // Geseran trek saat tiap kartu menyentuh tepi kiri. Lebar kartu berbeda (teks, klip, tangkapan layar), jadi
+  // penghitung tidak bisa membagi progres sama rata per kartu.
+  const starts = useRef<number[]>([]);
   const lenis = useLenis();
 
   useEffect(() => {
     const mq = window.matchMedia(PINNED);
     const measure = () => {
       const t = track.current;
+      if (t) {
+        const left = t.getBoundingClientRect().left + parseFloat(getComputedStyle(t).paddingLeft);
+        starts.current = Array.from(t.children, (c) => c.getBoundingClientRect().left - left);
+      }
       setDist(mq.matches && t ? Math.max(0, t.scrollWidth - window.innerWidth) : 0);
     };
     measure();
@@ -44,7 +51,13 @@ export function WorkTrack({ t, ui }: { t: Copy["work"]; ui: Copy["ui"] }) {
   const { scrollYProgress } = useScroll({ target: outer, offset: ["start start", "end end"] });
   const x = useTransform(scrollYProgress, [0, 1], [0, -dist]);
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    if (dist) setActive(Math.min(items.length - 1, Math.floor(v * items.length)));
+    if (!dist) return;
+    // Kartu aktif = kartu terakhir yang tepi kirinya sudah melewati sepertiga layar.
+    const at = v * dist + window.innerWidth / 3;
+    const s = starts.current;
+    let i = 0;
+    while (i < s.length - 1 && s[i + 1] <= at) i++;
+    setActive(i);
   });
 
   // Trek di-clip dan hanya bergerak lewat scroll vertikal, jadi browser tidak bisa menggulir ke tombol yang
@@ -102,6 +115,12 @@ function Panel({ w, i, ui }: { w: Work; i: number; ui: Copy["ui"] }) {
   return (
     <article className={`wk ${media ? "wk-media" : "wk-text"}`} aria-labelledby={`wk-${w.id}`}>
       {media?.kind === "video" && <Clip className="wk-clip" src={media.src} poster={media.poster} w={media.w} h={media.h} label={media.label} ui={ui} />}
+      {media?.kind === "image" && (
+        <figure className="clip wk-clip wk-shot">
+          <img src={media.src} width={media.w} height={media.h} alt={media.alt} loading="lazy" decoding="async" />
+          {media.cap && <figcaption className="clip-cap">{media.cap}</figcaption>}
+        </figure>
+      )}
       <div className="wk-body">
         <p className="wk-org">
           <span className="wk-n">{String(i + 1).padStart(2, "0")}</span> {w.org}
@@ -122,6 +141,11 @@ function Panel({ w, i, ui }: { w: Work; i: number; ui: Copy["ui"] }) {
         {w.note && <p className="note wk-note">{w.note}</p>}
         <p className="wk-links">
           <ProofOpen id={w.id} label={ui.proof} describedBy={`wk-${w.id}`} />
+          {w.link && (
+            <a href={w.link.href} target="_blank" rel="noopener">
+              {w.link.label}
+            </a>
+          )}
         </p>
       </div>
     </article>
