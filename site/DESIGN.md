@@ -93,7 +93,11 @@ slide deck lama dalam blok bertipe (`list`, `entries` dengan `steps` bernomor un
   non-scaling-stroke` digabung `pathLength` memecah dash jadi titik-titik.
 - **Garis tahap (`Owners`) tergambar lewat clip-path**, bukan `pathLength`, karena path-nya non-scaling-stroke.
 - **Kolom trek dikunci `minmax(0, 1fr)`.** Tanpa itu trek max-content melebarkan kolom grid dan judul serta
-  penghitung terlempar keluar layar. Media query pin (`PINNED` di `WorkTrack.tsx`) harus sama dengan CSS `.work`.
+  penghitung terlempar keluar layar. Pin aktif dari tinggi `54em`; di layar pendek, daftar biasa memberi judul dan
+  kartu ruang untuk tumbuh. Media query `PINNED` di `WorkTrack.tsx` harus sama dengan CSS `.work`.
+- **Tahun Perjalanan mengikuti lebar kolom.** Slot animasi tiap digit menyisakan ruang tinta; tracking negatif di
+  dalam slot ter-clip memotong sisi kanan angka. Di layar pendek (di bawah `46em`), tahun tampil per bab supaya
+  panel judul tidak menempel lebih tinggi daripada ruang baca.
 - **Judul hero `7vw - 0.5rem`, maksimum 6rem**: baris terpanjang tetap satu baris dari 820px ke atas.
 - **Salinan label tombol roll** memakai `content: attr(data-text) / ""`; tanpa alt text kosong nama link terbaca
   dua kali.

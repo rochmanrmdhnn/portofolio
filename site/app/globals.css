@@ -787,6 +787,7 @@ a {
 
 .wk-body {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
   max-width: 560px;
   align-content: end;
@@ -854,6 +855,11 @@ a {
 .wk-text-body {
   color: var(--chalk-dim);
   max-width: 52ch;
+}
+
+.wk-note {
+  /* Ruang untuk sudut catatan yang diputar, terutama saat teks diperbesar. */
+  max-width: calc(100% - 8px);
 }
 
 .wk-links {
@@ -985,8 +991,8 @@ a {
   }
 }
 
-/* Trek ter-pin: sama persis dengan PINNED di WorkTrack.tsx (64em = 1024px, 40em = 640px). */
-@media (min-width: 64em) and (min-height: 40em) and (prefers-reduced-motion: no-preference) {
+/* Trek ter-pin hanya bila judul, kartu, dan penghitung muat. Samakan dengan PINNED di WorkTrack.tsx. */
+@media (min-width: 64em) and (min-height: 54em) and (prefers-reduced-motion: no-preference) {
   .work {
     padding-block: 0;
   }
@@ -999,8 +1005,9 @@ a {
     overflow: clip;
     display: grid;
     grid-template-rows: auto minmax(0, 1fr) auto;
-    padding-top: calc(var(--hdr) + clamp(32px, 5vh, 56px));
-    padding-bottom: clamp(24px, 4vh, 40px);
+    row-gap: 16px;
+    padding-top: calc(var(--hdr) + clamp(24px, 4vh, 48px));
+    padding-bottom: clamp(24px, 4vh, 32px);
   }
 
   .work-track {
@@ -1023,7 +1030,7 @@ a {
   }
 
   .wk-clip {
-    height: min(56svh, 600px);
+    height: min(52svh, 570px);
     aspect-ratio: 9 / 16;
     width: auto;
   }
@@ -1078,6 +1085,7 @@ a {
   position: sticky;
   top: calc(var(--hdr) + 40px);
   align-self: start;
+  container-type: inline-size;
 }
 
 .journey-year {
@@ -1086,16 +1094,16 @@ a {
   font-family: var(--font-display), sans-serif;
   font-variation-settings: "opsz" 96;
   font-weight: 800;
-  font-size: clamp(6rem, 2rem + 11vw, 15rem);
-  line-height: 0.9;
-  letter-spacing: -0.05em;
+  font-size: min(clamp(6rem, 2rem + 11vw, 15rem), 34cqi);
+  line-height: 1;
   font-variant-numeric: tabular-nums;
 }
 
 .digit {
   position: relative;
-  display: inline-block;
-  height: 0.9em;
+  flex: none;
+  height: 1em;
+  padding-inline: 0.025em;
   overflow: clip;
 }
 
@@ -1163,7 +1171,7 @@ a {
   margin-top: 8px;
 }
 
-@media (max-width: 56.1875em) {
+@media (max-width: 56.1875em), (height < 46em) {
   .journey-grid {
     grid-template-columns: minmax(0, 1fr);
   }
